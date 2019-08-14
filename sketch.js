@@ -11,6 +11,7 @@ var oldTrackZozo;
 var oldTrackDave;
 var oldAmpZ;
 var oldAmpD;
+var ampMult = 600;
 
 function preload() {
   codeSnippets = loadJSON("codeSnippets.json");
@@ -67,11 +68,16 @@ function draw() {
   noStroke();
   background(255, 200);
   fill(255, 0, 0);
-  rect(0, 0, width / 2, lerp(oldAmpZ, ampZozo.getLevel() * 1000, 0.9));
+  rect(0, 0, width / 2, lerp(oldAmpZ, ampZozo.getLevel() * ampMult, 0.9));
   fill(138, 43, 226);
-  rect(width / 2, 0, width / 2, lerp(oldAmpD, ampDave.getLevel() * 1000, 0.9));
-  oldAmpZ = ampZozo.getLevel() * 1000;
-  oldAmpD = ampDave.getLevel() * 1000;
+  rect(
+    width / 2,
+    0,
+    width / 2,
+    lerp(oldAmpD, ampDave.getLevel() * ampMult, 0.9)
+  );
+  oldAmpZ = ampZozo.getLevel() * ampMult;
+  oldAmpD = ampDave.getLevel() * ampMult;
 }
 
 function createButtonFunctions(days) {
