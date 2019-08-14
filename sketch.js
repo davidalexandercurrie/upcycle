@@ -9,6 +9,8 @@ var queuedTrackZozo;
 var queuedTrackDave;
 var oldTrackZozo;
 var oldTrackDave;
+var oldAmpZ;
+var oldAmpD;
 
 function preload() {
   codeSnippets = loadJSON("codeSnippets.json");
@@ -63,11 +65,13 @@ function draw() {
   counter++;
   player();
   noStroke();
-  background(255);
+  background(255, 200);
   fill(255, 0, 0);
-  rect(0, 0, width / 2, ampZozo.getLevel() * 1000);
+  rect(0, 0, width / 2, lerp(oldAmpZ, ampZozo.getLevel() * 1000, 0.9));
   fill(138, 43, 226);
-  rect(width / 2, 0, width / 2, ampDave.getLevel() * 1000);
+  rect(width / 2, 0, width / 2, lerp(oldAmpD, ampDave.getLevel() * 1000, 0.9));
+  oldAmpZ = ampZozo.getLevel() * 1000;
+  oldAmpD = ampDave.getLevel() * 1000;
 }
 
 function createButtonFunctions(days) {
