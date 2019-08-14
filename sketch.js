@@ -16,10 +16,11 @@ function preload() {
 
 function setup() {
   // put setup code here
+  var canvas = createCanvas(200, 200);
   var time = new Date();
   var myClock = time.getTime().toString();
   var myDay = Math.floor(myClock / 86400000);
-  var daysFromStart = myDay - 18119;
+  var daysFromStart = myDay - 18118;
   createButtonFunctions(daysFromStart);
 
   for (var i = daysFromStart; i >= 0; i--) {
@@ -57,6 +58,7 @@ function setup() {
 
 function draw() {
   counter++;
+  background(200);
   player();
 }
 
