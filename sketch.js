@@ -1,3 +1,4 @@
+var div = [];
 var button = [];
 var codeSnippets;
 var clickFunctions = [];
@@ -22,14 +23,19 @@ function setup() {
   createButtonFunctions(daysFromStart);
 
   for (var i = 0; i < daysFromStart; i++) {
-    createP("");
-    button[i] = createButton("Day " + (i + 1));
+    div[i] = createElement("div", []);
+    div[i].addClass(i);
+    createP("Day " + (i + 1)).parent(div[i]).addClass("day")
+    button[i] = createElement("i", []).addClass("fas fa-play").parent(div[i]);
     button[i].id = i;
     button[i].mousePressed(clickFunctions[button[i].id]);
-    createP("zozo");
-    createP(codeSnippets.zozo[i]);
-    createP("dave");
-    createP(codeSnippets.dave[i]);
+    createP(" ").parent(div[i]).addClass("break-s");
+    createP("zozo").parent(div[i]).addClass("name");
+    createP(codeSnippets.zozo[i]).parent(div[i]).addClass("code");
+    createP(" ").parent(div[i])
+    createP("dave").parent(div[i]).addClass("name");
+    createP(codeSnippets.dave[i]).parent(div[i]).addClass("code");
+    createP(" ").parent(div[i]).addClass("break-m");
   }
 }
 

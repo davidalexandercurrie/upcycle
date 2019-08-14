@@ -1,0 +1,43 @@
+body {
+    font-family: Helvetica, sans-serif;
+    padding: 0;
+    margin: 0;
+    text-align: center;
+  }
+  h1 {
+    color: red;
+    margin-bottom: -1.5em;
+  }
+
+  button {
+    display: inline-block;
+    font-size: 2em;
+    background: none;
+    padding: 0.25em;
+  }
+.day {
+  display: inline-block;
+  margin-right: 1em;
+}
+  .name {
+    color: red;
+    font-size: 1.4em;
+    display: inline-block;
+  }
+
+  .code{
+    display: inline-block;
+    padding: 1em;
+  }
+
+  p {
+    margin: 0;
+  }
+
+  .break-s {
+    margin: 1em;
+  }
+
+  .break-m {
+    margin: 3em;
+  }
