@@ -6,6 +6,8 @@ var davesounds = [];
 var counter = 0;
 var queuedTrackZozo;
 var queuedTrackDave;
+var oldTrackZozo;
+var oldTrackDave;
 
 function preload() {
   codeSnippets = loadJSON("codeSnippets.json");
@@ -56,6 +58,10 @@ function loadAudio(day) {
 }
 
 function playAudio(audioToPlayZozo, audioToPlayDave) {
+  if (queuedTrackDave != undefined && queuedTrackZozo != undefined) {
+    oldTrackDave = queuedTrackDave;
+    oldTrackZozo = queuedTrackZozo;
+  }
   queuedTrackZozo = audioToPlayZozo;
   queuedTrackDave = audioToPlayDave;
 }
@@ -67,6 +73,10 @@ function player() {
       queuedTrackDave.isLoaded() &&
       !queuedTrackDave.isPlaying() & !queuedTrackZozo.isPlaying()
     ) {
+      if (oldTrackDave != undefined && oldTrackZozo != undefined) {
+        oldTrackDave.stop();
+        oldTrackZozo.stop();
+      }
       queuedTrackZozo.play();
       queuedTrackDave.play();
     }

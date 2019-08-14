@@ -1,12 +1,12 @@
 {
   "zozo": [
-    "d1 $ sound 'bd bd bd bd'",
-    "d1 $ sound 'bd bd bd bd'",
-    "d1 $ sound 'bd bd bd bd'"
+    "d1 $ sound \"bd bd bd bd\"",
+    "d4 $ every 2 (fast 4) $ n \"0 1 3 3\" # note \"-0*8 -0*4? -0? ~\" # sound \"industrial\" # gain 0.7",
+    "d8 $ every 4 (fast 4) $ note \"[-12 24 -12 -24]\" # s \"em2\" # gain 1 <br> d5 $ every 4 (fast 4) $ note \"[-12 24 -12 -24]\" # s \"gabba\" # gain 1 <br> d7 $ every 4 (fast 4) $ note \"[-12 24 -12 -24]\" # s \"birds\" # gain 0.4"
   ],
   "dave": [
-    "d1 $ sound 'sn sn bd sn'",
-    "d1 $ sound 'sn sn bd sn'",
-    "d1 $ sound 'sn sn bd sn'"
+    "d1 $ sound \"sn sn bd sn\"",
+    "d4 $ slow 2 $ sound \"rave\"",
+    "d1 $ sound \"sn sn bd sn\""
   ]
 }
