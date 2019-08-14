@@ -13,7 +13,9 @@ function setup() {
   var daysFromStart = myDay - 18118;
 
   for (var i = 0; i < daysFromStart; i++) {
+    createP("");
     button[i] = createButton("Day " + (i + 1));
+    button[i].mousePressed();
     createP("zozo");
     createP(codeSnippets.zozo[i]);
     createP("dave");
