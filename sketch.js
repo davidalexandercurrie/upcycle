@@ -16,7 +16,7 @@ function preload() {
 
 function setup() {
   // put setup code here
-  var canvas = createCanvas(200, 200).addClass("canvas")
+  var canvas = createCanvas(200, 200).addClass("canvas");
   var time = new Date();
   var myClock = time.getTime().toString();
   var myDay = Math.floor(myClock / 86400000);
@@ -54,12 +54,20 @@ function setup() {
       .parent(div[i])
       .addClass("break-m");
   }
+
+  ampZozo = new p5.Amplitude(0.5);
+  ampDave = new p5.Amplitude(0.5);
 }
 
 function draw() {
   counter++;
-  background(200);
   player();
+  noStroke();
+  background(255);
+  fill(255, 0, 0);
+  rect(0, 0, width / 2, ampZozo.getLevel() * 1000);
+  fill(0, 0, 255);
+  rect(width / 2, 0, width / 2, ampDave.getLevel() * 1000);
 }
 
 function createButtonFunctions(days) {
@@ -105,4 +113,6 @@ function player() {
       queuedTrackDave.play();
     }
   }
+  ampZozo.setInput(queuedTrackZozo);
+  ampDave.setInput(queuedTrackDave);
 }
