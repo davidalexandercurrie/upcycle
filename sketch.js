@@ -16,7 +16,7 @@ function preload() {
 
 function setup() {
   // put setup code here
-  var canvas = createCanvas(200, 200);
+  var canvas = createCanvas(200, 200).addClass("canvas")
   var time = new Date();
   var myClock = time.getTime().toString();
   var myDay = Math.floor(myClock / 86400000);
