@@ -24,14 +24,15 @@ function setup() {
 
   for (var i = 0; i < daysFromStart; i++) {
     div[i] = createElement("div", []);
+    div[i].addClass(i)
     createP("").parent(div[i]);
     button[i] = createButton("Day " + (i + 1)).parent(div[i]);
     button[i].id = i;
     button[i].mousePressed(clickFunctions[button[i].id]);
-    createP("zozo").parent(div[i]);
-    createP(codeSnippets.zozo[i]).parent(div[i]);
-    createP("dave").parent(div[i]);
-    createP(codeSnippets.dave[i]).parent(div[i]);
+    createP("zozo").parent(div[i]).addClass("name");
+    createP(codeSnippets.zozo[i]).parent(div[i]).addClass("code");
+    createP("dave").parent(div[i]).addClass("name");
+    createP(codeSnippets.dave[i]).parent(div[i]).addClass("code");
   }
 }
 
