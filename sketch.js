@@ -23,7 +23,7 @@ function setup() {
   var time = new Date();
   var myClock = time.getTime().toString();
   var myDay = Math.floor(myClock / 86400000);
-  var daysFromStart = myDay - 18118;
+  var daysFromStart = myDay - 18120;
   createButtonFunctions(daysFromStart);
 
   for (var i = daysFromStart; i >= 0; i--) {
