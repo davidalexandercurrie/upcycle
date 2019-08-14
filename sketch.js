@@ -39,14 +39,14 @@ function setup() {
       .addClass("break-s");
     createP("zozo")
       .parent(div[i])
-      .addClass("name");
+      .addClass("nameZ");
     createP(codeSnippets.zozo[i])
       .parent(div[i])
       .addClass("code");
     createP(" ").parent(div[i]);
     createP("dave")
       .parent(div[i])
-      .addClass("name");
+      .addClass("nameD");
     createP(codeSnippets.dave[i])
       .parent(div[i])
       .addClass("code");
@@ -66,7 +66,7 @@ function draw() {
   background(255);
   fill(255, 0, 0);
   rect(0, 0, width / 2, ampZozo.getLevel() * 1000);
-  fill(0, 0, 255);
+  fill(138, 43, 226);
   rect(width / 2, 0, width / 2, ampDave.getLevel() * 1000);
 }
 
