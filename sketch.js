@@ -12,6 +12,7 @@ var oldTrackDave;
 var oldAmpZ;
 var oldAmpD;
 var ampMult = 600;
+var startVisual = false;
 
 function preload() {
   codeSnippets = loadJSON("codeSnippets.json");
@@ -66,16 +67,29 @@ function draw() {
   counter++;
   player();
   noStroke();
-  background(255, 200);
-  fill(255, 0, 0);
-  rect(0, 0, width / 2, lerp(oldAmpZ, ampZozo.getLevel() * ampMult, 0.9));
-  fill(138, 43, 226);
-  rect(
-    width / 2,
-    0,
-    width / 2,
-    lerp(oldAmpD, ampDave.getLevel() * ampMult, 0.9)
-  );
+  if (
+    (ampZozo.getLevel() > 0 || ampDave.getLevel() > 0) &&
+    startVisual === false
+  ) {
+    startVisual = true;
+  }
+  if (startVisual === false) {
+    fill(255, 0, 0);
+    rect(0, 0, width / 2, height);
+    fill(138, 43, 226);
+    rect(width / 2, 0, width / 2, height);
+  } else {
+    background(255, 200);
+    fill(255, 0, 0);
+    rect(0, 0, width / 2, lerp(oldAmpZ, ampZozo.getLevel() * ampMult, 0.9));
+    fill(138, 43, 226);
+    rect(
+      width / 2,
+      0,
+      width / 2,
+      lerp(oldAmpD, ampDave.getLevel() * ampMult, 0.9)
+    );
+  }
   oldAmpZ = ampZozo.getLevel() * ampMult;
   oldAmpD = ampDave.getLevel() * ampMult;
 }
