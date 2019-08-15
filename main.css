@@ -50,3 +50,11 @@ p {
 .canvas {
   margin-top: 3em;
 }
+
+.dayPanel {
+  background-color: white;
+}
+
+.playPanel {
+  background-color: rgb(255, 221, 221);
+}

@@ -13,6 +13,8 @@ var oldAmpZ;
 var oldAmpD;
 var ampMult = 600;
 var startVisual = false;
+var playingDiv;
+var previousPlayingDiv;
 
 function preload() {
   codeSnippets = loadJSON("codeSnippets.json");
@@ -29,7 +31,7 @@ function setup() {
 
   for (var i = daysFromStart; i >= 0; i--) {
     div[i] = createElement("div", []);
-    div[i].addClass(i);
+    div[i].addClass("dayPanel");
     createP("Day " + (i + 1))
       .parent(div[i])
       .addClass("day");
@@ -58,7 +60,6 @@ function setup() {
       .parent(div[i])
       .addClass("break-m");
   }
-
   ampZozo = new p5.Amplitude(0.5);
   ampDave = new p5.Amplitude(0.5);
 }
@@ -66,7 +67,11 @@ function setup() {
 function draw() {
   counter++;
   player();
+  visualisation();
   noStroke();
+}
+
+function visualisation() {
   if (
     (ampZozo.getLevel() > 0 || ampDave.getLevel() > 0) &&
     startVisual === false
@@ -111,6 +116,13 @@ function loadAudio(day) {
   zozosounds[day] = loadSound("/Audio/z" + (day + 1).toString() + ".m4a");
   davesounds[day] = loadSound("/Audio/d" + (day + 1).toString() + ".m4a");
   playAudio(zozosounds[day], davesounds[day]);
+  div[day].addClass("playPanel");
+  if (previousPlayingDiv != undefined) {
+    div[previousPlayingDiv].addClass("dayPanel");
+    div[previousPlayingDiv].removeClass("playPanel");
+  }
+  console.log(previousPlayingDiv);
+  previousPlayingDiv = day;
 }
 
 function playAudio(audioToPlayZozo, audioToPlayDave) {
