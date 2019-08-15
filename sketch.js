@@ -30,7 +30,7 @@ function setup() {
   var time = new Date();
   var myClock = time.getTime().toString();
   var myDay = Math.floor(myClock / 86400000);
-  var daysFromStart = myDay - 18123;
+  var daysFromStart = myDay - 18122;
   createButtonFunctions(daysFromStart);
 
   for (var i = daysFromStart; i >= 0; i--) {
@@ -119,9 +119,32 @@ function createButtonFunctions(days) {
       buttonID = i;
     }
     clickFunctions[i] = function() {
-      loadAudio(buttonID);
+      playingDiv = buttonID;
+      // checking if file exists
+      var xml = loadXML(
+        "/Audio/z" + (buttonID + 1).toString() + ".m4a",
+        loadedZ,
+        errloading
+      );
+      console.log(xml);
     };
   }
+}
+//
+function errloading() {
+  // TODO trigger css for play not successful from here
+}
+function loadedZ() {
+  var xml = loadXML(
+    "/Audio/d" + (playingDiv + 1).toString() + ".m4a",
+    loadedD,
+    errloading
+  );
+  console.log("loadedZ");
+}
+function loadedD() {
+  loadAudio(playingDiv);
+  console.log("loadedD");
 }
 
 function loadAudio(day) {
@@ -164,8 +187,8 @@ function player() {
       queuedTrackDave.loop();
     }
   }
-  ampZozo.setInput(queuedTrackZozo);
-  ampDave.setInput(queuedTrackDave);
+  // ampZozo.setInput(queuedTrackZozo);
+  // ampDave.setInput(queuedTrackDave);
 }
 
 function resetSlider() {
