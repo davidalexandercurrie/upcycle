@@ -15,6 +15,7 @@ var ampMult = 600;
 var startVisual = false;
 var playingDiv;
 var previousPlayingDiv;
+var slider;
 
 function preload() {
   codeSnippets = loadJSON("codeSnippets.json");
@@ -23,6 +24,9 @@ function preload() {
 function setup() {
   // put setup code here
   var canvas = createCanvas(200, 200).addClass("canvas");
+  createElement("br", []);
+  slider = createSlider(0.5, 2, 1, 0.01);
+  slider.doubleClicked(resetSlider);
   var time = new Date();
   var myClock = time.getTime().toString();
   var myDay = Math.floor(myClock / 86400000);
@@ -69,6 +73,14 @@ function draw() {
   player();
   visualisation();
   noStroke();
+  playbackRate();
+}
+
+function playbackRate() {
+  if (queuedTrackDave != undefined && queuedTrackZozo != undefined) {
+    queuedTrackZozo.rate(slider.value());
+    queuedTrackDave.rate(slider.value());
+  }
 }
 
 function visualisation() {
@@ -132,6 +144,7 @@ function playAudio(audioToPlayZozo, audioToPlayDave) {
   }
   queuedTrackZozo = audioToPlayZozo;
   queuedTrackDave = audioToPlayDave;
+  slider.value(1);
 }
 
 function player() {
@@ -145,12 +158,16 @@ function player() {
         oldTrackDave.stop();
         oldTrackZozo.stop();
       }
-      queuedTrackZozo.play();
-      queuedTrackDave.play();
+      // queuedTrackZozo.play();
+      // queuedTrackDave.play();
       queuedTrackZozo.loop();
       queuedTrackDave.loop();
     }
   }
   ampZozo.setInput(queuedTrackZozo);
   ampDave.setInput(queuedTrackDave);
+}
+
+function resetSlider() {
+  slider.value(1);
 }
