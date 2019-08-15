@@ -147,6 +147,8 @@ function player() {
       }
       queuedTrackZozo.play();
       queuedTrackDave.play();
+      queuedTrackZozo.loop();
+      queuedTrackDave.loop();
     }
   }
   ampZozo.setInput(queuedTrackZozo);
