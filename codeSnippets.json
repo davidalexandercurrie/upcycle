@@ -1,6 +1,7 @@
 {
   "zozo": [
-    "d1 $ every 2 (rev) (s \"~ [z-sn:6*2]  z-sn:6 ~\")  # gain 0.8 <br>d2 $ n \"1 ~ 3*2 4\"  #  s \"bubble\" # sustain \"0.3 0.02 0.02 0.02\" #  gain 1.2 <br>d3 $ s \"z-hh:3 ~ z-hh:3*2 ~\" # pan (range 0.25 0.75 $ rand) # gain 0.8"
+    "d1 $ every 2 (rev) (s \"~ [z-sn:6*2]  z-sn:6 ~\")  # gain 0.8 <br>d2 $ n \"1 ~ 3*2 4\"  #  s \"bubble\" # sustain \"0.3 0.02 0.02 0.02\" #  gain 1.2 <br>d3 $ s \"z-hh:3 ~ z-hh:3*2 ~\" # pan (range 0.25 0.75 $ rand) # gain 0.8",
+    "d1 $ every 2 (|- crush \"1\") $ every 2 (rev) (s \"bd*2 ~ z-sn:3 z-sn:3\") # crush \"3\" <br>\"d2 $ n \"[-2 .. -3]\" # s \"rave2\"" 
   ],
   "dave": [
     "d1 $ every 4 (fast 0.75) $ note \"[-12 ~ 12 7]*4\" # n \"0 1 2 3\" # sound \"clubkick\" <br>d2 $ every 4 (fast 2) $ note \"[-24 ~ 12 7]*4\" # n \"0 1 2 3\" # sound \"industrial\"",
