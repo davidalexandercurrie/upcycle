@@ -24,7 +24,7 @@ function setup() {
   var time = new Date();
   var myClock = time.getTime().toString();
   var myDay = Math.floor(myClock / 86400000);
-  var daysFromStart = myDay - 18120;
+  var daysFromStart = myDay - 18121;
   createButtonFunctions(daysFromStart);
 
   for (var i = daysFromStart; i >= 0; i--) {
