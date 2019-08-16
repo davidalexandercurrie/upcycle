@@ -16,6 +16,7 @@ var startVisual = false;
 var playingDiv;
 var previousPlayingDiv;
 var slider;
+var playSelected = false;
 
 function preload() {
   codeSnippets = loadJSON("codeSnippets.json");
@@ -123,14 +124,27 @@ function createButtonFunctions(days) {
       buttonID = i;
     }
     clickFunctions[i] = function() {
-      playingDiv = buttonID;
-      // checking if file exists + stop duplicate playback
-      var xml = loadXML(
-        "/Audio/z" + (buttonID + 1).toString() + ".m4a",
-        loadedZ,
-        errloading
-      );
-      console.log(xml);
+      if (playSelected === false || buttonID != previousPlayingDiv) {
+        playingDiv = buttonID;
+        if (!playSelected) {
+          playSelected = true;
+        }
+        // checking if file exists + stop duplicate playback
+        var xml = loadXML(
+          "/Audio/z" + (buttonID + 1).toString() + ".m4a",
+          loadedZ,
+          errloading
+        );
+        console.log("play button");
+      } else {
+        button[previousPlayingDiv].removeClass("fas fa-stop");
+        button[previousPlayingDiv].addClass("fas fa-play");
+        div[playingDiv].removeClass("playPanel");
+        queuedTrackDave.stop();
+        queuedTrackZozo.stop();
+        console.log("stop button");
+        playSelected = false;
+      }
     };
   }
 }
@@ -144,11 +158,9 @@ function loadedZ() {
     loadedD,
     errloading
   );
-  console.log("loadedZ");
 }
 function loadedD() {
   loadAudio(playingDiv);
-  console.log("loadedD");
 }
 
 function loadAudio(day) {
@@ -158,12 +170,14 @@ function loadAudio(day) {
   div[day].addClass("playPanel");
   button[day].removeClass("fas fa-play");
   button[day].addClass("fas fa-stop");
-  if (previousPlayingDiv != undefined) {
+  if (previousPlayingDiv != undefined && playingDiv != previousPlayingDiv) {
+    console.log("removing play panel");
     div[previousPlayingDiv].removeClass("playPanel");
     button[previousPlayingDiv].removeClass("fas fa-stop");
     button[previousPlayingDiv].addClass("fas fa-play");
+    playSelected = true;
   }
-  console.log(previousPlayingDiv);
+
   previousPlayingDiv = day;
 }
 
@@ -178,24 +192,26 @@ function playAudio(audioToPlayZozo, audioToPlayDave) {
 }
 
 function player() {
-  if (queuedTrackZozo != undefined && queuedTrackDave != undefined) {
-    if (
-      queuedTrackZozo.isLoaded() &&
-      queuedTrackDave.isLoaded() &&
-      !queuedTrackDave.isPlaying() & !queuedTrackZozo.isPlaying()
-    ) {
-      if (oldTrackDave != undefined && oldTrackZozo != undefined) {
-        oldTrackDave.stop();
-        oldTrackZozo.stop();
+  if (playSelected) {
+    if (queuedTrackZozo != undefined && queuedTrackDave != undefined) {
+      if (
+        queuedTrackZozo.isLoaded() &&
+        queuedTrackDave.isLoaded() &&
+        !queuedTrackDave.isPlaying() & !queuedTrackZozo.isPlaying()
+      ) {
+        if (oldTrackDave != undefined && oldTrackZozo != undefined) {
+          oldTrackDave.stop();
+          oldTrackZozo.stop();
+        }
+        // queuedTrackZozo.play();
+        // queuedTrackDave.play();
+        queuedTrackZozo.loop();
+        queuedTrackDave.loop();
       }
-      // queuedTrackZozo.play();
-      // queuedTrackDave.play();
-      queuedTrackZozo.loop();
-      queuedTrackDave.loop();
     }
+    ampZozo.setInput(queuedTrackZozo);
+    ampDave.setInput(queuedTrackDave);
   }
-  ampZozo.setInput(queuedTrackZozo);
-  ampDave.setInput(queuedTrackDave);
 }
 
 function resetSlider() {
