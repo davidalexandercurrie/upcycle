@@ -153,6 +153,7 @@ function loadAudio(day) {
   davesounds[day] = loadSound("/Audio/d" + (day + 1).toString() + ".m4a");
   playAudio(zozosounds[day], davesounds[day]);
   div[day].addClass("playPanel");
+
   if (previousPlayingDiv != undefined) {
     div[previousPlayingDiv].addClass("dayPanel");
     div[previousPlayingDiv].removeClass("playPanel");
