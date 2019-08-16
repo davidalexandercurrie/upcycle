@@ -33,7 +33,6 @@ button {
 .code {
   display: inline-block;
   padding: 1em 0em 1em 1em;
-
 }
 
 p {
@@ -54,17 +53,20 @@ p {
 
 .codePanel {
 padding-top: 1em;
+  /* margin-left: 25%;
+  width: 50%; */
+  padding-top: 1em;
 }
 .codePanel .zozo-code {
-  font-family: monospace;
-  font-size:1.1em;
+  /* font-family: monospace;
+  font-size:1.1em; */
 text-align: left;
 }
 .codePanel .dave-code {
-  font-family: monospace;
-  font-size:1.1em;
+  /* font-family: monospace;
+  font-size:1.1em; */
   text-align: left;
-  }
+}
 
 .dayPanel {
   background-color: white;
@@ -72,23 +74,31 @@ text-align: left;
 
 .playPanel .zozo-code {
   animation-name: zozo-fade;
-  animation-duration: 2s;
+  /* animation-duration: 2s; */
   animation-iteration-count: infinite;
   animation-direction: alternate;
 }
 .playPanel .dave-code {
   animation-name: dave-fade;
-  animation-duration: 2s;
+  /* animation-duration: 2s; */
   /* animation-delay: 10ms; */
   animation-iteration-count: infinite;
   animation-direction: alternate;
 }
 
 @keyframes zozo-fade {
-  0%   {color: rgb(250, 242, 242);}
-  100% {color:  red;}
+  0% {
+    color: rgb(250, 242, 242);
+  }
+  100% {
+    color: red;
+  }
 }
 @keyframes dave-fade {
-  0%   {color: rgb(250, 242, 242);}
-  100% {color:  rgb(138, 43, 226);}
+  0% {
+    color: rgb(250, 242, 242);
+  }
+  100% {
+    color: rgb(138, 43, 226);
+  }
 }
