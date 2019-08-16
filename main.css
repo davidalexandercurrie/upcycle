@@ -53,14 +53,16 @@ p {
 }
 
 .codePanel {
-margin-left: 25%;
-width: 50%;
 padding-top: 1em;
 }
 .codePanel .zozo-code {
+  font-family: monospace;
+  font-size:1.1em;
 text-align: left;
 }
 .codePanel .dave-code {
+  font-family: monospace;
+  font-size:1.1em;
   text-align: left;
   }
 
