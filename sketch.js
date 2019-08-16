@@ -120,7 +120,7 @@ function createButtonFunctions(days) {
     }
     clickFunctions[i] = function() {
       playingDiv = buttonID;
-      // checking if file exists
+      // checking if file exists + stop duplicate playback
       var xml = loadXML(
         "/Audio/z" + (buttonID + 1).toString() + ".m4a",
         loadedZ,
@@ -130,7 +130,7 @@ function createButtonFunctions(days) {
     };
   }
 }
-//
+
 function errloading() {
   // TODO trigger css for play not successful from here
 }
