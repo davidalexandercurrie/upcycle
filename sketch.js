@@ -55,14 +55,16 @@ function setup() {
       .addClass("nameZ");
     createP(codeSnippets.zozo[i])
       .parent(div[i])
-      .addClass("code");
+      .addClass("code")
+      .addClass("zozo-code");
     createP(" ").parent(div[i]);
     createP("dave")
       .parent(div[i])
       .addClass("nameD");
     createP(codeSnippets.dave[i])
       .parent(div[i])
-      .addClass("code");
+      .addClass("code")
+      .addClass("dave-code");
     createP(" ")
       .parent(div[i])
       .addClass("break-m");
