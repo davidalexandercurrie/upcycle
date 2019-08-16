@@ -51,6 +51,12 @@ p {
   margin-top: 3em;
 }
 
+.codePanel {
+margin-left: 25%;
+width: 50%;
+padding-top: 1em;
+}
+
 .dayPanel {
   background-color: white;
 }

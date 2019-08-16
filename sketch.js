@@ -37,6 +37,7 @@ function setup() {
   for (var i = daysFromStart; i >= 0; i--) {
     div[i] = createElement("div", []);
     div[i].addClass("dayPanel");
+    div[i].addClass("codePanel");
     createP("Day " + (i + 1))
       .parent(div[i])
       .addClass("day");
@@ -153,10 +154,12 @@ function loadAudio(day) {
   davesounds[day] = loadSound("/Audio/d" + (day + 1).toString() + ".m4a");
   playAudio(zozosounds[day], davesounds[day]);
   div[day].addClass("playPanel");
-
+  button[day].removeClass("fas fa-play");
+  button[day].addClass("fas fa-stop");
   if (previousPlayingDiv != undefined) {
-    div[previousPlayingDiv].addClass("dayPanel");
     div[previousPlayingDiv].removeClass("playPanel");
+    button[previousPlayingDiv].removeClass("fas fa-stop");
+    button[previousPlayingDiv].addClass("fas fa-play");
   }
   console.log(previousPlayingDiv);
   previousPlayingDiv = day;
