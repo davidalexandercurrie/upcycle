@@ -4,6 +4,8 @@ var codeSnippets;
 var clickFunctions = [];
 var zozosounds = [];
 var davesounds = [];
+var codePZ = [];
+var codePD = [];
 var counter = 0;
 var queuedTrackZozo;
 var queuedTrackDave;
@@ -17,6 +19,10 @@ var playingDiv;
 var previousPlayingDiv;
 var slider;
 var playSelected = false;
+var time = new Date();
+var myClock = time.getTime().toString();
+var myDay = Math.floor(myClock / 86400000);
+var daysFromStart = myDay - 18123;
 
 function preload() {
   codeSnippets = loadJSON("codeSnippets.json");
@@ -28,10 +34,6 @@ function setup() {
   createElement("br", []);
   slider = createSlider(0.5, 2, 1, 0.01);
   slider.doubleClicked(resetSlider);
-  var time = new Date();
-  var myClock = time.getTime().toString();
-  var myDay = Math.floor(myClock / 86400000);
-  var daysFromStart = myDay - 18123;
 
   createButtonFunctions(daysFromStart);
 
@@ -53,7 +55,7 @@ function setup() {
     createP("zozo")
       .parent(div[i])
       .addClass("nameZ");
-    createP(codeSnippets.zozo[i])
+    codePZ[i] = createP(codeSnippets.zozo[i])
       .parent(div[i])
       .addClass("code")
       .addClass("zozo-code");
@@ -61,7 +63,7 @@ function setup() {
     createP("dave")
       .parent(div[i])
       .addClass("nameD");
-    createP(codeSnippets.dave[i])
+    codePD[i] = createP(codeSnippets.dave[i])
       .parent(div[i])
       .addClass("code")
       .addClass("dave-code");
@@ -69,6 +71,7 @@ function setup() {
       .parent(div[i])
       .addClass("break-m");
   }
+
   ampZozo = new p5.Amplitude(0.5);
   ampDave = new p5.Amplitude(0.5);
 }
@@ -79,7 +82,21 @@ function draw() {
   visualisation();
   noStroke();
   playbackRate();
+  var aniSpeed = 0.5 / slider.value();
+  var aniSpeedString = aniSpeed.toString() + "s";
+  for (var i = 0; i < daysFromStart + 1; i++) {
+    codePD[i].style("animation-duration", aniSpeedString);
+    codePZ[i].style("animation-duration", aniSpeedString);
+  }
+  // changeCssAnimationSpeed();
 }
+
+// function changeCssAnimationSpeed() {
+//   // var aniSpeed = 2 / slider.value();
+//   for (var i = 0; i < 5; i++) {
+
+//   }
+// }
 
 function playbackRate() {
   if (queuedTrackDave != undefined && queuedTrackZozo != undefined) {
