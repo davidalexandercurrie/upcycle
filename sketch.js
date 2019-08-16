@@ -187,8 +187,8 @@ function player() {
       queuedTrackDave.loop();
     }
   }
-  // ampZozo.setInput(queuedTrackZozo);
-  // ampDave.setInput(queuedTrackDave);
+  ampZozo.setInput(queuedTrackZozo);
+  ampDave.setInput(queuedTrackDave);
 }
 
 function resetSlider() {
