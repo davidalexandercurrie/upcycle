@@ -1,12 +1,14 @@
 body {
-  font-family: Helvetica, sans-serif;
+  /* font-family: Helvetica, sans-serif; */
+  font-family: monospace;
   padding: 0;
   margin: 0;
   text-align: center;
 }
 h1 {
+  font-family: Arial, Helvetica, sans-serif;
   color: red;
-  margin-bottom: -1.5em;
+  margin-bottom: -1em;
 }
 
 button {
@@ -16,15 +18,18 @@ button {
   padding: 0.25em;
 }
 .day {
+  font-family: Arial, Helvetica, sans-serif;
   display: inline-block;
   margin-right: 1em;
 }
 .nameZ {
+  font-family: Arial, Helvetica, sans-serif;
   color: red;
   font-size: 1.4em;
   display: inline-block;
 }
 .nameD {
+  font-family: Arial, Helvetica, sans-serif;
   color: rgb(138, 43, 226);
   font-size: 1.4em;
   display: inline-block;
