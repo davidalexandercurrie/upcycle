@@ -82,7 +82,7 @@ function draw() {
   visualisation();
   noStroke();
   playbackRate();
-  var aniSpeed = 2 * pow(2, slider.value());
+  var aniSpeed = 2 / pow(2, slider.value());
   var aniSpeedString = aniSpeed.toString() + "s";
   for (var i = 0; i < daysFromStart + 1; i++) {
     codePD[i].style("animation-duration", aniSpeedString);
