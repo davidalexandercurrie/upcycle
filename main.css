@@ -102,3 +102,20 @@ p {
     color: rgb(138, 43, 226);
   }
 }
+.zozo-code::-moz-selection {
+  /* Code for Firefox */
+  background: yellow;
+}
+
+.zozo-code::selection {
+  background: yellow;
+}
+
+.dave-code::-moz-selection {
+  /* Code for Firefox */
+  background: greenyellow;
+}
+
+.dave-code::selection {
+  background: greenyellow;
+}
