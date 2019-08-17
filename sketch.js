@@ -32,7 +32,7 @@ function setup() {
   // put setup code here
   var canvas = createCanvas(200, 200).addClass("canvas");
   createElement("br", []);
-  slider = createSlider(0.5, 2, 1, 0.01);
+  slider = createSlider(-1, 1, 0, 0.01);
   slider.doubleClicked(resetSlider);
 
   createButtonFunctions(daysFromStart);
@@ -82,7 +82,7 @@ function draw() {
   visualisation();
   noStroke();
   playbackRate();
-  var aniSpeed = 2 / slider.value();
+  var aniSpeed = 2 * pow(2, slider.value());
   var aniSpeedString = aniSpeed.toString() + "s";
   for (var i = 0; i < daysFromStart + 1; i++) {
     codePD[i].style("animation-duration", aniSpeedString);
@@ -100,8 +100,8 @@ function draw() {
 
 function playbackRate() {
   if (queuedTrackDave != undefined && queuedTrackZozo != undefined) {
-    queuedTrackZozo.rate(slider.value());
-    queuedTrackDave.rate(slider.value());
+    queuedTrackZozo.rate(pow(2, slider.value()));
+    queuedTrackDave.rate(pow(2, slider.value()));
   }
 }
 
@@ -205,7 +205,7 @@ function playAudio(audioToPlayZozo, audioToPlayDave) {
   }
   queuedTrackZozo = audioToPlayZozo;
   queuedTrackDave = audioToPlayDave;
-  slider.value(1);
+  slider.value(0);
 }
 
 function player() {
@@ -232,5 +232,5 @@ function player() {
 }
 
 function resetSlider() {
-  slider.value(1);
+  slider.value(0);
 }
