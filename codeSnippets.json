@@ -20,6 +20,7 @@
     "d1 $ note \"0 [0 ~ 12? 0 ~ 1? 0]\" # n (irand 4) # s \"stab\" # pan rand # gain rand",
     "d1 $ sound \"bd*1024\" # n (irand 8) # speed (fast 1200 $ range 0.5 1 tri) # lpf 4000 #lpq rand #djf sine",
     "d1 $ s \"[bd:0 bd:1, hh:1 perc? hh:3, juno sd? sd:1 sd:1] realclaps\"",
-    "d1 $ fast \"2 4 8 16\" $ sound \"[bd bd bd? bd, ~ hh? ~ hh, bass3]\""
+    "d1 $ fast \"2 4 8 16\" $ sound \"[bd bd bd? bd, ~ hh? ~ hh, bass3]\"",
+    "d1 $ every 4 (zoom (0.25, 0.35)) $ sound \"jungle*2 hh*3 [sn bd]*2 drum\"+sine # lpf 2000"
   ]
 }
