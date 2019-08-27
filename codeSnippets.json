@@ -10,7 +10,8 @@
     "d1 $ rot \"<0 1 0 4>\" $ sew \"t t f t\" (n \"1 8 1*4 1\" # s \"techno\") (n \"0 .. 15\" # s \"808\")",
     "d1 $ stack [n \"4*128\" # s \"control\" # cutoff (range 400 800 $ slow 4 $ tri) # crush (run 4) # sustain \"0.2 0.3 0.5 0.6 0.8\", rot \"<0 2 0 2>\" $ stut 2 0.2 0.3 $ s \"z-kik:4*3 techno:4*2\"]",
     "d1  $ chunk 4 (# crush 3) $ chop \"<16 32>\"  $ sound \"bd*2 h:8*2 sn:2 808:3*3\"",
-    "d1 $  every 4 (|- speed \"0.15\") $ every 3 (chunk 4 (# crush 3)) $ s \"toys:2 toys:4*2 toys:3 toys:8*3\" # crush 8 #decay \"[2 0.5]/4\" #semitone \"7.6\" #resonance \"0.7\" # lfo \"1\" # speed \"0.25 1\""
+    "d1 $  every 4 (|- speed \"0.15\") $ every 3 (chunk 4 (# crush 3)) $ s \"toys:2 toys:4*2 toys:3 toys:8*3\" # crush 8 #decay \"[2 0.5]/4\" #semitone \"7.6\" #resonance \"0.7\" # lfo \"1\" # speed \"0.25 1\"",
+    "d1 $ n \"1 2 7 4 8 9 3\"# s \"psr*4\" # pan rand # sustain rand # speed rand"
   ],
   "dave": [
     "d1 $ every 4 (fast 0.75) $ note \"[-12 ~ 12 7]*4\" # n \"0 1 2 3\" # sound \"clubkick\" <br>d2 $ every 4 (fast 2) $ note \"[-24 ~ 12 7]*4\" # n \"0 1 2 3\" # sound \"industrial\"",
