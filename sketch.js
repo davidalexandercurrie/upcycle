@@ -118,7 +118,7 @@ function visualisation() {
     fill(138, 43, 226);
     rect(width / 2, 0, width / 2, height);
   } else {
-    background(255, 255);
+    clear();
     fill(255, 0, 0);
     rect(0, 0, width / 2, lerp(oldAmpZ, ampZozo.getLevel() * ampMult, 0.9));
     fill(138, 43, 226);
