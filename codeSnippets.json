@@ -26,6 +26,7 @@
     "d1 $ s \"[bd:0 bd:1, hh:1 perc? hh:3, juno sd? sd:1 sd:1] realclaps\"",
     "d1 $ fast \"2 4 8 16\" $ sound \"[bd bd bd? bd, ~ hh? ~ hh, bass3]\"",
     "d1 $ every 4 (zoom (0.25, 0.35)) $ sound \"jungle*2 hh*3 [sn bd]*2 drum\"+sine # lpf 2000",
-    "d1 $ n (irand 256) # note (irand 32) # sound \"sugar\" # lpf 2000 #lpq 0.1 # hpf 100 # gain 0.5"
+    "d1 $ n (irand 256) # note (irand 32) # sound \"sugar\" # lpf 2000 #lpq 0.1 # hpf 100 # gain 0.5",
+    "d1 $ fast 2 $ sound \"[reverbkick(3,8), sn(3,7)?]\" # djf rand"
   ]
 }
