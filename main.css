@@ -12,6 +12,7 @@ h1 {
   position: fixed;
   left: 25%;
   width: 50%;
+  background-color: rgb(0, 255, 255, 0.9);
 }
 
 button {
