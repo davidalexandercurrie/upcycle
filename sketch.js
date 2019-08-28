@@ -38,6 +38,10 @@ function setup() {
   var canvas = createCanvas(1400, 700).addClass("canvas");
   createElement("br", []);
   slider = createSlider(-1, 1, 0, 0.01).addClass("tempoSlider");
+  volumeSliderD = createSlider(0, 1, 0.8, 0.01).addClass("volumeSliderD");
+  volumeSliderZ = createSlider(0, 1, 0.8, 0.01).addClass("volumeSliderZ");
+  volumeSliderD.doubleClicked(resetVolumeD);
+  volumeSliderZ.doubleClicked(resetVolumeZ);
   slider.doubleClicked(resetSlider);
 
   createButtonFunctions(daysFromStart);
@@ -91,7 +95,7 @@ function draw() {
   player();
   visualisation();
   noStroke();
-  playbackRate();
+  sliders();
   var aniSpeed = 2 / pow(2, slider.value());
   var aniSpeedString = aniSpeed.toString() + "s";
   for (var i = 0; i < daysFromStart + 1; i++) {
@@ -100,10 +104,12 @@ function draw() {
   }
 }
 
-function playbackRate() {
+function sliders() {
   if (queuedTrackDave != undefined && queuedTrackZozo != undefined) {
     queuedTrackZozo.rate(pow(2, slider.value()));
     queuedTrackDave.rate(pow(2, slider.value()));
+    queuedTrackDave.setVolume(volumeSliderD.value() ** 2, 0.1, 0);
+    queuedTrackZozo.setVolume(volumeSliderZ.value() ** 2, 0.1, 0);
   }
 }
 
@@ -117,9 +123,9 @@ function visualisation() {
   if (startVisual === false) {
     clear();
     fill(255, 0, 0, transp);
-    rect(0, 0, width / 2, 150);
+    rect(0, 0, width / 2, 200);
     fill(138, 43, 226, transp);
-    rect(width / 2, 0, width / 2, 150);
+    rect(width / 2, 0, width / 2, 200);
   } else {
     clear();
     var oldXZ = -1000;
@@ -136,7 +142,7 @@ function visualisation() {
       //   map(zozoFFT[i], 0, 255, 0, 1) * ampMult
       // );
       XZ = (width / 123) * (i - 4);
-      YZ = map(zozoFFT[i], 0, 255, 0, 1) * ampMult - 1;
+      YZ = map(zozoFFT[i], 0, 255, 0, 1) * ampMult - 1 * volumeSliderZ.value();
       line(oldXZ, oldYZ, XZ, YZ);
       oldXZ = XZ;
       oldYZ = YZ;
@@ -155,7 +161,7 @@ function visualisation() {
       //   map(daveFFT[i], 0, 255, 0, 1) * ampMult
       // );
       XD = (width / 123) * (i - 4);
-      YD = map(daveFFT[i], 0, 255, 0, 1) * ampMult - 1;
+      YD = map(daveFFT[i], 0, 255, 0, 1) * ampMult - 1 * volumeSliderD.value();
       line(oldXD, oldYD, XD, YD);
       oldXD = XD;
       oldYD = YD;
@@ -265,4 +271,10 @@ function player() {
 
 function resetSlider() {
   slider.value(0);
+}
+function resetVolumeD() {
+  volumeSliderD.value(0.8);
+}
+function resetVolumeZ() {
+  volumeSliderZ.value(0.8);
 }

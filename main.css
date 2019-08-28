@@ -81,14 +81,28 @@ br::selection {
   background: transparent;
 }
 
+.volumeSliderD {
+  width: 10%;
+  position: fixed;
+  left: 90%;
+  margin-left: -5%;
+  top: 40%;
+}
+.volumeSliderZ {
+  width: 10%;
+  position: fixed;
+  left: 90%;
+  margin-left: -5%;
+  top: 45%;
+}
+
 .tempoSlider {
   width: 10%;
   position: fixed;
-  left: 50%;
+  left: 90%;
   margin-left: -5%;
-  margin-top: -3em;
+  top: 50%;
 }
-
 .codePanel {
   margin-left: 25%;
   width: 50%;
