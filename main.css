@@ -81,14 +81,14 @@ br::selection {
   background: transparent;
 }
 
-.volumeSliderD {
+.volumeSliderZ {
   width: 10%;
   position: fixed;
   left: 90%;
   margin-left: -5%;
   top: 40%;
 }
-.volumeSliderZ {
+.volumeSliderD {
   width: 10%;
   position: fixed;
   left: 90%;
