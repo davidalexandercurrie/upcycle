@@ -94,9 +94,11 @@ br::selection {
 }
 .codePanel .zozo-code {
   text-align: left;
+  width: 100%;
 }
 .codePanel .dave-code {
   text-align: left;
+  width: 100%;
 }
 
 .dayPanel {
