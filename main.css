@@ -44,13 +44,14 @@ button {
   white-space: normal;
 }
 
-/* .zozo-code:hover {
-  background: rgb(255, 243, 243);
+.zozo-code:hover {
+  background: rgba(255, 196, 196, 0.192);
+  opacity: 20%;
 }
 
 .dave-code:hover {
-  background: rgb(228, 221, 228);
-} */
+  background: rgba(255, 186, 255, 0.288);
+}
 
 p {
   margin: 0;
@@ -71,7 +72,7 @@ br::selection {
 .canvas {
   z-index: -1;
   top: 5em;
-  margin-left: -600px;
+  margin-left: -700px;
   position: fixed;
 }
 
@@ -104,6 +105,7 @@ br::selection {
 
 .dayPanel {
   background-color: transparent;
+  width: 50%;
 }
 
 .playPanel .zozo-code {

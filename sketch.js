@@ -11,7 +11,7 @@ var queuedTrackZozo;
 var queuedTrackDave;
 var oldTrackZozo;
 var oldTrackDave;
-var ampMult = 200;
+var ampMult = 700;
 var spectrumDave;
 var spectrumZozo;
 var daveFFT;
@@ -19,6 +19,7 @@ var zozoFFT;
 var ampDave;
 var ampZozo;
 var startVisual = false;
+var transp = 150;
 var playingDiv;
 var previousPlayingDiv;
 var slider;
@@ -34,7 +35,7 @@ function preload() {
 
 function setup() {
   // put setup code here
-  var canvas = createCanvas(1200, 300).addClass("canvas");
+  var canvas = createCanvas(1400, 700).addClass("canvas");
   createElement("br", []);
   slider = createSlider(-1, 1, 0, 0.01).addClass("tempoSlider");
   slider.doubleClicked(resetSlider);
@@ -76,8 +77,8 @@ function setup() {
       .addClass("break-m");
   }
 
-  spectrumZozo = new p5.FFT(0.9, 64);
-  spectrumDave = new p5.FFT(0.9, 64);
+  spectrumZozo = new p5.FFT(0.9, 128);
+  spectrumDave = new p5.FFT(0.9, 128);
   ampZozo = new p5.Amplitude(0.5);
   ampDave = new p5.Amplitude(0.5);
 }
@@ -115,29 +116,49 @@ function visualisation() {
   // }
   if (startVisual === false) {
     clear();
-    fill(255, 0, 0, 200);
+    fill(255, 0, 0, transp);
     rect(0, 0, width / 2, 150);
-    fill(138, 43, 226, 200);
+    fill(138, 43, 226, transp);
     rect(width / 2, 0, width / 2, 150);
   } else {
     clear();
+    var oldXZ = -1000;
+    var oldYZ = 0;
+    var XZ;
+    var YZ;
     for (var i = 4; i < zozoFFT.length - 1; i++) {
-      fill(255, 0, 0, 200);
-      rect(
-        (width / 2 / 59) * (i - 4),
-        0,
-        width / 2 / 59,
-        map(zozoFFT[i], 0, 255, 0, 1) * ampMult
-      );
+      fill(255, 0, 0, transp);
+      stroke(255, 0, 0, transp);
+      // rect(
+      //   (width / 123) * (i - 4),
+      //   0,
+      //   width / 123,
+      //   map(zozoFFT[i], 0, 255, 0, 1) * ampMult
+      // );
+      XZ = (width / 123) * (i - 4);
+      YZ = map(zozoFFT[i], 0, 255, 0, 1) * ampMult;
+      line(oldXZ, oldYZ, XZ, YZ);
+      oldXZ = XZ;
+      oldYZ = YZ;
     }
-    for (var i = 4; i < zozoFFT.length - 1; i++) {
-      fill(138, 43, 226, 200);
-      rect(
-        (width / 2 / 59) * (i - 4) + width / 2,
-        0,
-        width / 2 / 59,
-        map(daveFFT[i], 0, 255, 0, 1) * ampMult
-      );
+    var oldXD = -1000;
+    var oldYD = 0;
+    var XD;
+    var YD;
+    for (var i = 4; i < daveFFT.length - 1; i++) {
+      fill(138, 43, 226, transp);
+      stroke(138, 43, 226, transp);
+      // rect(
+      //   width - width / 123 / 2 - (width / 123) * (i - 4),
+      //   0,
+      //   width / 123,
+      //   map(daveFFT[i], 0, 255, 0, 1) * ampMult
+      // );
+      XD = (width / 123) * (i - 4);
+      YD = map(daveFFT[i], 0, 255, 0, 1) * ampMult;
+      line(oldXD, oldYD, XD, YD);
+      oldXD = XD;
+      oldYD = YD;
     }
   }
 }
