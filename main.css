@@ -41,10 +41,23 @@ button {
 .code {
   display: inline-block;
   padding: 1em 0em 1em 1em;
+  white-space: normal;
 }
+
+/* .zozo-code:hover {
+  background: rgb(255, 243, 243);
+}
+
+.dave-code:hover {
+  background: rgb(228, 221, 228);
+} */
 
 p {
   margin: 0;
+}
+
+br::selection {
+  background: white;
 }
 
 .break-s {
@@ -61,6 +74,10 @@ p {
   position: fixed;
 }
 
+.canvas::selection {
+  background: white;
+}
+
 .tempoSlider {
   width: 10%;
   position: fixed;
@@ -73,6 +90,7 @@ p {
   margin-left: 25%;
   width: 50%;
   padding-top: 1em;
+  white-space: nowrap;
 }
 .codePanel .zozo-code {
   text-align: left;
@@ -131,4 +149,29 @@ p {
 
 .dave-code::selection {
   background: greenyellow;
+}
+
+.nameZ::selection {
+  background: white;
+}
+.nameZ::-moz-selection {
+  background: white;
+}
+.nameD::selection {
+  background: white;
+}
+.nameD::-moz-selection {
+  background: white;
+}
+
+.day::selection {
+  background: white;
+}
+
+.tempoSlider::selection {
+  background: white;
+}
+
+h1::selection {
+  background: white;
 }

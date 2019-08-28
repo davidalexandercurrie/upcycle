@@ -152,14 +152,14 @@ function createButtonFunctions(days) {
           loadedZ,
           errloading
         );
-        console.log("play button");
+        // console.log("play button");
       } else {
         button[previousPlayingDiv].removeClass("fas fa-stop");
         button[previousPlayingDiv].addClass("fas fa-play");
         div[playingDiv].removeClass("playPanel");
         queuedTrackDave.stop();
         queuedTrackZozo.stop();
-        console.log("stop button");
+        // console.log("stop button");
         playSelected = false;
       }
     };
@@ -188,7 +188,7 @@ function loadAudio(day) {
   button[day].removeClass("fas fa-play");
   button[day].addClass("fas fa-stop");
   if (previousPlayingDiv != undefined && playingDiv != previousPlayingDiv) {
-    console.log("removing play panel");
+    // console.log("removing play panel");
     div[previousPlayingDiv].removeClass("playPanel");
     button[previousPlayingDiv].removeClass("fas fa-stop");
     button[previousPlayingDiv].addClass("fas fa-play");
