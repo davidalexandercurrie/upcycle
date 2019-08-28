@@ -32,7 +32,7 @@ function setup() {
   // put setup code here
   var canvas = createCanvas(200, 200).addClass("canvas");
   createElement("br", []);
-  slider = createSlider(-1, 1, 0, 0.01);
+  slider = createSlider(-1, 1, 0, 0.01).addClass("tempoSlider");
   slider.doubleClicked(resetSlider);
 
   createButtonFunctions(daysFromStart);
@@ -118,7 +118,7 @@ function visualisation() {
     fill(138, 43, 226);
     rect(width / 2, 0, width / 2, height);
   } else {
-    background(255, 200);
+    background(255, 255);
     fill(255, 0, 0);
     rect(0, 0, width / 2, lerp(oldAmpZ, ampZozo.getLevel() * ampMult, 0.9));
     fill(138, 43, 226);

@@ -9,6 +9,9 @@ h1 {
   font-family: Arial, Helvetica, sans-serif;
   color: red;
   margin-bottom: -1em;
+  position: fixed;
+  left: 25%;
+  width: 50%;
 }
 
 button {
@@ -53,7 +56,17 @@ p {
 }
 
 .canvas {
-  margin-top: 3em;
+  top: 5em;
+  margin-left: -100px;
+  position: fixed;
+}
+
+.tempoSlider {
+  width: 10%;
+  position: fixed;
+  left: 50%;
+  margin-left: -5%;
+  margin-top: -3em;
 }
 
 .codePanel {
