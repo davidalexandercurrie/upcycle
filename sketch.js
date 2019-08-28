@@ -136,13 +136,13 @@ function visualisation() {
       //   map(zozoFFT[i], 0, 255, 0, 1) * ampMult
       // );
       XZ = (width / 123) * (i - 4);
-      YZ = map(zozoFFT[i], 0, 255, 0, 1) * ampMult;
+      YZ = map(zozoFFT[i], 0, 255, 0, 1) * ampMult - 1;
       line(oldXZ, oldYZ, XZ, YZ);
       oldXZ = XZ;
       oldYZ = YZ;
     }
     var oldXD = -1000;
-    var oldYD = 0;
+    var oldYD = -1;
     var XD;
     var YD;
     for (var i = 4; i < daveFFT.length - 1; i++) {
@@ -155,7 +155,7 @@ function visualisation() {
       //   map(daveFFT[i], 0, 255, 0, 1) * ampMult
       // );
       XD = (width / 123) * (i - 4);
-      YD = map(daveFFT[i], 0, 255, 0, 1) * ampMult;
+      YD = map(daveFFT[i], 0, 255, 0, 1) * ampMult - 1;
       line(oldXD, oldYD, XD, YD);
       oldXD = XD;
       oldYD = YD;
