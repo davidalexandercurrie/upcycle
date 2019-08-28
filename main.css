@@ -57,7 +57,7 @@ p {
 }
 
 br::selection {
-  background: white;
+  background: transparent;
 }
 
 .break-s {
@@ -76,7 +76,7 @@ br::selection {
 }
 
 .canvas::selection {
-  background: white;
+  background: transparent;
 }
 
 .tempoSlider {
@@ -155,26 +155,26 @@ br::selection {
 }
 
 .nameZ::selection {
-  background: white;
+  background: transparent;
 }
 .nameZ::-moz-selection {
-  background: white;
+  background: transparent;
 }
 .nameD::selection {
-  background: white;
+  background: transparent;
 }
 .nameD::-moz-selection {
-  background: white;
+  background: transparent;
 }
 
 .day::selection {
-  background: white;
+  background: transparent;
 }
 
 .tempoSlider::selection {
-  background: white;
+  background: transparent;
 }
 
 h1::selection {
-  background: white;
+  background: transparent;
 }
