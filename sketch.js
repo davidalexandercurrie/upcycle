@@ -83,6 +83,7 @@ function setup() {
 }
 
 function draw() {
+  console.log(startVisual);
   daveFFT = spectrumDave.analyze();
   zozoFFT = spectrumZozo.analyze();
   counter++;
@@ -106,12 +107,12 @@ function playbackRate() {
 }
 
 function visualisation() {
-  if (
-    (ampZozo.getLevel() > 0 || ampDave.getLevel() > 0) &&
-    startVisual === false
-  ) {
-    startVisual = true;
-  }
+  // if (
+  //   (ampZozo.getLevel() > 0 || ampDave.getLevel() > 0) &&
+  //   startVisual === false
+  // ) {
+  //   startVisual = true;
+  // }
   if (startVisual === false) {
     clear();
     fill(255, 0, 0, 200);
@@ -161,14 +162,16 @@ function createButtonFunctions(days) {
           errloading
         );
         // console.log("play button");
+        startVisual = true;
       } else {
         button[previousPlayingDiv].removeClass("fas fa-stop");
         button[previousPlayingDiv].addClass("fas fa-play");
         div[playingDiv].removeClass("playPanel");
         queuedTrackDave.stop();
         queuedTrackZozo.stop();
-        // console.log("stop button");
+        console.log("stop button");
         playSelected = false;
+        startVisual = false;
       }
     };
   }
