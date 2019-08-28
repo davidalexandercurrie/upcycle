@@ -73,11 +73,6 @@ br::selection {
   top: 5em;
   margin-left: -600px;
   position: fixed;
-  user-select: none;
-  -moz-user-select: none;
-  -khtml-user-select: none;
-  -webkit-user-select: none;
-  -o-user-select: none;
 }
 
 .canvas::selection {
@@ -108,7 +103,7 @@ br::selection {
 }
 
 .dayPanel {
-  background-color: white;
+  background-color: transparent;
 }
 
 .playPanel .zozo-code {

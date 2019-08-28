@@ -113,27 +113,28 @@ function visualisation() {
     startVisual = true;
   }
   if (startVisual === false) {
-    // fill(255, 0, 0);
-    // rect(0, 0, width / 2, height);
-    // fill(138, 43, 226);
-    // rect(width / 2, 0, width / 2, height);
+    clear();
+    fill(255, 0, 0, 200);
+    rect(0, 0, width / 2, 150);
+    fill(138, 43, 226, 200);
+    rect(width / 2, 0, width / 2, 150);
   } else {
     clear();
     for (var i = 4; i < zozoFFT.length - 1; i++) {
       fill(255, 0, 0, 200);
       rect(
-        (width / 2 / 60) * (i - 2),
+        (width / 2 / 59) * (i - 4),
         0,
-        width / 2 / 60,
+        width / 2 / 59,
         map(zozoFFT[i], 0, 255, 0, 1) * ampMult
       );
     }
     for (var i = 4; i < zozoFFT.length - 1; i++) {
       fill(138, 43, 226, 200);
       rect(
-        (width / 2 / 60) * (i - 2) + width / 2,
+        (width / 2 / 59) * (i - 4) + width / 2,
         0,
-        width / 2 / 60,
+        width / 2 / 59,
         map(daveFFT[i], 0, 255, 0, 1) * ampMult
       );
     }
