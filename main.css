@@ -69,9 +69,15 @@ br::selection {
 }
 
 .canvas {
+  z-index: -1;
   top: 5em;
-  margin-left: -100px;
+  margin-left: -600px;
   position: fixed;
+  user-select: none;
+  -moz-user-select: none;
+  -khtml-user-select: none;
+  -webkit-user-select: none;
+  -o-user-select: none;
 }
 
 .canvas::selection {

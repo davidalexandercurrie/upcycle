@@ -11,9 +11,13 @@ var queuedTrackZozo;
 var queuedTrackDave;
 var oldTrackZozo;
 var oldTrackDave;
-var oldAmpZ;
-var oldAmpD;
-var ampMult = 600;
+var ampMult = 200;
+var spectrumDave;
+var spectrumZozo;
+var daveFFT;
+var zozoFFT;
+var ampDave;
+var ampZozo;
 var startVisual = false;
 var playingDiv;
 var previousPlayingDiv;
@@ -30,7 +34,7 @@ function preload() {
 
 function setup() {
   // put setup code here
-  var canvas = createCanvas(200, 200).addClass("canvas");
+  var canvas = createCanvas(1200, 300).addClass("canvas");
   createElement("br", []);
   slider = createSlider(-1, 1, 0, 0.01).addClass("tempoSlider");
   slider.doubleClicked(resetSlider);
@@ -72,11 +76,15 @@ function setup() {
       .addClass("break-m");
   }
 
+  spectrumZozo = new p5.FFT(0.9, 64);
+  spectrumDave = new p5.FFT(0.9, 64);
   ampZozo = new p5.Amplitude(0.5);
   ampDave = new p5.Amplitude(0.5);
 }
 
 function draw() {
+  daveFFT = spectrumDave.analyze();
+  zozoFFT = spectrumZozo.analyze();
   counter++;
   player();
   visualisation();
@@ -88,15 +96,7 @@ function draw() {
     codePD[i].style("animation-duration", aniSpeedString);
     codePZ[i].style("animation-duration", aniSpeedString);
   }
-  // changeCssAnimationSpeed();
 }
-
-// function changeCssAnimationSpeed() {
-//   // var aniSpeed = 2 / slider.value();
-//   for (var i = 0; i < 5; i++) {
-
-//   }
-// }
 
 function playbackRate() {
   if (queuedTrackDave != undefined && queuedTrackZozo != undefined) {
@@ -113,24 +113,31 @@ function visualisation() {
     startVisual = true;
   }
   if (startVisual === false) {
-    fill(255, 0, 0);
-    rect(0, 0, width / 2, height);
-    fill(138, 43, 226);
-    rect(width / 2, 0, width / 2, height);
+    // fill(255, 0, 0);
+    // rect(0, 0, width / 2, height);
+    // fill(138, 43, 226);
+    // rect(width / 2, 0, width / 2, height);
   } else {
     clear();
-    fill(255, 0, 0);
-    rect(0, 0, width / 2, lerp(oldAmpZ, ampZozo.getLevel() * ampMult, 0.9));
-    fill(138, 43, 226);
-    rect(
-      width / 2,
-      0,
-      width / 2,
-      lerp(oldAmpD, ampDave.getLevel() * ampMult, 0.9)
-    );
+    for (var i = 4; i < zozoFFT.length - 1; i++) {
+      fill(255, 0, 0, 200);
+      rect(
+        (width / 2 / 60) * (i - 2),
+        0,
+        width / 2 / 60,
+        map(zozoFFT[i], 0, 255, 0, 1) * ampMult
+      );
+    }
+    for (var i = 4; i < zozoFFT.length - 1; i++) {
+      fill(138, 43, 226, 200);
+      rect(
+        (width / 2 / 60) * (i - 2) + width / 2,
+        0,
+        width / 2 / 60,
+        map(daveFFT[i], 0, 255, 0, 1) * ampMult
+      );
+    }
   }
-  oldAmpZ = ampZozo.getLevel() * ampMult;
-  oldAmpD = ampDave.getLevel() * ampMult;
 }
 
 function createButtonFunctions(days) {
@@ -226,8 +233,8 @@ function player() {
         queuedTrackDave.loop();
       }
     }
-    ampZozo.setInput(queuedTrackZozo);
-    ampDave.setInput(queuedTrackDave);
+    spectrumZozo.setInput(queuedTrackZozo);
+    spectrumDave.setInput(queuedTrackDave);
   }
 }
 
