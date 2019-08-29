@@ -1,4 +1,7 @@
 var div = [];
+var p = [];
+var nameD = [];
+var nameZ = [];
 var button = [];
 var codeSnippets;
 var clickFunctions = [];
@@ -19,6 +22,7 @@ var zozoFFT;
 var ampDave;
 var ampZozo;
 var startVisual = false;
+var resetHeightVisual = 200;
 var transp = 150;
 var playingDiv;
 var previousPlayingDiv;
@@ -50,7 +54,7 @@ function setup() {
     div[i] = createElement("div", []);
     div[i].addClass("dayPanel");
     div[i].addClass("codePanel");
-    createP("Day " + (i + 1))
+    p[i] = createP("Day " + (i + 1))
       .parent(div[i])
       .addClass("day");
     button[i] = createElement("i", [])
@@ -61,17 +65,28 @@ function setup() {
     createP(" ")
       .parent(div[i])
       .addClass("break-s");
-    createP("zozo")
+    nameZ[i] = createP("zozo")
       .parent(div[i])
       .addClass("nameZ");
+    if (
+      codeSnippets.zozo[daysFromStart] === undefined ||
+      codeSnippets.dave[daysFromStart] === undefined
+    ) {
+      // codeSnippets.zozo[daysFromStart] = "Coming Soon!";
+      div[daysFromStart] = createP("Coming Soon!");
+      button[daysFromStart].hide();
+      resetHeightVisual = 150;
+      p[daysFromStart].style("text-decoration", "line-through");
+    }
     codePZ[i] = createP(codeSnippets.zozo[i])
       .parent(div[i])
       .addClass("code")
       .addClass("zozo-code");
     createP(" ").parent(div[i]);
-    createP("dave")
+    nameD[i] = createP("dave")
       .parent(div[i])
       .addClass("nameD");
+
     codePD[i] = createP(codeSnippets.dave[i])
       .parent(div[i])
       .addClass("code")
@@ -79,6 +94,15 @@ function setup() {
     createP(" ")
       .parent(div[i])
       .addClass("break-m");
+
+    if (
+      codeSnippets.zozo[daysFromStart] === undefined ||
+      codeSnippets.dave[daysFromStart] === undefined
+    ) {
+      // codePZ[daysFromStart].style("text-align", "center");
+      nameD[daysFromStart].hide();
+      nameZ[daysFromStart].hide();
+    }
   }
 
   spectrumZozo = new p5.FFT(0.9, 128);
@@ -88,7 +112,6 @@ function setup() {
 }
 
 function draw() {
-  console.log(startVisual);
   daveFFT = spectrumDave.analyze();
   zozoFFT = spectrumZozo.analyze();
   counter++;
@@ -123,9 +146,9 @@ function visualisation() {
   if (startVisual === false) {
     clear();
     fill(255, 0, 0, transp);
-    rect(0, 0, width / 2, 200);
+    rect(0, 0, width / 2, resetHeightVisual);
     fill(138, 43, 226, transp);
-    rect(width / 2, 0, width / 2, 200);
+    rect(width / 2, 0, width / 2, resetHeightVisual);
   } else {
     clear();
     var oldXZ = -1000;
@@ -188,7 +211,6 @@ function createButtonFunctions(days) {
           loadedZ,
           errloading
         );
-        // console.log("play button");
         startVisual = true;
       } else {
         button[previousPlayingDiv].removeClass("fas fa-stop");
@@ -196,7 +218,6 @@ function createButtonFunctions(days) {
         div[playingDiv].removeClass("playPanel");
         queuedTrackDave.stop();
         queuedTrackZozo.stop();
-        console.log("stop button");
         playSelected = false;
         startVisual = false;
       }
@@ -226,7 +247,6 @@ function loadAudio(day) {
   button[day].removeClass("fas fa-play");
   button[day].addClass("fas fa-stop");
   if (previousPlayingDiv != undefined && playingDiv != previousPlayingDiv) {
-    // console.log("removing play panel");
     div[previousPlayingDiv].removeClass("playPanel");
     button[previousPlayingDiv].removeClass("fas fa-stop");
     button[previousPlayingDiv].addClass("fas fa-play");
@@ -243,7 +263,9 @@ function playAudio(audioToPlayZozo, audioToPlayDave) {
   }
   queuedTrackZozo = audioToPlayZozo;
   queuedTrackDave = audioToPlayDave;
-  slider.value(0);
+  resetSlider();
+  resetVolumeD();
+  resetVolumeZ();
 }
 
 function player() {
