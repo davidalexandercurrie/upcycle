@@ -113,6 +113,11 @@ br::selection {
   text-align: left;
   width: 100%;
 }
+
+.noHover {
+  pointer-events: none;
+}
+
 .codePanel .dave-code {
   text-align: left;
   width: 100%;

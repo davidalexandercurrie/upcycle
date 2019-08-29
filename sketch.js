@@ -92,6 +92,8 @@ function setup() {
   ) {
     // codeSnippets.zozo[daysFromStart] = "Coming Soon!";
     // div[daysFromStart].html("Coming Soon!");
+    codePD[daysFromStart].addClass("noHover");
+    codePZ[daysFromStart].addClass("noHover");
     button[daysFromStart].hide();
     resetHeightVisual = 150;
     p[daysFromStart].style("text-decoration", "line-through");
