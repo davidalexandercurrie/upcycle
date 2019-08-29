@@ -85,20 +85,20 @@ function setup() {
     createP(" ")
       .parent(div[i])
       .addClass("break-m");
-  }
-  if (
-    codeSnippets.zozo[daysFromStart] === undefined ||
-    codeSnippets.dave[daysFromStart] === undefined
-  ) {
-    // codeSnippets.zozo[daysFromStart] = "Coming Soon!";
-    // div[daysFromStart].html("Coming Soon!");
-    codePD[daysFromStart].addClass("noHover");
-    codePZ[daysFromStart].addClass("noHover");
-    button[daysFromStart].hide();
-    resetHeightVisual = 150;
-    p[daysFromStart].style("text-decoration", "line-through");
-    nameD[daysFromStart].hide();
-    nameZ[daysFromStart].hide();
+    if (
+      codeSnippets.zozo[i] === undefined ||
+      codeSnippets.dave[i] === undefined
+    ) {
+      // codeSnippets.zozo[daysFromStart] = "Coming Soon!";
+      // div[daysFromStart].html("Coming Soon!");
+      codePD[i].addClass("noHover");
+      codePZ[i].addClass("noHover");
+      button[i].hide();
+      resetHeightVisual = 150;
+      p[i].style("text-decoration", "line-through");
+      nameD[i].hide();
+      nameZ[i].hide();
+    }
   }
 
   spectrumZozo = new p5.FFT(0.9, 128);
