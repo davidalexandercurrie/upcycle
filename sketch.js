@@ -68,16 +68,7 @@ function setup() {
     nameZ[i] = createP("zozo")
       .parent(div[i])
       .addClass("nameZ");
-    if (
-      codeSnippets.zozo[daysFromStart] === undefined ||
-      codeSnippets.dave[daysFromStart] === undefined
-    ) {
-      // codeSnippets.zozo[daysFromStart] = "Coming Soon!";
-      div[daysFromStart] = createP("Coming Soon!");
-      button[daysFromStart].hide();
-      resetHeightVisual = 150;
-      p[daysFromStart].style("text-decoration", "line-through");
-    }
+
     codePZ[i] = createP(codeSnippets.zozo[i])
       .parent(div[i])
       .addClass("code")
@@ -94,15 +85,18 @@ function setup() {
     createP(" ")
       .parent(div[i])
       .addClass("break-m");
-
-    if (
-      codeSnippets.zozo[daysFromStart] === undefined ||
-      codeSnippets.dave[daysFromStart] === undefined
-    ) {
-      // codePZ[daysFromStart].style("text-align", "center");
-      nameD[daysFromStart].hide();
-      nameZ[daysFromStart].hide();
-    }
+  }
+  if (
+    codeSnippets.zozo[daysFromStart] === undefined ||
+    codeSnippets.dave[daysFromStart] === undefined
+  ) {
+    // codeSnippets.zozo[daysFromStart] = "Coming Soon!";
+    // div[daysFromStart].html("Coming Soon!");
+    button[daysFromStart].hide();
+    resetHeightVisual = 150;
+    p[daysFromStart].style("text-decoration", "line-through");
+    nameD[daysFromStart].hide();
+    nameZ[daysFromStart].hide();
   }
 
   spectrumZozo = new p5.FFT(0.9, 128);
