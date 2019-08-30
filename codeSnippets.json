@@ -14,7 +14,9 @@
     "d1 $ n \"1 2 7 4 8 9 3\"# s \"psr*4\" # pan rand # sustain rand # speed rand",
     "d1 $ every 2 (rev) $ stack [n \"1 2 ~ 6*2 8 9\" # s \"print\" # sustain rand, n \"4 2*3\" # s \"print\" # speed rand]",
     "let pats = [(\"a\", stack [n \"c3 ~ g4*4 f4 f5\" # s \"superpiano\" # crush 3 # sustain rand, n \"3 4 4 2\" # s \"circus\"]), (\"b\",  stack [ n \"c4 ~ g4 f4*2 f3\" # s \"superpiano\" # crush 4 # sustain rand])] <br>d1 $ ur 4 \"a b\" pats[]",
-    "d1 $ linger \"<0.5 1 1 0.25>\" $ chop 8 $ stut 4 0.3 0.25 $ sound \"breaks125\""
+    "d1 $ linger \"<0.5 1 1 0.25>\" $ chop 8 $ stut 4 0.3 0.25 $ sound \"breaks125\"",
+    "let sounds = [(\"beat\", s \"rave:2*4\")]<br>fx = [(\"rand-speed\", (# speed (range 0.25 1.25 $ rand)))]<br>d1 $ stack[ur 8 \"beat:rand-speed\" sounds fx # pan rand, s \"z-kik:2 z-kik*2\", every 3 (const $ s \"z-hh:3*4\" # pan rand) $ s \"z-hh*4\"]"
+    
   ],
   "dave": [
     "d1 $ every 4 (fast 0.75) $ note \"[-12 ~ 12 7]*4\" # n \"0 1 2 3\" # sound \"clubkick\" <br>d2 $ every 4 (fast 2) $ note \"[-24 ~ 12 7]*4\" # n \"0 1 2 3\" # sound \"industrial\"",
