@@ -93,6 +93,8 @@ function setup() {
       // div[daysFromStart].html("Coming Soon!");
       codePD[i].addClass("noHover");
       codePZ[i].addClass("noHover");
+      codePD[i].html("");
+      codePZ[i].html("");
       button[i].hide();
       resetHeightVisual = 150;
       p[i].style("text-decoration", "line-through");
