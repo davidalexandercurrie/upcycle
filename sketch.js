@@ -107,8 +107,8 @@ function setup() {
     }
   }
 
-  spectrumZozo = new p5.FFT(0.9, 128);
-  spectrumDave = new p5.FFT(0.9, 128);
+  spectrumZozo = new p5.FFT(0.9, 256);
+  spectrumDave = new p5.FFT(0.9, 256);
   ampZozo = new p5.Amplitude(0.5);
   ampDave = new p5.Amplitude(0.5);
 }
@@ -166,7 +166,7 @@ function visualisation() {
       //   width / 123,
       //   map(zozoFFT[i], 0, 255, 0, 1) * ampMult
       // );
-      XZ = (width / 123) * (i - 4);
+      XZ = (width / 251) * (i - 4);
       YZ = map(zozoFFT[i], 0, 255, 0, 1) * ampMult - 1 * volumeSliderZ.value();
       line(oldXZ, oldYZ, XZ, YZ);
       oldXZ = XZ;
@@ -185,7 +185,7 @@ function visualisation() {
       //   width / 123,
       //   map(daveFFT[i], 0, 255, 0, 1) * ampMult
       // );
-      XD = (width / 123) * (i - 4);
+      XD = (width / 251) * (i - 4);
       YD = map(daveFFT[i], 0, 255, 0, 1) * ampMult - 1 * volumeSliderD.value();
       line(oldXD, oldYD, XD, YD);
       oldXD = XD;
