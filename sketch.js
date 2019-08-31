@@ -220,11 +220,18 @@ function createButtonFunctions(days) {
         div[playingDiv].removeClass("playPanel");
         queuedTrackDave.stop();
         queuedTrackZozo.stop();
+        scrollTop();
         playSelected = false;
         startVisual = false;
       }
     };
   }
+}
+
+function scrollTop() {
+  // console.log(document.body.scroll);
+  document.body.scrollTop = 0; // For Safari
+  document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
 }
 
 function errloading() {
