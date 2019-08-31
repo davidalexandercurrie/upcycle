@@ -35,6 +35,10 @@ var daysFromStart = myDay - 18123;
 
 function preload() {
   codeSnippets = loadJSON("codeSnippets.json");
+  for (var i = 0; i < daysFromStart; i++) {
+    zozosounds[i] = loadSound("/Audio/z" + (i + 1).toString() + ".m4a");
+    davesounds[i] = loadSound("/Audio/d" + (i + 1).toString() + ".m4a");
+  }
 }
 
 function setup() {
