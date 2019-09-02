@@ -68,7 +68,7 @@ function fail() {
 }
 
 function loadBar (){
-widthValue = test/4
+widthValue = test
 loadTime = widthValue.toString() + "%"
 console.log(loadTime)
 bar.style('width', loadTime)
