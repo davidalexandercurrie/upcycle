@@ -50,7 +50,7 @@ function preload() {
 }
 
 function success() {
-  console.log("success");
+  // console.log("success");
 }
 function fail() {
   this._decrementPreload();
