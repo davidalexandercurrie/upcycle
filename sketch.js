@@ -164,7 +164,7 @@ function setup() {
   spectrumDave = new p5.FFT(0.9, 256);
   ampZozo = new p5.Amplitude(0.5);
   ampDave = new p5.Amplitude(0.5);
-  slidersDiv.style("visibility", "visible");
+  // slidersDiv.style("visibility", "visible");
 }
 
 function draw() {
@@ -268,6 +268,7 @@ function createButtonFunctions(days) {
           errloading
         );
         startVisual = true;
+        slidersDiv.style("visibility", "visible");
       } else {
         button[previousPlayingDiv].removeClass("fas fa-stop");
         button[previousPlayingDiv].addClass("fas fa-play");
@@ -275,6 +276,7 @@ function createButtonFunctions(days) {
         queuedTrackDave.stop();
         queuedTrackZozo.stop();
         scrollTop();
+        slidersDiv.style("visibility", "hidden");
         playSelected = false;
         startVisual = false;
       }
