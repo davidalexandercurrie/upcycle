@@ -57,18 +57,16 @@ function preload() {
       fail
     );
   }
-  labelVZ = createElement("div", '<i class="fas fa-volume-up"></i>').style(
-    "visibility",
-    "hidden"
-  );
-  labelVD = createElement("div", '<i class="fas fa-volume-up"></i>').style(
-    "visibility",
-    "hidden"
-  );
-  labelT = createElement("div", '<i class="fas fa-tachometer-alt"></i>').style(
-    "visibility",
-    "hidden"
-  );
+  slidersDiv = createElement("div", []).style("visibility", "hidden");
+  slidersDiv.addClass("sliderDiv");
+  labelVZ = createElement("div", '<i class="fas fa-volume-up"></i>');
+  labelVD = createElement("div", '<i class="fas fa-volume-up"></i>');
+  labelT = createElement("div", '<i class="fas fa-tachometer-alt"></i>');
+  labelVZ.parent(slidersDiv);
+  labelVZ.style("color", "red");
+  labelVD.parent(slidersDiv);
+  labelVD.style("color", "rgb(138, 43, 226)");
+  labelT.parent(slidersDiv);
 }
 
 function success() {
@@ -93,14 +91,7 @@ function setup() {
   // put setup code here
   var canvas = createCanvas(1400, 700).addClass("canvas");
   createElement("br", []);
-  slidersDiv = createElement("div", []);
-  slidersDiv.addClass("sliderDiv");
 
-  labelVZ.parent(slidersDiv);
-  labelVZ.style("color", "red");
-  labelVD.parent(slidersDiv);
-  labelVD.style("color", "rgb(138, 43, 226)");
-  labelT.parent(slidersDiv);
   slider = createSlider(-1, 1, 0, 0.01)
     .addClass("tempoSlider")
     .parent(labelT);
@@ -173,9 +164,7 @@ function setup() {
   spectrumDave = new p5.FFT(0.9, 256);
   ampZozo = new p5.Amplitude(0.5);
   ampDave = new p5.Amplitude(0.5);
-  labelVZ.style("visibility", "visible");
-  labelVD.style("visibility", "visible");
-  labelT.style("visibility", "visible");
+  slidersDiv.style("visibility", "visible");
 }
 
 function draw() {
