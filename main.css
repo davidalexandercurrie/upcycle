@@ -200,3 +200,7 @@ br::selection {
 h1::selection {
   background: transparent;
 }
+
+#p5_loading {
+  margin-top: 40vh;
+}
