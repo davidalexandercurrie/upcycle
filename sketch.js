@@ -33,14 +33,17 @@ var myClock = time.getTime().toString();
 var myDay = Math.floor(myClock / 86400000);
 var daysFromStart = myDay - 18123;
 var test = 0;
-var fullLoad = daysFromStart*2
-var loadAmount = 100 / fullLoad
+var fullLoad = daysFromStart * 2;
+var loadAmount = 100 / fullLoad;
 var bar;
+var labelVZ;
+var labelVD;
+var labelT;
 
 function preload() {
-  bar = createElement("div", [])
-  bar.id("loading-bar")
-  bar.parent(document.getElementById('p5_loading'))
+  bar = createElement("div", []);
+  bar.id("loading-bar");
+  bar.parent(document.getElementById("p5_loading"));
   codeSnippets = loadJSON("codeSnippets.json");
   for (var i = 0; i < daysFromStart; i++) {
     zozosounds[i] = loadSound(
@@ -54,6 +57,16 @@ function preload() {
       fail
     );
   }
+  slidersDiv = createElement("div", []).style("visibility", "hidden");
+  slidersDiv.addClass("sliderDiv");
+  labelVZ = createElement("div", '<i class="fas fa-volume-up"></i>');
+  labelVD = createElement("div", '<i class="fas fa-volume-up"></i>');
+  labelT = createElement("div", '<i class="fas fa-tachometer-alt"></i>');
+  labelVZ.parent(slidersDiv);
+  labelVZ.style("color", "red");
+  labelVD.parent(slidersDiv);
+  labelVD.style("color", "rgb(138, 43, 226)");
+  labelT.parent(slidersDiv);
 }
 
 function success() {
@@ -78,16 +91,7 @@ function setup() {
   // put setup code here
   var canvas = createCanvas(1400, 700).addClass("canvas");
   createElement("br", []);
-  slidersDiv = createElement("div", []);
-  slidersDiv.addClass("sliderDiv");
-  labelVZ = createElement("div", '<i class="fas fa-volume-up"></i>');
-  labelVD = createElement("div", '<i class="fas fa-volume-up"></i>');
-  labelT = createElement("div", '<i class="fas fa-tachometer-alt"></i>');
-  labelVZ.parent(slidersDiv);
-  labelVZ.style("color", "red");
-  labelVD.parent(slidersDiv);
-  labelVD.style("color", "rgb(138, 43, 226)");
-  labelT.parent(slidersDiv);
+
   slider = createSlider(-1, 1, 0, 0.01)
     .addClass("tempoSlider")
     .parent(labelT);
@@ -160,6 +164,7 @@ function setup() {
   spectrumDave = new p5.FFT(0.9, 256);
   ampZozo = new p5.Amplitude(0.5);
   ampDave = new p5.Amplitude(0.5);
+  slidersDiv.style("visibility", "visible");
 }
 
 function draw() {
@@ -297,8 +302,8 @@ function loadedD() {
 }
 
 function loadAudio(day) {
-  zozosounds[day] = loadSound("/Audio/z" + (day + 1).toString() + ".m4a");
-  davesounds[day] = loadSound("/Audio/d" + (day + 1).toString() + ".m4a");
+  // zozosounds[day] = loadSound("/Audio/z" + (day + 1).toString() + ".m4a");
+  // davesounds[day] = loadSound("/Audio/d" + (day + 1).toString() + ".m4a");
   playAudio(zozosounds[day], davesounds[day]);
   div[day].addClass("playPanel");
   button[day].removeClass("fas fa-play");
