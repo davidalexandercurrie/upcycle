@@ -302,8 +302,8 @@ function loadedD() {
 }
 
 function loadAudio(day) {
-  zozosounds[day] = loadSound("/Audio/z" + (day + 1).toString() + ".m4a");
-  davesounds[day] = loadSound("/Audio/d" + (day + 1).toString() + ".m4a");
+  // zozosounds[day] = loadSound("/Audio/z" + (day + 1).toString() + ".m4a");
+  // davesounds[day] = loadSound("/Audio/d" + (day + 1).toString() + ".m4a");
   playAudio(zozosounds[day], davesounds[day]);
   div[day].addClass("playPanel");
   button[day].removeClass("fas fa-play");
