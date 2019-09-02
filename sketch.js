@@ -61,9 +61,25 @@ function setup() {
   // put setup code here
   var canvas = createCanvas(1400, 700).addClass("canvas");
   createElement("br", []);
-  slider = createSlider(-1, 1, 0, 0.01).addClass("tempoSlider");
-  volumeSliderD = createSlider(0, 1, 0.8, 0.01).addClass("volumeSliderD");
-  volumeSliderZ = createSlider(0, 1, 0.8, 0.01).addClass("volumeSliderZ");
+  slidersDiv = createElement("div", []);
+  slidersDiv.addClass("sliderDiv");
+  labelVZ = createElement("div", '<i class="fas fa-volume-up"></i>');
+  labelVD = createElement("div", '<i class="fas fa-volume-up"></i>');
+  labelT = createElement("div", '<i class="fas fa-tachometer-alt"></i>');
+  labelVZ.parent(slidersDiv);
+  labelVZ.style("color", "red");
+  labelVD.parent(slidersDiv);
+  labelVD.style("color", "rgb(138, 43, 226)");
+  labelT.parent(slidersDiv);
+  slider = createSlider(-1, 1, 0, 0.01)
+    .addClass("tempoSlider")
+    .parent(labelT);
+  volumeSliderD = createSlider(0, 1, 0.8, 0.01)
+    .addClass("volumeSliderD")
+    .parent(labelVD);
+  volumeSliderZ = createSlider(0, 1, 0.8, 0.01)
+    .addClass("volumeSliderZ")
+    .parent(labelVZ);
   volumeSliderD.doubleClicked(resetVolumeD);
   volumeSliderZ.doubleClicked(resetVolumeZ);
   slider.doubleClicked(resetSlider);
