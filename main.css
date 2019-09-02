@@ -82,27 +82,26 @@ br::selection {
 }
 
 .volumeSliderZ {
+}
+.volumeSliderD {
+}
+.tempoSlider {
+}
+
+.sliderDiv {
   width: 10%;
   position: fixed;
   left: 90%;
   margin-left: -5%;
   top: 40%;
-}
-.volumeSliderD {
-  width: 10%;
-  position: fixed;
-  left: 90%;
-  margin-left: -5%;
-  top: 45%;
+  white-space: nowrap;
 }
 
-.tempoSlider {
-  width: 10%;
-  position: fixed;
-  left: 90%;
-  margin-left: -5%;
-  top: 50%;
+.sliderDiv i {
+  padding-top: 1.5rem;
+  padding-right: 0.8rem;
 }
+
 .codePanel {
   padding-top: 1em;
   margin-left: 25%;
