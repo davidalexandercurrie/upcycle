@@ -1,12 +1,18 @@
 body {
-  font-family: Helvetica, sans-serif;
+  /* font-family: Helvetica, sans-serif; */
+  font-family: monospace;
   padding: 0;
   margin: 0;
   text-align: center;
 }
 h1 {
+  font-family: Arial, Helvetica, sans-serif;
   color: red;
-  margin-bottom: -1.5em;
+  margin-bottom: -1em;
+  position: fixed;
+  left: 25%;
+  width: 50%;
+  background-color: rgba(255, 255, 255, 0.836);
 }
 
 button {
@@ -16,15 +22,18 @@ button {
   padding: 0.25em;
 }
 .day {
+  font-family: Arial, Helvetica, sans-serif;
   display: inline-block;
   margin-right: 1em;
 }
 .nameZ {
+  font-family: Arial, Helvetica, sans-serif;
   color: red;
   font-size: 1.4em;
   display: inline-block;
 }
 .nameD {
+  font-family: Arial, Helvetica, sans-serif;
   color: rgb(138, 43, 226);
   font-size: 1.4em;
   display: inline-block;
@@ -33,10 +42,24 @@ button {
 .code {
   display: inline-block;
   padding: 1em 0em 1em 1em;
+  white-space: normal;
+}
+
+.zozo-code:hover {
+  background: rgba(255, 196, 196, 0.192);
+  opacity: 20%;
+}
+
+.dave-code:hover {
+  background: rgba(255, 186, 255, 0.288);
 }
 
 p {
   margin: 0;
+}
+
+br::selection {
+  background: transparent;
 }
 
 .break-s {
@@ -48,28 +71,64 @@ p {
 }
 
 .canvas {
-  margin-top: 3em;
+  z-index: -1;
+  top: 5em;
+  margin-left: -700px;
+  position: fixed;
 }
 
+.canvas::selection {
+  background: transparent;
+}
+
+.volumeSliderZ {
+  width: 10%;
+  position: fixed;
+  left: 90%;
+  margin-left: -5%;
+  top: 40%;
+}
+.volumeSliderD {
+  width: 10%;
+  position: fixed;
+  left: 90%;
+  margin-left: -5%;
+  top: 45%;
+}
+
+.tempoSlider {
+  width: 10%;
+  position: fixed;
+  left: 90%;
+  margin-left: -5%;
+  top: 50%;
+}
 .codePanel {
 padding-top: 1em;
   /* margin-left: 25%;
   width: 50%; */
   padding-top: 1em;
+  white-space: nowrap;
 }
 .codePanel .zozo-code {
-  /* font-family: monospace;
-  font-size:1.1em; */
-text-align: left;
+  text-align: left;
+  width: 100%;
 }
+
+.noHover {
+  pointer-events: none;
+}
+
 .codePanel .dave-code {
   /* font-family: monospace;
   font-size:1.1em; */
   text-align: left;
+  width: 100%;
 }
 
 .dayPanel {
-  background-color: white;
+  background-color: transparent;
+  width: 50%;
 }
 
 .playPanel .zozo-code {
@@ -101,4 +160,50 @@ text-align: left;
   100% {
     color: rgb(138, 43, 226);
   }
+}
+.zozo-code::-moz-selection {
+  /* Code for Firefox */
+  background: yellow;
+}
+
+.zozo-code::selection {
+  background: yellow;
+}
+
+.dave-code::-moz-selection {
+  /* Code for Firefox */
+  background: greenyellow;
+}
+
+.dave-code::selection {
+  background: greenyellow;
+}
+
+.nameZ::selection {
+  background: transparent;
+}
+.nameZ::-moz-selection {
+  background: transparent;
+}
+.nameD::selection {
+  background: transparent;
+}
+.nameD::-moz-selection {
+  background: transparent;
+}
+
+.day::selection {
+  background: transparent;
+}
+
+.tempoSlider::selection {
+  background: transparent;
+}
+
+h1::selection {
+  background: transparent;
+}
+
+#p5_loading {
+  margin-top: 40vh;
 }

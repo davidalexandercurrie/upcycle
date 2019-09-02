@@ -1,4 +1,7 @@
 var div = [];
+var p = [];
+var nameD = [];
+var nameZ = [];
 var button = [];
 var codeSnippets;
 var clickFunctions = [];
@@ -11,10 +14,16 @@ var queuedTrackZozo;
 var queuedTrackDave;
 var oldTrackZozo;
 var oldTrackDave;
-var oldAmpZ;
-var oldAmpD;
-var ampMult = 600;
+var ampMult = 700;
+var spectrumDave;
+var spectrumZozo;
+var daveFFT;
+var zozoFFT;
+var ampDave;
+var ampZozo;
 var startVisual = false;
+var resetHeightVisual = 200;
+var transp = 150;
 var playingDiv;
 var previousPlayingDiv;
 var slider;
@@ -26,13 +35,37 @@ var daysFromStart = myDay - 18123;
 
 function preload() {
   codeSnippets = loadJSON("codeSnippets.json");
+  for (var i = 0; i < daysFromStart; i++) {
+    zozosounds[i] = loadSound(
+      "/Audio/z" + (i + 1).toString() + ".m4a",
+      success,
+      fail
+    );
+    davesounds[i] = loadSound(
+      "/Audio/d" + (i + 1).toString() + ".m4a",
+      success,
+      fail
+    );
+  }
+}
+
+function success() {
+  // console.log("success");
+}
+function fail() {
+  this._decrementPreload();
+  console.log("fail");
 }
 
 function setup() {
   // put setup code here
-  var canvas = createCanvas(200, 200).addClass("canvas");
+  var canvas = createCanvas(1400, 700).addClass("canvas");
   createElement("br", []);
-  slider = createSlider(0.5, 2, 1, 0.01);
+  slider = createSlider(-1, 1, 0, 0.01).addClass("tempoSlider");
+  volumeSliderD = createSlider(0, 1, 0.8, 0.01).addClass("volumeSliderD");
+  volumeSliderZ = createSlider(0, 1, 0.8, 0.01).addClass("volumeSliderZ");
+  volumeSliderD.doubleClicked(resetVolumeD);
+  volumeSliderZ.doubleClicked(resetVolumeZ);
   slider.doubleClicked(resetSlider);
 
   createButtonFunctions(daysFromStart);
@@ -41,7 +74,7 @@ function setup() {
     div[i] = createElement("div", []);
     div[i].addClass("dayPanel");
     div[i].addClass("codePanel");
-    createP("Day " + (i + 1))
+    p[i] = createP("Day " + (i + 1))
       .parent(div[i])
       .addClass("day");
     button[i] = createElement("i", [])
@@ -52,17 +85,19 @@ function setup() {
     createP(" ")
       .parent(div[i])
       .addClass("break-s");
-    createP("zozo")
+    nameZ[i] = createP("zozo")
       .parent(div[i])
       .addClass("nameZ");
+
     codePZ[i] = createP(codeSnippets.zozo[i])
       .parent(div[i])
       .addClass("code")
       .addClass("zozo-code");
     createP(" ").parent(div[i]);
-    createP("dave")
+    nameD[i] = createP("dave")
       .parent(div[i])
       .addClass("nameD");
+
     codePD[i] = createP(codeSnippets.dave[i])
       .parent(div[i])
       .addClass("code")
@@ -70,67 +105,109 @@ function setup() {
     createP(" ")
       .parent(div[i])
       .addClass("break-m");
+    if (
+      codeSnippets.zozo[i] === undefined ||
+      codeSnippets.dave[i] === undefined
+    ) {
+      // codeSnippets.zozo[daysFromStart] = "Coming Soon!";
+      // div[daysFromStart].html("Coming Soon!");
+      codePD[i].addClass("noHover");
+      codePZ[i].addClass("noHover");
+      codePD[i].html("");
+      codePZ[i].html("");
+      button[i].hide();
+      resetHeightVisual = 150;
+      p[i].style("text-decoration", "line-through");
+      nameD[i].hide();
+      nameZ[i].hide();
+    }
   }
 
+  spectrumZozo = new p5.FFT(0.9, 256);
+  spectrumDave = new p5.FFT(0.9, 256);
   ampZozo = new p5.Amplitude(0.5);
   ampDave = new p5.Amplitude(0.5);
 }
 
 function draw() {
+  daveFFT = spectrumDave.analyze();
+  zozoFFT = spectrumZozo.analyze();
   counter++;
   player();
   visualisation();
   noStroke();
-  playbackRate();
-  var aniSpeed = 2 / slider.value();
+  sliders();
+  var aniSpeed = 2 / pow(2, slider.value());
   var aniSpeedString = aniSpeed.toString() + "s";
   for (var i = 0; i < daysFromStart + 1; i++) {
     codePD[i].style("animation-duration", aniSpeedString);
     codePZ[i].style("animation-duration", aniSpeedString);
   }
-  // changeCssAnimationSpeed();
 }
 
-// function changeCssAnimationSpeed() {
-//   // var aniSpeed = 2 / slider.value();
-//   for (var i = 0; i < 5; i++) {
-
-//   }
-// }
-
-function playbackRate() {
+function sliders() {
   if (queuedTrackDave != undefined && queuedTrackZozo != undefined) {
-    queuedTrackZozo.rate(slider.value());
-    queuedTrackDave.rate(slider.value());
+    queuedTrackZozo.rate(pow(2, slider.value()));
+    queuedTrackDave.rate(pow(2, slider.value()));
+    queuedTrackDave.setVolume(volumeSliderD.value() ** 2, 0.1, 0);
+    queuedTrackZozo.setVolume(volumeSliderZ.value() ** 2, 0.1, 0);
   }
 }
 
 function visualisation() {
-  if (
-    (ampZozo.getLevel() > 0 || ampDave.getLevel() > 0) &&
-    startVisual === false
-  ) {
-    startVisual = true;
-  }
+  // if (
+  //   (ampZozo.getLevel() > 0 || ampDave.getLevel() > 0) &&
+  //   startVisual === false
+  // ) {
+  //   startVisual = true;
+  // }
   if (startVisual === false) {
-    fill(255, 0, 0);
-    rect(0, 0, width / 2, height);
-    fill(138, 43, 226);
-    rect(width / 2, 0, width / 2, height);
+    clear();
+    fill(255, 0, 0, transp);
+    rect(0, 0, width / 2, resetHeightVisual);
+    fill(138, 43, 226, transp);
+    rect(width / 2, 0, width / 2, resetHeightVisual);
   } else {
-    background(255, 200);
-    fill(255, 0, 0);
-    rect(0, 0, width / 2, lerp(oldAmpZ, ampZozo.getLevel() * ampMult, 0.9));
-    fill(138, 43, 226);
-    rect(
-      width / 2,
-      0,
-      width / 2,
-      lerp(oldAmpD, ampDave.getLevel() * ampMult, 0.9)
-    );
+    clear();
+    var oldXZ = -1000;
+    var oldYZ = 0;
+    var XZ;
+    var YZ;
+    for (var i = 4; i < zozoFFT.length - 1; i++) {
+      fill(255, 0, 0, transp);
+      stroke(255, 0, 0, transp);
+      // rect(
+      //   (width / 123) * (i - 4),
+      //   0,
+      //   width / 123,
+      //   map(zozoFFT[i], 0, 255, 0, 1) * ampMult
+      // );
+      XZ = (width / 251) * (i - 4);
+      YZ = map(zozoFFT[i], 0, 255, 0, 1) * ampMult - 1 * volumeSliderZ.value();
+      line(oldXZ, oldYZ, XZ, YZ);
+      oldXZ = XZ;
+      oldYZ = YZ;
+    }
+    var oldXD = -1000;
+    var oldYD = -1;
+    var XD;
+    var YD;
+    for (var i = 4; i < daveFFT.length - 1; i++) {
+      fill(138, 43, 226, transp);
+      stroke(138, 43, 226, transp);
+      // rect(
+      //   width - width / 123 / 2 - (width / 123) * (i - 4),
+      //   0,
+      //   width / 123,
+      //   map(daveFFT[i], 0, 255, 0, 1) * ampMult
+      // );
+      XD = (width / 251) * (i - 4);
+      YD = map(daveFFT[i], 0, 255, 0, 1) * ampMult - 1 * volumeSliderD.value();
+      line(oldXD, oldYD, XD, YD);
+      oldXD = XD;
+      oldYD = YD;
+    }
   }
-  oldAmpZ = ampZozo.getLevel() * ampMult;
-  oldAmpD = ampDave.getLevel() * ampMult;
 }
 
 function createButtonFunctions(days) {
@@ -152,18 +229,24 @@ function createButtonFunctions(days) {
           loadedZ,
           errloading
         );
-        console.log("play button");
+        startVisual = true;
       } else {
         button[previousPlayingDiv].removeClass("fas fa-stop");
         button[previousPlayingDiv].addClass("fas fa-play");
         div[playingDiv].removeClass("playPanel");
         queuedTrackDave.stop();
         queuedTrackZozo.stop();
-        console.log("stop button");
+        scrollTop();
         playSelected = false;
+        startVisual = false;
       }
     };
   }
+}
+
+function scrollTop() {
+  // document.body.scrollTop = 0; // For Safari
+  // document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
 }
 
 function errloading() {
@@ -188,7 +271,6 @@ function loadAudio(day) {
   button[day].removeClass("fas fa-play");
   button[day].addClass("fas fa-stop");
   if (previousPlayingDiv != undefined && playingDiv != previousPlayingDiv) {
-    console.log("removing play panel");
     div[previousPlayingDiv].removeClass("playPanel");
     button[previousPlayingDiv].removeClass("fas fa-stop");
     button[previousPlayingDiv].addClass("fas fa-play");
@@ -205,7 +287,9 @@ function playAudio(audioToPlayZozo, audioToPlayDave) {
   }
   queuedTrackZozo = audioToPlayZozo;
   queuedTrackDave = audioToPlayDave;
-  slider.value(1);
+  resetSlider();
+  resetVolumeD();
+  resetVolumeZ();
 }
 
 function player() {
@@ -226,11 +310,17 @@ function player() {
         queuedTrackDave.loop();
       }
     }
-    ampZozo.setInput(queuedTrackZozo);
-    ampDave.setInput(queuedTrackDave);
+    spectrumZozo.setInput(queuedTrackZozo);
+    spectrumDave.setInput(queuedTrackDave);
   }
 }
 
 function resetSlider() {
-  slider.value(1);
+  slider.value(0);
+}
+function resetVolumeD() {
+  volumeSliderD.value(0.8);
+}
+function resetVolumeZ() {
+  volumeSliderZ.value(0.8);
 }
