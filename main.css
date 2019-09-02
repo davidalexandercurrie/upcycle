@@ -103,6 +103,7 @@ br::selection {
 }
 
 .codePanel {
+  padding-top: 1em;
   margin-left: 25%;
   width: 50%;
   padding-top: 1em;
@@ -118,6 +119,8 @@ br::selection {
 }
 
 .codePanel .dave-code {
+  /* font-family: monospace;
+  font-size:1.1em; */
   text-align: left;
   width: 100%;
 }
@@ -202,4 +205,11 @@ h1::selection {
 
 #p5_loading {
   margin-top: 40vh;
+}
+#loading-bar {
+  background-color: red;
+  width: 0.5%;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 10px;
 }
