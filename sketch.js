@@ -178,7 +178,7 @@ function draw() {
   zozoFFT = spectrumZozo.analyze();
   counter++;
   if (divFadeInNumber >= 0) fadeInText();
-  controlAnimate();
+  controlPanelSlideIn();
   player();
   visualisation();
   noStroke();
@@ -210,13 +210,13 @@ function sliders() {
   }
 }
 
-function controlAnimate() {
+function controlPanelSlideIn() {
   if (slideIn === true && slideAmount > 0) {
-    slideAmount -= 1;
+    slideAmount -= 5;
     var slidePC = "translate(" + slideAmount.toString() + "%)";
     slidersDiv.style("transform", slidePC);
   } else if (slideIn === false && slideAmount < 150) {
-    slideAmount += 1;
+    slideAmount += 5;
     var slidePC = "translate(" + slideAmount.toString() + "%)";
     slidersDiv.style("transform", slidePC);
   }
