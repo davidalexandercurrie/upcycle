@@ -104,7 +104,7 @@ br::selection {
   top: 20%;
   white-space: nowrap;
   background: rgba(225, 221, 248, 0.678);
-  transform: translate(200%);
+  /* transform: translate(200%); */
 }
 
 .sliderDiv i {

@@ -41,7 +41,7 @@ var labelVZ;
 var labelVD;
 var labelT;
 var slideIn;
-var slideAmount = 150;
+var slideAmount = 0;
 var divFadeInNumber = daysFromStart;
 var opacityAmt = 0;
 
@@ -211,16 +211,27 @@ function sliders() {
 }
 
 function controlPanelSlideIn() {
-  if (slideIn === true && slideAmount > 0) {
-    slideAmount -= 5;
-    var slidePC = "translate(" + slideAmount.toString() + "%)";
-    slidersDiv.style("transform", slidePC);
-  } else if (slideIn === false && slideAmount < 150) {
-    slideAmount += 5;
-    var slidePC = "translate(" + slideAmount.toString() + "%)";
-    slidersDiv.style("transform", slidePC);
+  if (slideIn === true && slideAmount < 1) {
+    slideAmount += 0.005;
+    var slidePC = slideAmount.toString();
+    slidersDiv.style("opacity", slidePC);
+  } else if (slideIn === false && slideAmount > 0) {
+    slideAmount -= 0.005;
+    var slidePC = slideAmount.toString();
+    slidersDiv.style("opacity", slidePC);
   }
 }
+// function controlPanelSlideIn() {
+//   if (slideIn === true && slideAmount > 0) {
+//     slideAmount -= 5;
+//     var slidePC = "translate(" + slideAmount.toString() + "%)";
+//     slidersDiv.style("transform", slidePC);
+//   } else if (slideIn === false && slideAmount < 150) {
+//     slideAmount += 5;
+//     var slidePC = "translate(" + slideAmount.toString() + "%)";
+//     slidersDiv.style("transform", slidePC);
+//   }
+// }
 
 function visualisation() {
   // if (
