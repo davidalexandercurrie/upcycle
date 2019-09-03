@@ -127,6 +127,7 @@ function setup() {
       .parent(div[i]);
     button[i].id = i;
     button[i].mousePressed(clickFunctions[button[i].id]);
+    button[i].style("");
     createP(" ")
       .parent(div[i])
       .addClass("break-s");
@@ -251,10 +252,9 @@ function visualisation() {
   // }
   if (slideAmount <= 0.31) {
     clear();
-    fill(255, 0, 0, transp);
-    rect(0, 0, width / 2, visualHeight);
     fill(138, 43, 226, transp);
-    rect(width / 2, 0, width / 2, visualHeight);
+    rect(0, 0, width, visualHeight);
+
     if (visualHeight < 2) {
       visualHeight += 0.05;
     }
