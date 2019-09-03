@@ -42,6 +42,8 @@ var labelVD;
 var labelT;
 var slideIn;
 var slideAmount = 150;
+var divFadeInNumber = daysFromStart;
+var opacityAmt = 0;
 
 function preload() {
   bar = createElement("div", []);
@@ -86,7 +88,7 @@ function fail() {
 function loadBar() {
   widthValue = test;
   loadTime = widthValue.toString() + "%";
-  console.log(loadTime);
+  // console.log(loadTime);
   bar.style("width", loadTime);
 }
 
@@ -114,6 +116,7 @@ function setup() {
     div[i] = createElement("div", []);
     div[i].addClass("dayPanel");
     div[i].addClass("codePanel");
+    div[i].style("opacity", "0");
     p[i] = createP("Day " + (i + 1))
       .parent(div[i])
       .addClass("day");
@@ -174,6 +177,7 @@ function draw() {
   daveFFT = spectrumDave.analyze();
   zozoFFT = spectrumZozo.analyze();
   counter++;
+  if (divFadeInNumber >= 0) fadeInText();
   controlAnimate();
   player();
   visualisation();
@@ -184,6 +188,16 @@ function draw() {
   for (var i = 0; i < daysFromStart + 1; i++) {
     codePD[i].style("animation-duration", aniSpeedString);
     codePZ[i].style("animation-duration", aniSpeedString);
+  }
+}
+
+function fadeInText() {
+  var opacity = (opacityAmt ** 3).toString();
+  div[divFadeInNumber].style("opacity", opacity);
+  opacityAmt += 0.02;
+  if (opacityAmt > 1) {
+    opacityAmt = 0;
+    divFadeInNumber -= 1;
   }
 }
 
@@ -221,7 +235,7 @@ function visualisation() {
     rect(0, 0, width / 2, visualHeight);
     fill(138, 43, 226, transp);
     rect(width / 2, 0, width / 2, visualHeight);
-    if (visualHeight < 5) {
+    if (visualHeight < 2) {
       visualHeight += 0.05;
     }
   } else {
