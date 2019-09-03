@@ -41,9 +41,11 @@ var labelVZ;
 var labelVD;
 var labelT;
 var slideIn;
-var slideAmount = 0.3;
+var slideAmount = 0;
 var divFadeInNumber = daysFromStart;
 var opacityAmt = 0;
+var firstTime = true;
+var slidersDiv;
 
 function preload() {
   bar = createElement("div", []);
@@ -211,14 +213,21 @@ function sliders() {
 }
 
 function controlPanelSlideIn() {
-  if (slideIn === true && slideAmount < 1) {
+  if (slideIn === true && slideAmount < 1 && firstTime === false) {
     slideAmount += 0.05;
     var slidePC = slideAmount.toString();
     slidersDiv.style("opacity", slidePC);
-  } else if (slideIn === false && slideAmount > 0.5) {
+  } else if (slideIn === false && slideAmount > 0.3 && firstTime === false) {
     slideAmount -= 0.05;
     var slidePC = slideAmount.toString();
     slidersDiv.style("opacity", slidePC);
+  }
+  if (firstTime === true) {
+    slidersDiv.style("visibility", "visible");
+    slideAmount += 0.01;
+    var slidePC = slideAmount.toString();
+    slidersDiv.style("opacity", slidePC);
+    if (slideAmount > 0.3) firstTime = false;
   }
 }
 // function controlPanelSlideIn() {
@@ -240,7 +249,7 @@ function visualisation() {
   // ) {
   //   startVisual = true;
   // }
-  if (slideAmount <= 0) {
+  if (slideAmount <= 0.31) {
     clear();
     fill(255, 0, 0, transp);
     rect(0, 0, width / 2, visualHeight);
@@ -313,7 +322,7 @@ function createButtonFunctions(days) {
           errloading
         );
         startVisual = true;
-        slidersDiv.style("visibility", "visible");
+        // slidersDiv.style("visibility", "visible");
         slideIn = true;
       } else {
         button[previousPlayingDiv].removeClass("fas fa-stop");
