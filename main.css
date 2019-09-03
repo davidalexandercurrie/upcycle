@@ -9,11 +9,10 @@ h1 {
   z-index: 10;
   font-family: Arial, Helvetica, sans-serif;
   color: red;
-  margin-bottom: -1em;
   position: fixed;
-  left: 20%;
-  width: 50%;
-  background-color: rgba(255, 255, 255, 0.747);
+  left: 10%;
+  width: 60%;
+  background-color: rgba(255, 255, 255, 0.959);
   padding-bottom: 7px;
 }
 
@@ -84,39 +83,40 @@ br::selection {
 }
 
 .volumeSliderZ {
-  width: 50%;
+  width: 60%;
 }
 .volumeSliderD {
-  width: 50%;
+  width: 60%;
 }
 .tempoSlider {
-  width: 50%;
+  width: 60%;
 }
 
 .sliderDiv {
   z-index: 10;
   border-style: solid;
-  border-color: rgba(0, 255, 255, 0.623);
-  width: 15%;
+  border-color: rgb(138, 43, 226);
+  border-width: 2px;
+  width: 22%;
   height: 50%;
   position: fixed;
-  left: 85%;
-  margin-left: -5%;
+  left: 74%;
+  /* margin-left: -5%; */
   padding-bottom: 1rem;
   top: 20%;
   white-space: nowrap;
-  background: rgba(225, 221, 248, 0.678);
+  background: rgba(238, 236, 252, 0.678);
   /* transform: translate(200%); */
 }
 
 .sliderDiv i {
-  padding-top: 1.5rem;
+  padding-top: 1.6rem;
   padding-right: 0.8rem;
 }
 
 .codePanel {
   padding-top: 1em;
-  margin-left: 20%;
+  margin-left: 15%;
   width: 50%;
   padding-top: 1em;
   white-space: nowrap;
