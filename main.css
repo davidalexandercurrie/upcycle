@@ -81,20 +81,30 @@ br::selection {
   background: transparent;
 }
 
-/* .volumeSliderZ {
+.volumeSliderZ {
+  width: 50%;
 }
 .volumeSliderD {
+  width: 50%;
 }
 .tempoSlider {
-} */
+  width: 50%;
+}
 
 .sliderDiv {
-  width: 10%;
+  z-index: 10;
+  border-style: solid;
+  border-color: rgba(0, 255, 255, 0.623);
+  width: 15%;
+  height: 50%;
   position: fixed;
-  left: 90%;
+  left: 85%;
   margin-left: -5%;
-  top: 40%;
+  padding-bottom: 1rem;
+  top: 20%;
   white-space: nowrap;
+  background: rgba(225, 221, 248, 0.678);
+  transform: translate(200%);
 }
 
 .sliderDiv i {

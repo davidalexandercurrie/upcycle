@@ -23,7 +23,8 @@ var ampDave;
 var ampZozo;
 var startVisual = false;
 var resetHeightVisual = 200;
-var transp = 150;
+var visualHeight = 0;
+var transp = 255;
 var playingDiv;
 var previousPlayingDiv;
 var slider;
@@ -39,6 +40,8 @@ var bar;
 var labelVZ;
 var labelVD;
 var labelT;
+var slideIn;
+var slideAmount = 150;
 
 function preload() {
   bar = createElement("div", []);
@@ -80,11 +83,11 @@ function fail() {
   console.log("fail");
 }
 
-function loadBar (){
-widthValue = test
-loadTime = widthValue.toString() + "%"
-console.log(loadTime)
-bar.style('width', loadTime)
+function loadBar() {
+  widthValue = test;
+  loadTime = widthValue.toString() + "%";
+  console.log(loadTime);
+  bar.style("width", loadTime);
 }
 
 function setup() {
@@ -171,6 +174,7 @@ function draw() {
   daveFFT = spectrumDave.analyze();
   zozoFFT = spectrumZozo.analyze();
   counter++;
+  controlAnimate();
   player();
   visualisation();
   noStroke();
@@ -192,6 +196,18 @@ function sliders() {
   }
 }
 
+function controlAnimate() {
+  if (slideIn === true && slideAmount > 0) {
+    slideAmount -= 1;
+    var slidePC = "translate(" + slideAmount.toString() + "%)";
+    slidersDiv.style("transform", slidePC);
+  } else if (slideIn === false && slideAmount < 150) {
+    slideAmount += 1;
+    var slidePC = "translate(" + slideAmount.toString() + "%)";
+    slidersDiv.style("transform", slidePC);
+  }
+}
+
 function visualisation() {
   // if (
   //   (ampZozo.getLevel() > 0 || ampDave.getLevel() > 0) &&
@@ -199,12 +215,15 @@ function visualisation() {
   // ) {
   //   startVisual = true;
   // }
-  if (startVisual === false) {
+  if (slideAmount === 150) {
     clear();
     fill(255, 0, 0, transp);
-    rect(0, 0, width / 2, resetHeightVisual);
+    rect(0, 0, width / 2, visualHeight);
     fill(138, 43, 226, transp);
-    rect(width / 2, 0, width / 2, resetHeightVisual);
+    rect(width / 2, 0, width / 2, visualHeight);
+    if (visualHeight < 5) {
+      visualHeight += 0.05;
+    }
   } else {
     clear();
     var oldXZ = -1000;
@@ -245,6 +264,7 @@ function visualisation() {
       oldXD = XD;
       oldYD = YD;
     }
+    visualHeight = 0;
   }
 }
 
@@ -269,6 +289,7 @@ function createButtonFunctions(days) {
         );
         startVisual = true;
         slidersDiv.style("visibility", "visible");
+        slideIn = true;
       } else {
         button[previousPlayingDiv].removeClass("fas fa-stop");
         button[previousPlayingDiv].addClass("fas fa-play");
@@ -276,9 +297,10 @@ function createButtonFunctions(days) {
         queuedTrackDave.stop();
         queuedTrackZozo.stop();
         scrollTop();
-        slidersDiv.style("visibility", "hidden");
+        // slidersDiv.style("visibility", "hidden");
         playSelected = false;
         startVisual = false;
+        slideIn = false;
       }
     };
   }
