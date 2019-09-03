@@ -41,7 +41,7 @@ var labelVZ;
 var labelVD;
 var labelT;
 var slideIn;
-var slideAmount = 0;
+var slideAmount = 0.3;
 var divFadeInNumber = daysFromStart;
 var opacityAmt = 0;
 
@@ -215,7 +215,7 @@ function controlPanelSlideIn() {
     slideAmount += 0.05;
     var slidePC = slideAmount.toString();
     slidersDiv.style("opacity", slidePC);
-  } else if (slideIn === false && slideAmount > 0) {
+  } else if (slideIn === false && slideAmount > 0.5) {
     slideAmount -= 0.05;
     var slidePC = slideAmount.toString();
     slidersDiv.style("opacity", slidePC);
