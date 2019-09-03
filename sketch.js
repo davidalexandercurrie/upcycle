@@ -240,7 +240,7 @@ function visualisation() {
   // ) {
   //   startVisual = true;
   // }
-  if (slideAmount === 150) {
+  if (slideAmount === 0) {
     clear();
     fill(255, 0, 0, transp);
     rect(0, 0, width / 2, visualHeight);
