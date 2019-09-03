@@ -212,11 +212,11 @@ function sliders() {
 
 function controlPanelSlideIn() {
   if (slideIn === true && slideAmount < 1) {
-    slideAmount += 0.005;
+    slideAmount += 0.05;
     var slidePC = slideAmount.toString();
     slidersDiv.style("opacity", slidePC);
   } else if (slideIn === false && slideAmount > 0) {
-    slideAmount -= 0.005;
+    slideAmount -= 0.05;
     var slidePC = slideAmount.toString();
     slidersDiv.style("opacity", slidePC);
   }
@@ -240,7 +240,7 @@ function visualisation() {
   // ) {
   //   startVisual = true;
   // }
-  if (slideAmount === 0) {
+  if (slideAmount <= 0) {
     clear();
     fill(255, 0, 0, transp);
     rect(0, 0, width / 2, visualHeight);
