@@ -163,8 +163,8 @@ function setup() {
       codePZ[i].html("");
       button[i].hide();
       resetHeightVisual = 150;
-      p[i].style("text-decoration", "red line-through");
-      p[i].style("opacity", "0.5");
+      p[i].style("text-decoration", "line-through");
+      p[i].style("opacity", "0.4");
       nameD[i].hide();
       nameZ[i].hide();
     }

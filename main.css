@@ -1,19 +1,28 @@
 body {
   /* font-family: Helvetica, sans-serif; */
-  font-family: monospace;
+  /* font-family: monospace; */
+  /* font-family: "Fira Mono", monospace; */
+  font-family: "Fira Code", monospace;
+  /* font-family: "Major Mono Display", monospace; */
+  /* font-family: "Monofett", cursive; */
+  /* font-family: "Space Mono", monospace; */
+
+  font-size: 1em;
   padding: 0;
   margin: 0;
   text-align: center;
 }
 h1 {
+  font-family: "Space Mono", monospace;
   z-index: 10;
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: "Rubik Mono One", sans-serif;
+  font-size: 2em;
+
   color: red;
   position: fixed;
   left: 10%;
   width: 60%;
-  background-color: rgba(255, 255, 255, 0.959);
-  padding-bottom: 7px;
+  /* padding-bottom: 7px; */
 }
 
 button {
@@ -23,18 +32,18 @@ button {
   padding: 0.25em;
 }
 .day {
-  font-family: Arial, Helvetica, sans-serif;
+  /* font-family: Arial, Helvetica, sans-serif; */
   display: inline-block;
   margin-right: 1em;
 }
 .nameZ {
-  font-family: Arial, Helvetica, sans-serif;
+  /* font-family: Arial, Helvetica, sans-serif; */
   color: red;
   font-size: 1.4em;
   display: inline-block;
 }
 .nameD {
-  font-family: Arial, Helvetica, sans-serif;
+  /* font-family: Arial, Helvetica, sans-serif; */
   color: rgb(138, 43, 226);
   font-size: 1.4em;
   display: inline-block;
@@ -57,6 +66,8 @@ button {
 
 p {
   margin: 0;
+  font-size: 0.8em;
+  font-variant-ligatures: normal;
 }
 
 br::selection {
@@ -224,4 +235,12 @@ h1::selection {
   margin-left: auto;
   margin-right: auto;
   padding: 10px;
+}
+
+#titleBackground {
+  z-index: 9;
+  padding-top: 5em;
+  position: fixed;
+  background: rgba(255, 255, 255, 0.938);
+  width: 100%;
 }
