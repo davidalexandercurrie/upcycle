@@ -194,7 +194,7 @@ function draw() {
 function fadeInText() {
   var opacity = (opacityAmt ** 3).toString();
   div[divFadeInNumber].style("opacity", opacity);
-  opacityAmt += 0.02;
+  opacityAmt += 0.03;
   if (opacityAmt > 1) {
     opacityAmt = 0;
     divFadeInNumber -= 1;
