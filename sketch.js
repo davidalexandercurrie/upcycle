@@ -125,7 +125,7 @@ function setup() {
       .parent(div[i])
       .addClass("day");
     button[i] = createElement("i", [])
-      .addClass("fas fa-play")
+      .addClass("fas fa-play playButton")
       .parent(div[i]);
     button[i].id = i;
     button[i].mousePressed(clickFunctions[button[i].id]);
@@ -337,7 +337,9 @@ function createButtonFunctions(days) {
         slideIn = true;
       } else {
         button[previousPlayingDiv].removeClass("fas fa-stop");
+        button[previousPlayingDiv].removeClass("stopButton");
         button[previousPlayingDiv].addClass("fas fa-play");
+        button[previousPlayingDiv].addClass("playButton");
         div[playingDiv].removeClass("playPanel");
         queuedTrackDave.stop();
         queuedTrackZozo.stop();
@@ -376,12 +378,12 @@ function loadAudio(day) {
   // davesounds[day] = loadSound("/Audio/d" + (day + 1).toString() + ".m4a");
   playAudio(zozosounds[day], davesounds[day]);
   div[day].addClass("playPanel");
-  button[day].removeClass("fas fa-play");
-  button[day].addClass("fas fa-stop");
+  button[day].removeClass("fas fa-play playButton");
+  button[day].addClass("fas fa-stop stopButton");
   if (previousPlayingDiv != undefined && playingDiv != previousPlayingDiv) {
     div[previousPlayingDiv].removeClass("playPanel");
-    button[previousPlayingDiv].removeClass("fas fa-stop");
-    button[previousPlayingDiv].addClass("fas fa-play");
+    button[previousPlayingDiv].removeClass("fas fa-stop stopButton");
+    button[previousPlayingDiv].addClass("fas fa-play playButton");
     playSelected = true;
   }
 

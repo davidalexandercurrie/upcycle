@@ -28,7 +28,7 @@ button {
   display: inline-block;
   font-size: 2em;
   background: none;
-  padding: 0.25em;
+  /* padding: 0.25em; */
 }
 .day {
   /* font-family: Arial, Helvetica, sans-serif; */
@@ -36,6 +36,23 @@ button {
   margin-right: 1em;
   /* color: rgb(0, 102, 68); */
 }
+.playButton:hover {
+  pointer-events: all;
+  color: rgb(138, 43, 226);
+}
+.playButton {
+  font-size: 1.2em;
+  text-align: center;
+}
+.stopButton:hover {
+  pointer-events: all;
+  color: red;
+}
+.stopButton {
+  font-size: 1.2em;
+  text-align: center;
+}
+
 .nameZ {
   /* font-family: Arial, Helvetica, sans-serif; */
   color: red;
