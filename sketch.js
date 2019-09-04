@@ -215,11 +215,11 @@ function sliders() {
 }
 
 function controlPanelSlideIn() {
-  if (slideIn === true && slideAmount < 1 && firstTime === false) {
+  if (slideIn === true && slideAmount < 1 && firstTime == false) {
     slideAmount += 0.05;
     var slidePC = slideAmount.toString();
     slidersDiv.style("opacity", slidePC);
-  } else if (slideIn === false && slideAmount > 0.3 && firstTime === false) {
+  } else if (slideIn === false && slideAmount > 0.3 && firstTime == false) {
     slideAmount -= 0.05;
     var slidePC = slideAmount.toString();
     slidersDiv.style("opacity", slidePC);
@@ -228,8 +228,10 @@ function controlPanelSlideIn() {
     slidersDiv.style("visibility", "visible");
     slideAmount += 0.01;
     var slidePC = slideAmount.toString();
-    slidersDiv.style("opacity", slidePC);
-    if (slideAmount > 0.3) firstTime = false;
+    if (slideAmount < 0.3) slidersDiv.style("opacity", slidePC);
+    var h1 = document.getElementById("pageTitle");
+    h1.style.opacity = slidePC;
+    if (slideAmount > 1) firstTime = false;
   }
 }
 // function controlPanelSlideIn() {
@@ -251,7 +253,7 @@ function visualisation() {
   // ) {
   //   startVisual = true;
   // }
-  if (slideAmount <= 0.31) {
+  if (!playSelected) {
     clear();
     fill(138, 43, 226, transp);
     rect(0, 0, width, visualHeight);

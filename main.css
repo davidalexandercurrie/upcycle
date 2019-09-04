@@ -17,7 +17,6 @@ h1 {
   z-index: 10;
   font-family: "Rubik Mono One", sans-serif;
   font-size: 2em;
-
   color: red;
   position: fixed;
   left: 10%;
@@ -243,4 +242,8 @@ h1::selection {
   position: fixed;
   background: rgba(255, 255, 255, 0.938);
   width: 100%;
+}
+
+#pageTitle {
+  opacity: 0;
 }
