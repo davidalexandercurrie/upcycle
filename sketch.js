@@ -231,9 +231,11 @@ function controlPanelSlideIn() {
     slidersDiv.style("visibility", "visible");
     slideAmount += 0.01;
     var slidePC = slideAmount.toString();
+    var titleOpacity = 1 - (1 - slideAmount) ** 2;
+    var titleOpacityString = titleOpacity.toString();
     if (slideAmount < 0.3) slidersDiv.style("opacity", slidePC);
     var h1 = document.getElementById("pageTitle");
-    h1.style.opacity = slidePC;
+    h1.style.opacity = titleOpacityString;
     if (slideAmount > 1) {
       slideAmount = 0.2;
       firstTime = false;
