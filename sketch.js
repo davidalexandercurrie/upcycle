@@ -264,13 +264,8 @@ function visualisation() {
     strokeWeight(10);
     animationSpeedCurve = map(visualHeight, 0, width / 4, 0, 1);
     var visualSpeed = map(animationSpeedCurve ** 2, 0, 1, 0, width * 0.4);
-    line(0, 10, visualSpeed, 10);
-    line(
-      width,
-      10,
-      width - map(visualSpeed, 0, width * 0.4, 0, width * 0.6),
-      10
-    );
+    line(0, 5, visualSpeed, 5);
+    line(width, 5, width - map(visualSpeed, 0, width * 0.4, 0, width * 0.6), 5);
 
     if (visualHeight < width * 0.4) {
       visualHeight += 6;
