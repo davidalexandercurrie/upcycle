@@ -231,7 +231,10 @@ function controlPanelSlideIn() {
     if (slideAmount < 0.3) slidersDiv.style("opacity", slidePC);
     var h1 = document.getElementById("pageTitle");
     h1.style.opacity = slidePC;
-    if (slideAmount > 1) firstTime = false;
+    if (slideAmount > 1) {
+      slideAmount = 0.3;
+      firstTime = false;
+    }
   }
 }
 // function controlPanelSlideIn() {
