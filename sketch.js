@@ -255,11 +255,19 @@ function visualisation() {
   // }
   if (!playSelected) {
     clear();
-    fill(138, 43, 226, transp);
-    rect(0, 0, width, visualHeight);
+    stroke(138, 43, 226, transp);
+    // rect(0, 0, width, visualHeight);
+    strokeWeight(5);
+    line(0, 0, visualHeight, 0);
+    line(
+      width,
+      0,
+      width - map(visualHeight, 0, width * 0.4, 0, width * 0.6),
+      0
+    );
 
-    if (visualHeight < 2) {
-      visualHeight += 0.05;
+    if (visualHeight < width * 0.4) {
+      visualHeight += 8;
     }
   } else {
     clear();
@@ -270,6 +278,7 @@ function visualisation() {
     for (var i = 4; i < zozoFFT.length - 1; i++) {
       fill(255, 0, 0, transp);
       stroke(255, 0, 0, transp);
+      strokeWeight(1);
       // rect(
       //   (width / 123) * (i - 4),
       //   0,
