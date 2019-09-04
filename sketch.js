@@ -55,16 +55,29 @@ function preload() {
   bar.parent(document.getElementById("p5_loading"));
   codeSnippets = loadJSON("codeSnippets.json");
   for (var i = 0; i < daysFromStart; i++) {
-    zozosounds[i] = loadSound(
-      "/Audio/z" + (i + 1).toString() + ".m4a",
-      success,
-      fail
-    );
-    davesounds[i] = loadSound(
-      "/Audio/d" + (i + 1).toString() + ".m4a",
-      success,
-      fail
-    );
+    if (i < 17) {
+      zozosounds[i] = loadSound(
+        "/Audio/z" + (i + 1).toString() + ".m4a",
+        success,
+        fail
+      );
+      davesounds[i] = loadSound(
+        "/Audio/d" + (i + 1).toString() + ".m4a",
+        success,
+        fail
+      );
+    } else {
+      zozosounds[i] = loadSound(
+        "/Audio/z" + (i + 1).toString() + ".ogg",
+        success,
+        fail
+      );
+      davesounds[i] = loadSound(
+        "/Audio/d" + (i + 1).toString() + ".ogg",
+        success,
+        fail
+      );
+    }
   }
   slidersDiv = createElement("div", []).style("visibility", "hidden");
   slidersDiv.addClass("sliderDiv");
