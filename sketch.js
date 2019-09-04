@@ -259,6 +259,7 @@ function visualisation() {
   // }
   if (!playSelected) {
     clear();
+    strokeCap(SQUARE);
     stroke(138, 43, 226, transp);
     // rect(0, 0, width, visualHeight);
     strokeWeight(10);
