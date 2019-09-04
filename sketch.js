@@ -47,6 +47,7 @@ var opacityAmt = 0;
 var firstTime = true;
 var slidersDiv;
 var animationSpeedCurve;
+var timer = 500;
 
 function preload() {
   bar = createElement("div", []);
@@ -183,6 +184,7 @@ function draw() {
   zozoFFT = spectrumZozo.analyze();
   counter++;
   if (divFadeInNumber >= 0) fadeInText();
+  visualWaitTimer();
   controlPanelSlideIn();
   player();
   visualisation();
@@ -238,6 +240,11 @@ function controlPanelSlideIn() {
     }
   }
 }
+
+function visualWaitTimer() {
+  if (timer < 500) timer++;
+}
+
 // function controlPanelSlideIn() {
 //   if (slideIn === true && slideAmount > 0) {
 //     slideAmount -= 5;
@@ -281,12 +288,6 @@ function visualisation() {
       fill(255, 0, 0, transp);
       stroke(255, 0, 0, transp);
       strokeWeight(1);
-      // rect(
-      //   (width / 123) * (i - 4),
-      //   0,
-      //   width / 123,
-      //   map(zozoFFT[i], 0, 255, 0, 1) * ampMult
-      // );
       XZ = (width / 251) * (i - 4);
       YZ = map(zozoFFT[i], 0, 255, 0, 1) * ampMult - 1 * volumeSliderZ.value();
       line(oldXZ, oldYZ, XZ, YZ);
@@ -300,12 +301,6 @@ function visualisation() {
     for (var i = 4; i < daveFFT.length - 1; i++) {
       fill(138, 43, 226, transp);
       stroke(138, 43, 226, transp);
-      // rect(
-      //   width - width / 123 / 2 - (width / 123) * (i - 4),
-      //   0,
-      //   width / 123,
-      //   map(daveFFT[i], 0, 255, 0, 1) * ampMult
-      // );
       XD = (width / 251) * (i - 4);
       YD = map(daveFFT[i], 0, 255, 0, 1) * ampMult - 1 * volumeSliderD.value();
       line(oldXD, oldYD, XD, YD);
@@ -347,6 +342,7 @@ function createButtonFunctions(days) {
         scrollTop();
         // slidersDiv.style("visibility", "hidden");
         playSelected = false;
+        timer = 0;
         startVisual = false;
         slideIn = false;
       }
