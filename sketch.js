@@ -46,6 +46,7 @@ var divFadeInNumber = daysFromStart;
 var opacityAmt = 0;
 var firstTime = true;
 var slidersDiv;
+var animationSpeedCurve;
 
 function preload() {
   bar = createElement("div", []);
@@ -219,7 +220,7 @@ function controlPanelSlideIn() {
     slideAmount += 0.05;
     var slidePC = slideAmount.toString();
     slidersDiv.style("opacity", slidePC);
-  } else if (slideIn === false && slideAmount > 0.3 && firstTime == false) {
+  } else if (slideIn === false && slideAmount > 0.2 && firstTime == false) {
     slideAmount -= 0.05;
     var slidePC = slideAmount.toString();
     slidersDiv.style("opacity", slidePC);
@@ -232,7 +233,7 @@ function controlPanelSlideIn() {
     var h1 = document.getElementById("pageTitle");
     h1.style.opacity = slidePC;
     if (slideAmount > 1) {
-      slideAmount = 0.3;
+      slideAmount = 0.2;
       firstTime = false;
     }
   }
@@ -260,17 +261,19 @@ function visualisation() {
     clear();
     stroke(138, 43, 226, transp);
     // rect(0, 0, width, visualHeight);
-    strokeWeight(5);
-    line(0, 0, visualHeight, 0);
+    strokeWeight(10);
+    animationSpeedCurve = map(visualHeight, 0, width / 4, 0, 1);
+    var visualSpeed = map(animationSpeedCurve ** 2, 0, 1, 0, width * 0.4);
+    line(0, 10, visualSpeed, 10);
     line(
       width,
-      0,
-      width - map(visualHeight, 0, width * 0.4, 0, width * 0.6),
-      0
+      10,
+      width - map(visualSpeed, 0, width * 0.4, 0, width * 0.6),
+      10
     );
 
     if (visualHeight < width * 0.4) {
-      visualHeight += 8;
+      visualHeight += 6;
     }
   } else {
     clear();
