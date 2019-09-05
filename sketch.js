@@ -340,11 +340,12 @@ function createButtonFunctions(days) {
           playSelected = true;
         }
         // checking if file exists + stop duplicate playback
-        var xml = loadXML(
-          "/Audio/z" + (buttonID + 1).toString() + ".m4a",
-          loadedZ,
-          errloading
-        );
+        loadAudio(playingDiv);
+        // var xml = loadXML(
+        //   "/Audio/z" + (buttonID + 1).toString() + ".m4a",
+        //   loadedZ,
+        //   errloading
+        // );
         startVisual = true;
         // slidersDiv.style("visibility", "visible");
         slideIn = true;
@@ -372,19 +373,19 @@ function scrollTop() {
   // document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
 }
 
-function errloading() {
-  // TODO trigger css for play not successful from here
-}
-function loadedZ() {
-  var xml = loadXML(
-    "/Audio/d" + (playingDiv + 1).toString() + ".m4a",
-    loadedD,
-    errloading
-  );
-}
-function loadedD() {
-  loadAudio(playingDiv);
-}
+// function errloading() {
+//   // TODO trigger css for play not successful from here
+// }
+// function loadedZ() {
+//   var xml = loadXML(
+//     "/Audio/d" + (playingDiv + 1).toString() + ".m4a",
+//     loadedD,
+//     errloading
+//   );
+// }
+// function loadedD() {
+//   loadAudio(playingDiv);
+// }
 
 function loadAudio(day) {
   // zozosounds[day] = loadSound("/Audio/z" + (day + 1).toString() + ".m4a");
