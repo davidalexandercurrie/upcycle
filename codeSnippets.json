@@ -18,7 +18,7 @@
     "let sounds = [(\"beat\", s \"rave:2*4\")]<br>fx = [(\"rand-speed\", (|> speed (range 0.25 1.25 $ rand)))]<br>d1 $ stack[ur 8 \"beat:rand-speed\" sounds fx |> pan rand, s \"z-kik:2 z-kik*2\", every 3 (const $ s \"z-hh:3*4\" |> pan rand) $ s \"z-hh*4\"]",
     "d1 $ every 2 (|>n \"-10*4 -2 -7 8\") $ every 3(|> speed (range 0 1.5 $ rand)) $ n \"-10*3 -6 8*2 -9 -8\" |> sound \"super808\" |> pan rand |> speed 1",
     "d1 $ every 4 (|> speed \"4 3 0.25 0.1 4\") $ every 2 (rev) $ chop \"<16 32 8 64>\" $ s (fit 3 [\"rave:4\", \"z-hh:5\", \"rave:8\"] \"0 0*2 1 2\") |> speed \"1.25 1 0.25 1 1\"",
-    "d1 $ every 2 (|+ n (12)) $ chunk 8 (|> crush 4) $ rot \"<0 1 2 0 4 1>\" $ n (run 8) |> s \"psr\" |> sustain \"1 0.75 0.5 0.2 2 1\" |> pan rand"
+    "d1 $ slow 2 $ brak $ spread fast[1,2,2,2] $ chop \"<32 16 8>\" $ n \"8 2*4 3 4\" |> s \"odx\""
   ],
   "dave": [
     "d1 $ every 4 (fast 0.75) $ note \"[-12 ~ 12 7]*4\" |> n \"0 1 2 3\" |> sound \"clubkick\" <br>d2 $ every 4 (fast 2) $ note \"[-24 ~ 12 7]*4\" |> n \"0 1 2 3\" |> sound \"industrial\"",
