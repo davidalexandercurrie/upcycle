@@ -246,13 +246,43 @@ h1::selection {
 
 #p5_loading {
   margin-top: 40vh;
+  display: inline-block;
+  letter-spacing: 2px;
+  font-size: 20px;
 }
 #loading-bar {
-  background-color: red;
-  width: 0.5%;
+  display: inline-block;
+  background-color: lightcyan;
+  overflow:hidden;
+  white-space: nowrap;
+  box-sizing: border-box;
+  padding-bottom: 8px;
+  width:1%;
   margin-left: auto;
   margin-right: auto;
-  padding: 10px;
+}
+
+@keyframes highlight {
+  0% { 
+    background-color: lightcyan;
+  }
+  50% {
+    background-color: ;
+  }
+  100% { 
+    background-color: lightcyan;
+  }
+}
+
+#typing {
+  display:inline-block;  
+  overflow:hidden;
+  font-weight: lighter;
+  font-size: 30px;
+  white-space: nowrap;
+  box-sizing: border-box;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 #titleBackground {
