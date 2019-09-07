@@ -169,7 +169,9 @@ function setup() {
       .addClass("break-m");
     if (
       codeSnippets.zozo[i] === undefined ||
-      codeSnippets.dave[i] === undefined
+      codeSnippets.dave[i] === undefined ||
+      zozosounds[i] === undefined ||
+      davesounds[i] === undefined
     ) {
       // codeSnippets.zozo[daysFromStart] = "Coming Soon!";
       // div[daysFromStart].html("Coming Soon!");
