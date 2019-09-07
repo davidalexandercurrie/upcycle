@@ -92,6 +92,7 @@ function preload() {
 }
 
 function success() {
+  console.log("loaded Audio");
   test += loadAmount;
   loadBar();
 }
