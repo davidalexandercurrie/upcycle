@@ -22,7 +22,6 @@
     "d1 $ every 4 (|> speed \"4 3 0.25 0.1 4\") $ every 2 (rev) $ chop \"<16 32 8 64>\" $ s (fit 3 [\"rave:4\", \"z-hh:5\", \"rave:8\"] \"0 0*2 1 2\") |> speed \"1.25 1 0.25 1 1\"",
     "d1 $ every 2 (|+ n (12)) $ chunk 8 (|> crush 4) $ rot \"<0 1 2 0 4 1>\" $ n (run 8) |> s \"psr\" |> sustain \"1 0.75 0.5 0.2 2 1\" |> pan rand",
     "d1 $ slow 2 $ brak $ spread fast[1,2,2,2] $ chop \"<32 16 8>\" $ n \"8 2*4 3 4\" |> s \"odx\"",
-    "d1 $ interlace (sometimes (|> crush 7) $ chop \"<32 16 8 64>\" $ n \"3*2 4*32 5*16 6*32 7*8\" |> s \"rave2 rave:6 glasstap\" # pan rand) (smash 3 [2,3,4] $ n \"10 12*4 18 24*20\" |> sound \"superpiano\" |> crush 4)",
     "d1 $ interlace (sometimes (|> crush 7) $ chop \"<32 16 8 64>\" $ n \"3*2 4*32 5*16 6*32 7*8\" |> s \"rave2 rave:6 glasstap\" # pan rand) (smash 3 [2,3,4] $ n \"10 12*4 18 24*20\" |> sound \"superpiano\" |> crush 4)"
   ],
   "dave": [
@@ -48,7 +47,6 @@
     "d1 $ every 3 (slow 4) $ every 2 (fast 2) $ n \"0*24\" |> note (choose [0,3,7,10,50]) |- note ((irand 5)*12) |+ note \"12\" |> sound \"superpiano\" |> lpf 800 |> lpq (range 0 0.5 rand)",
     "d1 $ every 2 (0.125 <~) $ every 3 (0.1 <~) $ every 5 (0.2 <~) $ note \"[12 0 -24, 50 32 53 20, 2 4 3 5 3, 28 39, 48 39 23 50 51 52 53]\" |> sound \"supergong\"",
     "d1 $ every 2 (0.2 <~) $ n \"0*12\" |> note (choose[0, 5]-24) |> sound \"supersaw\" |> djf rand |> pan rand",
-    "d1 $ s \"[bd*16, sd*16, hh*32]\" |> djf (fast (irand 4) $ sine) |> pan ((rand*0.5)+0.25)",
     "d1 $ s \"[bd*16, sd*16, hh*32]\" |> djf (fast (irand 4) $ sine) |> pan ((rand*0.5)+0.25)"
   ]
 }
