@@ -249,34 +249,27 @@ h1::selection {
 
 #p5_loading {
   margin-top: 40vh;
-  display: inline-block;
-  letter-spacing: 2px;
-  font-size: 20px;
 }
 #loading-bar {
-  display: inline-block;
-  background-color: lightcyan;
-  overflow:hidden;
-  white-space: nowrap;
-  box-sizing: border-box;
-  padding-bottom: 8px;
-  width:1%;
+  background-color: red;
+  width: 0.5%;
   margin-left: auto;
   margin-right: auto;
+  padding: 10px;
 }
 
-@keyframes highlight {
+/* @keyframes highlight {
   0% { 
     background-color: lightcyan;
   }
   50% {
-    background-color: ;
+    /* background-color: lightgreen; */
   }
   100% { 
     background-color: lightcyan;
   }
-}
-
+} */
+/* 
 #typing {
   display:inline-block;  
   overflow:hidden;
@@ -286,7 +279,7 @@ h1::selection {
   box-sizing: border-box;
   margin-left: auto;
   margin-right: auto;
-}
+} */
 
 #titleBackground {
   z-index: 9;

@@ -48,16 +48,14 @@ var firstTime = true;
 var slidersDiv;
 var animationSpeedCurve;
 var timer = 500;
+var main = document.getElementById("main-id");
 
 function preload() {
   codeSnippets = loadJSON("codeSnippets.json");
   console.log(codeSnippets['zozo'])
-  bar = createElement("div", ["d1 $ whenmod 4 2 (rev) $ s \"bend*2 east:2 east*4 east:2*2\" |> pan sine |> sustain tri"]);
+  bar = createElement("div", []);
   bar.id("loading-bar");
   bar.parent(document.getElementById("p5_loading"));
-  typing  = createElement("div", ["|"])
-  typing.id("typing")
-  typing.parent(document.getElementById("p5_loading"));
   for (var i = 0; i <= daysFromStart; i++) {
     if (i < 17) {
       zozosounds[i] = loadSound(
@@ -112,14 +110,11 @@ function loadBar() {
   loadTime = widthValue.toString() + "%";
   console.log(widthValue)
     bar.style("width", loadTime);
-
-    if (widthValue >70 && widthValue <75) {
-      bar.style("animation", "highlight 0.3s");
-    }
 }
 
 function setup() {
   // put setup code here
+  // main.style("visibility", "hidden")
   var canvas = createCanvas(1400, 700).addClass("canvas");
   createElement("br", []);
   slider = createSlider(-1, 1, 0, 0.01)
