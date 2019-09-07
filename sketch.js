@@ -54,7 +54,7 @@ function preload() {
   bar.id("loading-bar");
   bar.parent(document.getElementById("p5_loading"));
   codeSnippets = loadJSON("codeSnippets.json");
-  for (var i = 0; i < daysFromStart; i++) {
+  for (var i = 0; i < daysFromStart + 1; i++) {
     if (i < 17) {
       zozosounds[i] = loadSound(
         "/Audio/z" + (i + 1).toString() + ".m4a",
