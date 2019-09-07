@@ -55,18 +55,10 @@ function preload() {
   bar = createElement("div", ["d1 $ whenmod 4 2 (rev) $ s \"bend*2 east:2 east*4 east:2*2\" |> pan sine |> sustain tri"]);
   bar.id("loading-bar");
   bar.parent(document.getElementById("p5_loading"));
-<<<<<<< HEAD
   typing  = createElement("div", ["|"])
   typing.id("typing")
   typing.parent(document.getElementById("p5_loading"));
-  for (var i = 0; i < daysFromStart; i++) {
-||||||| merged common ancestors
-  codeSnippets = loadJSON("codeSnippets.json");
-  for (var i = 0; i < daysFromStart; i++) {
-=======
-  codeSnippets = loadJSON("codeSnippets.json");
   for (var i = 0; i <= daysFromStart; i++) {
->>>>>>> 68b38c8b2ce4677ef6206697c5ca9048edc3b16c
     if (i < 17) {
       zozosounds[i] = loadSound(
         "/Audio/z" + (i + 1).toString() + ".m4a",
