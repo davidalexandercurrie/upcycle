@@ -55,10 +55,18 @@ function preload() {
   bar = createElement("div", ["d1 $ whenmod 4 2 (rev) $ s \"bend*2 east:2 east*4 east:2*2\" |> pan sine |> sustain tri"]);
   bar.id("loading-bar");
   bar.parent(document.getElementById("p5_loading"));
+<<<<<<< HEAD
   typing  = createElement("div", ["|"])
   typing.id("typing")
   typing.parent(document.getElementById("p5_loading"));
   for (var i = 0; i < daysFromStart; i++) {
+||||||| merged common ancestors
+  codeSnippets = loadJSON("codeSnippets.json");
+  for (var i = 0; i < daysFromStart; i++) {
+=======
+  codeSnippets = loadJSON("codeSnippets.json");
+  for (var i = 0; i <= daysFromStart; i++) {
+>>>>>>> 68b38c8b2ce4677ef6206697c5ca9048edc3b16c
     if (i < 17) {
       zozosounds[i] = loadSound(
         "/Audio/z" + (i + 1).toString() + ".m4a",
@@ -96,6 +104,7 @@ function preload() {
 }
 
 function success() {
+  console.log("loaded Audio");
   test += loadAmount;
   loadBar();
 }
@@ -347,11 +356,12 @@ function createButtonFunctions(days) {
           playSelected = true;
         }
         // checking if file exists + stop duplicate playback
-        var xml = loadXML(
-          "/Audio/z" + (buttonID + 1).toString() + ".m4a",
-          loadedZ,
-          errloading
-        );
+        loadAudio(playingDiv);
+        // var xml = loadXML(
+        //   "/Audio/z" + (buttonID + 1).toString() + ".m4a",
+        //   loadedZ,
+        //   errloading
+        // );
         startVisual = true;
         // slidersDiv.style("visibility", "visible");
         slideIn = true;
@@ -379,19 +389,19 @@ function scrollTop() {
   // document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
 }
 
-function errloading() {
-  // TODO trigger css for play not successful from here
-}
-function loadedZ() {
-  var xml = loadXML(
-    "/Audio/d" + (playingDiv + 1).toString() + ".m4a",
-    loadedD,
-    errloading
-  );
-}
-function loadedD() {
-  loadAudio(playingDiv);
-}
+// function errloading() {
+//   // TODO trigger css for play not successful from here
+// }
+// function loadedZ() {
+//   var xml = loadXML(
+//     "/Audio/d" + (playingDiv + 1).toString() + ".m4a",
+//     loadedD,
+//     errloading
+//   );
+// }
+// function loadedD() {
+//   loadAudio(playingDiv);
+// }
 
 function loadAudio(day) {
   // zozosounds[day] = loadSound("/Audio/z" + (day + 1).toString() + ".m4a");
