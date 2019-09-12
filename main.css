@@ -270,3 +270,64 @@ h1::selection {
 #pageTitle {
   opacity: 0;
 }
+
+#phone {
+  height: 0;
+}
+
+@media only screen and (max-device-width: 840px) {
+  h1 {
+    position: fixed;
+    left: 0;
+    width: 100%;
+    font-size: 10em;
+    margin-top: 0;
+    padding-bottom: 2em;
+  }
+  .sliderDiv {
+    display: none;
+  }
+  .nameD {
+    display: block;
+    font-size: 3em;
+  }
+  .nameZ {
+    display: block;
+    font-size: 3em;
+  }
+  .dayPanel {
+    width: 100%;
+    margin: 0;
+  }
+  .dave-code {
+    padding: 0;
+    width: 100%;
+    font-size: 1em;
+    margin-left: 0.5em;
+    margin-right: 0.5em;
+  }
+  .zozo-code {
+    padding: 0;
+    width: 100%;
+    font-size: 1em;
+    margin-left: 0.5em;
+    margin-right: 0.5em;
+  }
+  .day {
+    font-size: 5em;
+  }
+  .dayPanel i {
+    font-size: 5em;
+  }
+  #titleBackground {
+    height: 10.5em;
+    padding: 0em;
+    top: 0;
+  }
+  #phone {
+    height: 7em;
+  }
+  .canvas {
+    margin-top: 5em;
+  }
+}
