@@ -155,7 +155,7 @@ function setup() {
       codeSnippets.dave[i] != undefined
     ) {
       codeSnippets.zozo[i] = codeSnippets.zozo[i]
-        .replace(/[\[\]~|<>"]/g, m => {
+        .replace(/[\[\]~|<>()"]/g, m => {
           console.log(m);
           return (
             '<span class="brackets">' + m + '<span><span class="default"><span>'
@@ -173,7 +173,7 @@ function setup() {
           );
         });
       codeSnippets.dave[i] = codeSnippets.dave[i]
-        .replace(/[\[\]~|<>"]/g, m => {
+        .replace(/[\[\]~|<>()"]/g, m => {
           console.log(m);
           return (
             '<span class="brackets">' + m + '<span><span class="default"><span>'
