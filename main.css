@@ -334,16 +334,16 @@ h1::selection {
 
 /* code highlighting classes */
 .dollar-sign {
-  color: darkcyan;
+  color: rgb(138, 43, 226);
 }
 .play-sign {
   color: blue;
 }
 .default {
-  color: black;
+  color: rgb(226, 138, 43);
 }
 .d {
-  color: green;
+  color: rgb(43, 138, 226);
 }
 .brackets {
   color: red;
