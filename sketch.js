@@ -32,7 +32,7 @@ var playSelected = false;
 var time = new Date();
 var myClock = time.getTime().toString();
 var myDay = Math.floor(myClock / 86400000);
-var daysFromStart = myDay - 18123;
+var daysFromStart = myDay - 18129;
 var test = 0;
 var fullLoad = daysFromStart * 2;
 var loadAmount = 100 / fullLoad;
@@ -156,25 +156,53 @@ function setup() {
       codeSnippets.dave[i] != undefined
     ) {
       codeSnippets.zozo[i] = codeSnippets.zozo[i]
-        .replace(/[\[\]~|<>()"+*:,-]/g, m => {
+        .replace(/([^r|>])([<>~])/g, (m, p1, p2) => {
+          return (
+            p1 +
+            '<span class="brackets">' +
+            p2 +
+            '<span><span class="default"><span>'
+          );
+        })
+        .replace(/[\[\]\(\)~]/g, m => {
           return (
             '<span class="brackets">' + m + '<span><span class="default"><span>'
           );
         })
-        .replace(/(?<!d)([0-9]*[.])?[0-9]+/g, m => {
+        .replace(/([^=st])(")/g, (m, p1, p2) => {
+          console.log(m);
+          return (
+            p1 +
+            '<span class="math-dx">' +
+            p2 +
+            '<span><span class="default"><span>'
+          );
+        })
+        .replace(/(?<!d)(?<!\d)-?([0-9]*[.])?[0-9]+/g, m => {
           return (
             '<span class="numbers">' + m + '<span><span class="default"><span>'
           );
         })
-        .replace(
-          /\$/g,
-          '<span class="dollar-sign">' +
-            "$" +
+        .replace(/(\$)/g, m => {
+          return (
+            '<span class="operators">' +
+            m +
             '<span><span class="default"><span>'
-        )
+          );
+        })
+        .replace(/(<span>)?([*<>+-]?\|[*<>+-]?)/g, (m, p1, p2) => {
+          return p1 != undefined
+            ? p1
+            : "" +
+                '<span class="operators">' +
+                p2 +
+                '<span><span class="default"><span>';
+        })
         .replace(/d\d/, m => {
           return (
-            '<span class="d">' + m + '<span><span class="default"><span></span>'
+            '<span class="math-dx">' +
+            m +
+            '<span><span class="default"><span></span>'
           );
         })
         .replace(
@@ -188,25 +216,52 @@ function setup() {
           }
         );
       codeSnippets.dave[i] = codeSnippets.dave[i]
-        .replace(/[\[\]~|<>()"+*:,-]/g, m => {
+        .replace(/([^r|>])([<>])/g, (m, p1, p2) => {
+          return (
+            p1 +
+            '<span class="brackets">' +
+            p2 +
+            '<span><span class="default"><span>'
+          );
+        })
+        .replace(/[\[\]\(\)~]/g, m => {
           return (
             '<span class="brackets">' + m + '<span><span class="default"><span>'
           );
         })
-        .replace(/(?<!d)([0-9]*[.])?[0-9]+/g, m => {
+        .replace(/([^=st])(")/g, (m, p1, p2) => {
+          return (
+            p1 +
+            '<span class="math-dx">' +
+            p2 +
+            '<span><span class="default"><span>'
+          );
+        })
+        .replace(/(?<!d)(?<!\d)-?([0-9]*[.])?[0-9]+/g, m => {
           return (
             '<span class="numbers">' + m + '<span><span class="default"><span>'
           );
         })
-        .replace(
-          /\$/g,
-          '<span class="dollar-sign">' +
-            "$" +
+        .replace(/(\$)/g, m => {
+          return (
+            '<span class="operators">' +
+            m +
             '<span><span class="default"><span>'
-        )
+          );
+        })
+        .replace(/(<span>)?([*<>+-]?\|[*<>+-]?)/g, (m, p1, p2) => {
+          return p1 != undefined
+            ? p1
+            : "" +
+                '<span class="operators">' +
+                p2 +
+                '<span><span class="default"><span>';
+        })
         .replace(/d\d/, m => {
           return (
-            '<span class="d">' + m + '<span><span class="default"><span></span>'
+            '<span class="math-dx">' +
+            m +
+            '<span><span class="default"><span></span>'
           );
         })
         .replace(

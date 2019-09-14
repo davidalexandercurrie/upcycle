@@ -337,14 +337,14 @@ h1::selection {
   color: rgb(226, 138, 43);
   font-weight: normal;
 }
-.dollar-sign {
+.operators {
   color: rgb(138, 43, 226);
   font-weight: bolder;
 }
 .play-sign {
   color: blue;
 }
-.d {
+.math-dx {
   color: rgb(43, 138, 226);
   font-weight: bolder;
 }
