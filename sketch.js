@@ -162,7 +162,6 @@ function setup() {
           );
         })
         .replace(/(?<!d)([0-9]*[.])?[0-9]+/g, m => {
-          console.log(m);
           return (
             '<span class="numbers">' + m + '<span><span class="default"><span>'
           );
@@ -178,13 +177,16 @@ function setup() {
             '<span class="d">' + m + '<span><span class="default"><span></span>'
           );
         })
-        .replace(/(sine|cosine|square|tri|saw|isaw|rand|irand)/g, m => {
-          return (
-            '<span class="oscs">' +
-            m +
-            '<span><span class="default"><span></span>'
-          );
-        });
+        .replace(
+          /(\bsine\b|\bcosine\b|\bsquare\b|\btri\b|\bsaw\b|\bisaw\b|\brand\b|\birand\b)/g,
+          m => {
+            return (
+              '<span class="oscs">' +
+              m +
+              '<span><span class="default"><span></span>'
+            );
+          }
+        );
       codeSnippets.dave[i] = codeSnippets.dave[i]
         .replace(/[\[\]~|<>()"+*:,-]/g, m => {
           return (
@@ -192,7 +194,6 @@ function setup() {
           );
         })
         .replace(/(?<!d)([0-9]*[.])?[0-9]+/g, m => {
-          console.log(m);
           return (
             '<span class="numbers">' + m + '<span><span class="default"><span>'
           );
@@ -208,13 +209,16 @@ function setup() {
             '<span class="d">' + m + '<span><span class="default"><span></span>'
           );
         })
-        .replace(/(sine|cosine|square|tri|saw|isaw|rand|irand)/g, m => {
-          return (
-            '<span class="oscs">' +
-            m +
-            '<span><span class="default"><span></span>'
-          );
-        });
+        .replace(
+          /(\bsine\b|\bcosine\b|\bsquare\b|\btri\b|\bsaw\b|\bisaw\b|\brand\b|\birand\b)/g,
+          m => {
+            return (
+              '<span class="oscs">' +
+              m +
+              '<span><span class="default"><span></span>'
+            );
+          }
+        );
     }
 
     codePZ[i] = createP(codeSnippets.zozo[i])
