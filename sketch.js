@@ -184,7 +184,7 @@ function setup() {
                 '<span><span class="default"><span>';
           }
         )
-        .replace(/(?<!d)(?<!\d)-?([0-9]*[.])?[0-9]+/g, m => {
+        .replace(/(?<![a-zA-Z])(?<!:)(?<!\d)-?([0-9]*[.])?[0-9]+/g, m => {
           return (
             '<span class="numbers">' + m + '<span><span class="default"><span>'
           );
@@ -249,7 +249,7 @@ function setup() {
                 '<span><span class="default"><span>';
           }
         )
-        .replace(/(?<!d)(?<!\d)-?([0-9]*[.])?[0-9]+/g, m => {
+        .replace(/(?<![a-zA-Z])(?<!\d)-?([0-9]*[.])?[0-9]+/g, m => {
           return (
             '<span class="numbers">' + m + '<span><span class="default"><span>'
           );
