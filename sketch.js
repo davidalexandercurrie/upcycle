@@ -156,12 +156,12 @@ function setup() {
       codeSnippets.dave[i] != undefined
     ) {
       codeSnippets.zozo[i] = codeSnippets.zozo[i]
-        .replace(/[\[\]~|<>()"+*:,-?]/g, m => {
+        .replace(/[\[\]~|<>()"+*:,-]/g, m => {
           return (
             '<span class="brackets">' + m + '<span><span class="default"><span>'
           );
         })
-        .replace(/(?<!d)[-]?([0-9]*[.])?[0-9]+/g, m => {
+        .replace(/(?<!d)([0-9]*[.])?[0-9]+/g, m => {
           console.log(m);
           return (
             '<span class="numbers">' + m + '<span><span class="default"><span>'
@@ -176,15 +176,22 @@ function setup() {
         .replace(/d\d/, m => {
           return (
             '<span class="d">' + m + '<span><span class="default"><span></span>'
+          );
+        })
+        .replace(/(sine|cosine|square|tri|saw|isaw|rand|irand)/g, m => {
+          return (
+            '<span class="oscs">' +
+            m +
+            '<span><span class="default"><span></span>'
           );
         });
       codeSnippets.dave[i] = codeSnippets.dave[i]
-        .replace(/[\[\]~|<>()"+*:,-?]/g, m => {
+        .replace(/[\[\]~|<>()"+*:,-]/g, m => {
           return (
             '<span class="brackets">' + m + '<span><span class="default"><span>'
           );
         })
-        .replace(/(?<!d)[-]?([0-9]*[.])?[0-9]+/g, m => {
+        .replace(/(?<!d)([0-9]*[.])?[0-9]+/g, m => {
           console.log(m);
           return (
             '<span class="numbers">' + m + '<span><span class="default"><span>'
@@ -199,6 +206,13 @@ function setup() {
         .replace(/d\d/, m => {
           return (
             '<span class="d">' + m + '<span><span class="default"><span></span>'
+          );
+        })
+        .replace(/(sine|cosine|square|tri|saw|isaw|rand|irand)/g, m => {
+          return (
+            '<span class="oscs">' +
+            m +
+            '<span><span class="default"><span></span>'
           );
         });
     }

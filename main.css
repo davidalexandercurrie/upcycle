@@ -41,7 +41,7 @@ button {
 }
 .playButton:hover {
   pointer-events: all;
-  color: rgb(138, 43, 226);
+  color: rgb(43, 138, 226);
 }
 .playButton {
   font-size: 1.2em;
@@ -356,4 +356,8 @@ h1::selection {
 .numbers {
   color: rgb(138, 226, 43);
   font-weight: normal;
+}
+.oscs {
+  color: rgb(43, 226, 138);
+  font-weight: bold;
 }
