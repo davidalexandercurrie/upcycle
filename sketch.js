@@ -185,9 +185,11 @@ function setup() {
           }
         )
         .replace(/(?<![a-zA-Z])(?<!:)(?<!\d)-?([0-9]*[.])?[0-9]+/g, m => {
-          return (
-            '<span class="numbers">' + m + '<span><span class="default"><span>'
-          );
+          return m === "808" || m === "909"
+            ? m
+            : '<span class="numbers">' +
+                m +
+                '<span><span class="default"><span>';
         })
         .replace(/(\$)/g, m => {
           return (
@@ -249,10 +251,12 @@ function setup() {
                 '<span><span class="default"><span>';
           }
         )
-        .replace(/(?<![a-zA-Z])(?<!\d)-?([0-9]*[.])?[0-9]+/g, m => {
-          return (
-            '<span class="numbers">' + m + '<span><span class="default"><span>'
-          );
+        .replace(/(?<![a-zA-Z])(?<!:)(?<!\d)-?([0-9]*[.])?[0-9]+/g, m => {
+          return m === "808" || m === "909"
+            ? m
+            : '<span class="numbers">' +
+                m +
+                '<span><span class="default"><span>';
         })
         .replace(/(\$)/g, m => {
           return (
