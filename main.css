@@ -331,3 +331,20 @@ h1::selection {
     margin-top: 5em;
   }
 }
+
+/* code highlighting classes */
+.dollar-sign {
+  color: darkcyan;
+}
+.play-sign {
+  color: blue;
+}
+.default {
+  color: black;
+}
+.d {
+  color: green;
+}
+.brackets {
+  color: red;
+}

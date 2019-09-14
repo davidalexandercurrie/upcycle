@@ -150,6 +150,47 @@ function setup() {
     nameZ[i] = createP("zozo")
       .parent(div[i])
       .addClass("nameZ");
+    if (
+      codeSnippets.zozo[i] != undefined &&
+      codeSnippets.dave[i] != undefined
+    ) {
+      codeSnippets.zozo[i] = codeSnippets.zozo[i]
+        .replace(/[\[\]~|<>"]/g, m => {
+          console.log(m);
+          return (
+            '<span class="brackets">' + m + '<span><span class="default"><span>'
+          );
+        })
+        .replace(
+          /\$/g,
+          '<span class="dollar-sign">' +
+            "$" +
+            '<span><span class="default"><span>'
+        )
+        .replace(/d\d/, m => {
+          return (
+            '<span class="d">' + m + '<span><span class="default"><span></span>'
+          );
+        });
+      codeSnippets.dave[i] = codeSnippets.dave[i]
+        .replace(/[\[\]~|<>"]/g, m => {
+          console.log(m);
+          return (
+            '<span class="brackets">' + m + '<span><span class="default"><span>'
+          );
+        })
+        .replace(
+          /\$/g,
+          '<span class="dollar-sign">' +
+            "$" +
+            '<span><span class="default"><span>'
+        )
+        .replace(/d\d/, m => {
+          return (
+            '<span class="d">' + m + '<span><span class="default"><span></span>'
+          );
+        });
+    }
 
     codePZ[i] = createP(codeSnippets.zozo[i])
       .parent(div[i])
