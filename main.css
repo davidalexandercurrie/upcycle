@@ -17,7 +17,7 @@ h1 {
   z-index: 10;
   font-family: "Rubik Mono One", sans-serif;
   font-size: 2em;
-  color: red;
+  color: rgb(226, 43, 138);
   position: fixed;
   left: 10%;
   width: 60%;
@@ -36,6 +36,7 @@ button {
   margin-right: 1em;
   font-weight: normal;
   font-size: 1em;
+  color: rgb(43, 43, 43);
   /* color: rgb(0, 102, 68); */
 }
 .playButton:hover {
@@ -45,19 +46,21 @@ button {
 .playButton {
   font-size: 1.2em;
   text-align: center;
+  color: rgb(43, 43, 0);
 }
 .stopButton:hover {
   pointer-events: all;
-  color: red;
+  color: rgb(226, 43, 138);
 }
 .stopButton {
   font-size: 1.2em;
   text-align: center;
+  color: rgb(0, 43, 43);
 }
 
 .nameZ {
   /* font-family: Arial, Helvetica, sans-serif; */
-  color: red;
+  color: rgb(226, 43, 138);
   font-size: 1.4em;
   display: inline-block;
 }
@@ -127,7 +130,7 @@ br::selection {
   z-index: 10;
   border-style: solid;
   border-color: rgb(138, 43, 226);
-  border-width: 2px;
+  border-width: 10px;
   width: 22%;
   height: 50%;
   position: fixed;
@@ -137,10 +140,6 @@ br::selection {
   top: 20%;
   white-space: nowrap;
   background: rgba(238, 236, 252, 0.678);
-  -moz-box-shadow: inset 0 0 2px rgb(138, 43, 226);
-  -webkit-box-shadow: inset 0 0 2px rgb(138, 43, 226);
-  box-shadow: inset 0 0 2px rgb(138, 43, 226);
-  /* transform: translate(200%); */
 }
 
 .sliderDiv i {
@@ -195,7 +194,7 @@ br::selection {
     color: rgb(250, 242, 242);
   }
   100% {
-    color: red;
+    color: rgb(226, 43, 138);
   }
 }
 @keyframes dave-fade {
@@ -253,7 +252,7 @@ h1::selection {
   margin-top: 40vh;
 }
 #loading-bar {
-  background-color: red;
+  background-color: rgb(226, 43, 138);
   width: 0.5%;
   margin-left: auto;
   margin-right: auto;
@@ -351,7 +350,7 @@ h1::selection {
   font-weight: bold;
 }
 .brackets {
-  color: red;
+  color: rgb(226, 43, 138);
   font-weight: thin;
 }
 .numbers {

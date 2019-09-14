@@ -85,10 +85,11 @@ function preload() {
   labelVD = createElement("div", '<i class="fas fa-volume-up"></i>');
   labelT = createElement("div", '<i class="fas fa-tachometer-alt"></i>');
   labelVZ.parent(slidersDiv);
-  labelVZ.style("color", "red");
+  labelVZ.style("color", "rgb(226, 43, 138)");
   labelVD.parent(slidersDiv);
   labelVD.style("color", "rgb(138, 43, 226)");
   labelT.parent(slidersDiv);
+  labelT.style("color", "rgb(43, 138, 226)");
 }
 
 function success() {
@@ -356,8 +357,8 @@ function visualisation() {
     var XZ;
     var YZ;
     for (var i = 4; i < zozoFFT.length - 1; i++) {
-      fill(255, 0, 0, transp);
-      stroke(255, 0, 0, transp);
+      fill(226, 43, 138, transp);
+      stroke(226, 43, 138, transp);
       strokeWeight(1);
       XZ = (width / 251) * (i - 4);
       YZ = map(zozoFFT[i], 0, 255, 0, 1) * ampMult - 1 * volumeSliderZ.value();
