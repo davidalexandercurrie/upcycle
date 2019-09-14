@@ -340,18 +340,18 @@ h1::selection {
 }
 .dollar-sign {
   color: rgb(138, 43, 226);
-  font-weight: bold;
+  font-weight: bolder;
 }
 .play-sign {
   color: blue;
 }
 .d {
   color: rgb(43, 138, 226);
-  font-weight: bold;
+  font-weight: bolder;
 }
 .brackets {
   color: rgb(226, 43, 138);
-  font-weight: thin;
+  font-weight: bold;
 }
 .numbers {
   color: rgb(138, 226, 43);
@@ -359,5 +359,5 @@ h1::selection {
 }
 .oscs {
   color: rgb(43, 226, 138);
-  font-weight: bold;
+  font-weight: normal;
 }
