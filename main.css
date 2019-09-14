@@ -34,6 +34,8 @@ button {
   /* font-family: Arial, Helvetica, sans-serif; */
   display: inline-block;
   margin-right: 1em;
+  font-weight: normal;
+  font-size: 1em;
   /* color: rgb(0, 102, 68); */
 }
 .playButton:hover {
@@ -333,18 +335,26 @@ h1::selection {
 }
 
 /* code highlighting classes */
+.default {
+  color: rgb(226, 138, 43);
+  font-weight: normal;
+}
 .dollar-sign {
   color: rgb(138, 43, 226);
+  font-weight: bold;
 }
 .play-sign {
   color: blue;
 }
-.default {
-  color: rgb(226, 138, 43);
-}
 .d {
   color: rgb(43, 138, 226);
+  font-weight: bold;
 }
 .brackets {
   color: red;
+  font-weight: thin;
+}
+.numbers {
+  color: rgb(138, 226, 43);
+  font-weight: normal;
 }

@@ -155,10 +155,15 @@ function setup() {
       codeSnippets.dave[i] != undefined
     ) {
       codeSnippets.zozo[i] = codeSnippets.zozo[i]
-        .replace(/[\[\]~|<>()"]/g, m => {
-          console.log(m);
+        .replace(/[\[\]~|<>()"+*:]/g, m => {
           return (
             '<span class="brackets">' + m + '<span><span class="default"><span>'
+          );
+        })
+        .replace(/(?<!d)[+-]?([0-9]*[.])?[0-9]+/g, m => {
+          console.log(m);
+          return (
+            '<span class="numbers">' + m + '<span><span class="default"><span>'
           );
         })
         .replace(
@@ -173,10 +178,15 @@ function setup() {
           );
         });
       codeSnippets.dave[i] = codeSnippets.dave[i]
-        .replace(/[\[\]~|<>()"]/g, m => {
-          console.log(m);
+        .replace(/[\[\]~|<>()"+*:]/g, m => {
           return (
             '<span class="brackets">' + m + '<span><span class="default"><span>'
+          );
+        })
+        .replace(/(?<!d)[+-]?([0-9]*[.])?[0-9]+/g, m => {
+          console.log(m);
+          return (
+            '<span class="numbers">' + m + '<span><span class="default"><span>'
           );
         })
         .replace(
@@ -195,7 +205,8 @@ function setup() {
     codePZ[i] = createP(codeSnippets.zozo[i])
       .parent(div[i])
       .addClass("code")
-      .addClass("zozo-code");
+      .addClass("zozo-code")
+      .addClass("default");
     createP(" ").parent(div[i]);
     nameD[i] = createP("dave")
       .parent(div[i])
@@ -204,7 +215,8 @@ function setup() {
     codePD[i] = createP(codeSnippets.dave[i])
       .parent(div[i])
       .addClass("code")
-      .addClass("dave-code");
+      .addClass("dave-code")
+      .addClass("default");
     createP(" ")
       .parent(div[i])
       .addClass("break-m");
