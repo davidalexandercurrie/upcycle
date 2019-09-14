@@ -161,7 +161,7 @@ function setup() {
             '<span class="brackets">' + m + '<span><span class="default"><span>'
           );
         })
-        .replace(/(?<!d)([0-9]*[.])?[0-9]+/g, m => {
+        .replace(/(?<!d)[-]?([0-9]*[.])?[0-9]+/g, m => {
           console.log(m);
           return (
             '<span class="numbers">' + m + '<span><span class="default"><span>'
@@ -184,7 +184,7 @@ function setup() {
             '<span class="brackets">' + m + '<span><span class="default"><span>'
           );
         })
-        .replace(/(?<!d)([0-9]*[.])?[0-9]+/g, m => {
+        .replace(/(?<!d)[-]?([0-9]*[.])?[0-9]+/g, m => {
           console.log(m);
           return (
             '<span class="numbers">' + m + '<span><span class="default"><span>'
