@@ -156,14 +156,15 @@ function setup() {
       codeSnippets.dave[i] != undefined
     ) {
       codeSnippets.zozo[i] = codeSnippets.zozo[i]
-        .replace(/([^r|>])([<>~])(^br)/g, (m, p1, p2, p3) => {
-          return (
-            p1 +
-            '<span class="brackets">' +
-            p2 +
-            '<span><span class="default"><span>' +
-            p3
-          );
+        .replace(/([r|>])?([<>~])(br)?/g, (m, p1, p2, p3) => {
+          console.log(m);
+          return p1 != undefined
+            ? m
+            : p3 != undefined
+            ? m
+            : '<span class="brackets">' +
+              p2 +
+              '<span><span class="default"><span>';
         })
         .replace(/[\[\]\(\)~]/g, m => {
           return (
@@ -224,13 +225,15 @@ function setup() {
           }
         );
       codeSnippets.dave[i] = codeSnippets.dave[i]
-        .replace(/([^r|>])([<>~])(br>)?/g, (m, p1, p2, p3) => {
-          return p3 != undefined
+        .replace(/([r|>])?([<>~])(br)?/g, (m, p1, p2, p3) => {
+          console.log(m);
+          return p1 != undefined
             ? m
-            : p1 +
-                '<span class="brackets">' +
-                p2 +
-                '<span><span class="default"><span>';
+            : p3 != undefined
+            ? m
+            : '<span class="brackets">' +
+              p2 +
+              '<span><span class="default"><span>';
         })
         .replace(/[\[\]\(\)~]/g, m => {
           return (
