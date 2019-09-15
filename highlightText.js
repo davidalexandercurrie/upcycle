@@ -31,8 +31,9 @@ function highlightText(textToHighlight) {
       return '<span class="operators">' + m + "</span>";
     })
     .replace(/(<\/span>)?([*<>+-]?\|[*<>+-]?)/g, (m, p1, p2) => {
-      console.log(m);
-      return p1 != undefined ? m : '<span class="operators">' + p2 + "</span>";
+      return p1
+        ? p1 + '<span class="operators">' + p2 + "</span>"
+        : '<span class="operators">' + p2 + "</span>";
     })
     .replace(/d\d/, m => {
       return '<span class="math-dx">' + m + "</span>";
