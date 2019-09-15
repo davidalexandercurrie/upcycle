@@ -7,7 +7,7 @@ body {
   /* font-family: "Monofett", cursive; */
   /* font-family: "Space Mono", monospace; */
 
-  font-size: 1em;
+  font-size: 1.1em;
   padding: 0;
   margin: 0;
   text-align: center;
@@ -37,7 +37,7 @@ button {
   margin-right: 1em;
   font-weight: bolder;
   font-size: 1em;
-  color: rgb(43, 43, 43);
+  color: rgb(0, 43, 43);
 }
 .playButton:hover {
   pointer-events: all;
@@ -46,7 +46,7 @@ button {
 .playButton {
   font-size: 1.2em;
   text-align: center;
-  color: rgb(43, 43, 0);
+  color: rgb(0, 43, 43);
 }
 .stopButton:hover {
   pointer-events: all;

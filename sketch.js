@@ -202,7 +202,7 @@ function setup() {
   spectrumDave = new p5.FFT(0.9, 256);
   ampZozo = new p5.Amplitude(0.5);
   ampDave = new p5.Amplitude(0.5);
-  // slidersDiv.style("visibility", "visible");
+  console.log(codeSnippets.zozo[0]);
 }
 
 function draw() {
