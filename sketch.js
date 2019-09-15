@@ -156,8 +156,9 @@ function setup() {
       codeSnippets.dave[i] != undefined
     ) {
       codeSnippets.zozo[i] = codeSnippets.zozo[i]
-        .replace(/([r|>])?([<>~])(br)?/g, (m, p1, p2, p3) => {
-          console.log(m);
+        .replace(/([r|>])?([<>~])(br>)?/g, (m, p1, p2, p3) => {
+          console.log(m, p1, p2, p3);
+          // <br undefined < br
           return p1 != undefined
             ? m
             : p3 != undefined
@@ -225,8 +226,9 @@ function setup() {
           }
         );
       codeSnippets.dave[i] = codeSnippets.dave[i]
-        .replace(/([r|>])?([<>~])(br)?/g, (m, p1, p2, p3) => {
-          console.log(m);
+        .replace(/([r|>])?([<>~])(br>)?/g, (m, p1, p2, p3) => {
+          console.log(m, p1, p2, p3);
+          // <br undefined < br
           return p1 != undefined
             ? m
             : p3 != undefined
