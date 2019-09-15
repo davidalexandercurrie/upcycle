@@ -174,16 +174,13 @@ br::selection {
   width: 50%;
 }
 
-.playPanel .zozo-code {
+.playPanelZ {
   animation-name: zozo-fade;
-  /* animation-duration: 2s; */
   animation-iteration-count: infinite;
   animation-direction: alternate;
 }
-.playPanel .dave-code {
+.playPanelD {
   animation-name: dave-fade;
-  /* animation-duration: 2s; */
-  /* animation-delay: 10ms; */
   animation-iteration-count: infinite;
   animation-direction: alternate;
 }

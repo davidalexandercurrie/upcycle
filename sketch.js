@@ -155,146 +155,8 @@ function setup() {
       codeSnippets.zozo[i] != undefined &&
       codeSnippets.dave[i] != undefined
     ) {
-      codeSnippets.zozo[i] = codeSnippets.zozo[i]
-        .replace(/([r|>])?([<>~])(br>)?/g, (m, p1, p2, p3) => {
-          console.log(m, p1, p2, p3);
-          // <br undefined < br
-          return p1 != undefined
-            ? m
-            : p3 != undefined
-            ? m
-            : '<span class="brackets">' +
-              p2 +
-              '<span><span class="default"><span>';
-        })
-        .replace(/[\[\]\(\)~]/g, m => {
-          return (
-            '<span class="brackets">' + m + '<span><span class="default"><span>'
-          );
-        })
-        .replace(
-          /(default")|(class=")|(brackets")|(")/g,
-          (m, p1, p2, p3, p4) => {
-            return p1
-              ? m
-              : p2
-              ? m
-              : p3
-              ? m
-              : '<span class="math-dx">' +
-                p4 +
-                '<span><span class="default"><span>';
-          }
-        )
-        .replace(/(?<![a-zA-Z])(?<!:)(?<!\d)-?([0-9]*[.])?[0-9]+/g, m => {
-          return m === "808" || m === "909"
-            ? m
-            : '<span class="numbers">' +
-                m +
-                '<span><span class="default"><span>';
-        })
-        .replace(/([\$\?])/g, m => {
-          return (
-            '<span class="operators">' +
-            m +
-            '<span><span class="default"><span>'
-          );
-        })
-        .replace(/(<span>)?([*<>+-]?\|[*<>+-]?)/g, (m, p1, p2) => {
-          return p1 != undefined
-            ? p1
-            : "" +
-                '<span class="operators">' +
-                p2 +
-                '<span><span class="default"><span>';
-        })
-        .replace(/d\d/, m => {
-          return (
-            '<span class="math-dx">' +
-            m +
-            '<span><span class="default"><span></span>'
-          );
-        })
-        .replace(
-          /(\bsine\b|\bcosine\b|\bsquare\b|\btri\b|\bsaw\b|\bisaw\b|\brand\b|\birand\b)/g,
-          m => {
-            return (
-              '<span class="oscs">' +
-              m +
-              '<span><span class="default"><span></span>'
-            );
-          }
-        );
-      codeSnippets.dave[i] = codeSnippets.dave[i]
-        .replace(/([r|>])?([<>~])(br>)?/g, (m, p1, p2, p3) => {
-          console.log(m, p1, p2, p3);
-          // <br undefined < br
-          return p1 != undefined
-            ? m
-            : p3 != undefined
-            ? m
-            : '<span class="brackets">' +
-              p2 +
-              '<span><span class="default"><span>';
-        })
-        .replace(/[\[\]\(\)~]/g, m => {
-          return (
-            '<span class="brackets">' + m + '<span><span class="default"><span>'
-          );
-        })
-        .replace(
-          /(default")|(class=")|(brackets")|(")/g,
-          (m, p1, p2, p3, p4) => {
-            return p1
-              ? m
-              : p2
-              ? m
-              : p3
-              ? m
-              : '<span class="math-dx">' +
-                p4 +
-                '<span><span class="default"><span>';
-          }
-        )
-        .replace(/(?<![a-zA-Z])(?<!:)(?<!\d)-?([0-9]*[.])?[0-9]+/g, m => {
-          return m === "808" || m === "909"
-            ? m
-            : '<span class="numbers">' +
-                m +
-                '<span><span class="default"><span>';
-        })
-        .replace(/([\$\?])/g, m => {
-          return (
-            '<span class="operators">' +
-            m +
-            '<span><span class="default"><span>'
-          );
-        })
-        .replace(/(<span>)?([*<>+-]?\|[*<>+-]?)/g, (m, p1, p2) => {
-          return p1 != undefined
-            ? p1
-            : "" +
-                '<span class="operators">' +
-                p2 +
-                '<span><span class="default"><span>';
-        })
-        .replace(/d\d/, m => {
-          return (
-            '<span class="math-dx">' +
-            m +
-            '<span><span class="default"><span></span>'
-          );
-        })
-        .replace(
-          /(\bsine\b|\bcosine\b|\bsquare\b|\btri\b|\bsaw\b|\bisaw\b|\brand\b|\birand\b)/g,
-          m => {
-            return (
-              '<span class="oscs">' +
-              m +
-              '<span><span class="default"><span></span>'
-            );
-          }
-        );
+      codeSnippets.zozo[i] = highlightText(codeSnippets.zozo[i]);
+      codeSnippets.dave[i] = highlightText(codeSnippets.dave[i]);
     }
 
     codePZ[i] = createP(codeSnippets.zozo[i])
@@ -357,8 +219,8 @@ function draw() {
   var aniSpeed = 2 / pow(2, slider.value());
   var aniSpeedString = aniSpeed.toString() + "s";
   for (var i = 0; i < daysFromStart + 1; i++) {
-    codePD[i].style("animation-duration", aniSpeedString);
-    codePZ[i].style("animation-duration", aniSpeedString);
+    nameD[i].style("animation-duration", aniSpeedString);
+    nameZ[i].style("animation-duration", aniSpeedString);
   }
 }
 
@@ -542,7 +404,8 @@ function loadAudio(day) {
   // zozosounds[day] = loadSound("/Audio/z" + (day + 1).toString() + ".m4a");
   // davesounds[day] = loadSound("/Audio/d" + (day + 1).toString() + ".m4a");
   playAudio(zozosounds[day], davesounds[day]);
-  div[day].addClass("playPanel");
+  nameD[playingDiv].addClass("playPanelD");
+  nameZ[playingDiv].addClass("playPanelZ");
   button[day].removeClass("fas fa-play playButton");
   button[day].addClass("fas fa-stop stopButton");
   if (previousPlayingDiv != undefined && playingDiv != previousPlayingDiv) {
