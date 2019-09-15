@@ -341,7 +341,7 @@ h1::selection {
   font-weight: bolder;
 }
 .play-sign {
-  color: blue;
+  color: rgb(138, 226, 266);
 }
 .math-dx {
   color: rgb(43, 138, 226);
