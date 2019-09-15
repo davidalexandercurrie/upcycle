@@ -191,7 +191,7 @@ function setup() {
                 m +
                 '<span><span class="default"><span>';
         })
-        .replace(/(\$)/g, m => {
+        .replace(/([\$\?])/g, m => {
           return (
             '<span class="operators">' +
             m +
@@ -258,7 +258,7 @@ function setup() {
                 m +
                 '<span><span class="default"><span>';
         })
-        .replace(/(\$)/g, m => {
+        .replace(/([\$\?])/g, m => {
           return (
             '<span class="operators">' +
             m +
