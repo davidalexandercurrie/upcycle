@@ -11,6 +11,7 @@ body {
   padding: 0;
   margin: 0;
   text-align: center;
+  background: rgb(226, 255, 255);
 }
 h1 {
   font-family: "Space Mono", monospace;
@@ -138,7 +139,7 @@ br::selection {
   padding-bottom: 1rem;
   top: 20%;
   white-space: nowrap;
-  background: rgba(238, 236, 252, 0.678);
+  background: rgb(255, 255, 226, 0.8);
 }
 
 .sliderDiv i {
@@ -203,20 +204,20 @@ br::selection {
 }
 .zozo-code::-moz-selection {
   /* Code for Firefox */
-  background: yellow;
+  background: rgb(226, 226, 138) !important;
 }
 
 .zozo-code::selection {
-  background: yellow;
+  background: rgb(226, 226, 138) !important;
 }
 
 .dave-code::-moz-selection {
   /* Code for Firefox */
-  background: greenyellow;
+  background: rgb(226, 226, 138) !important;
 }
 
 .dave-code::selection {
-  background: greenyellow;
+  background: rgb(226, 226, 138) !important;
 }
 
 .nameZ::selection {
@@ -259,8 +260,9 @@ h1::selection {
   z-index: 9;
   padding-top: 5em;
   position: fixed;
-  background: rgba(255, 255, 255, 0.938);
+  background: rgba(226, 255, 226, 0.95);
   width: 100%;
+  opacity: 0;
   /* padding-bottom: 10px; */
 }
 
@@ -342,7 +344,7 @@ h1::selection {
   color: blue;
 }
 .math-dx {
-  color: rgb(43, 138, 226);
+  color: rgb(43, 43, 226);
   font-weight: bolder;
 }
 .brackets {
@@ -350,7 +352,7 @@ h1::selection {
   font-weight: bold;
 }
 .numbers {
-  color: rgb(138, 226, 43);
+  color: rgb(43, 226, 43);
   font-weight: normal;
 }
 .oscs {
