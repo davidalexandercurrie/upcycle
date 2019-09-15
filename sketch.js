@@ -48,12 +48,14 @@ var firstTime = true;
 var slidersDiv;
 var animationSpeedCurve;
 var timer = 500;
+var main = document.getElementById("main-id");
 
 function preload() {
+  codeSnippets = loadJSON("codeSnippets.json");
+  console.log(codeSnippets['zozo'])
   bar = createElement("div", []);
   bar.id("loading-bar");
   bar.parent(document.getElementById("p5_loading"));
-  codeSnippets = loadJSON("codeSnippets.json");
   for (var i = 0; i <= daysFromStart; i++) {
     if (i < 17) {
       zozosounds[i] = loadSound(
@@ -89,7 +91,8 @@ function preload() {
   labelVD.parent(slidersDiv);
   labelVD.style("color", "rgb(138, 43, 226)");
   labelT.parent(slidersDiv);
-  labelT.style("color", "rgb(43, 138, 226)");
+  // labelT.style("color", "rgb(43, 138, 226)");
+  labelT.style("color", "rgb(226, 138, 43)");
 }
 
 function success() {
@@ -107,23 +110,23 @@ function fail() {
 function loadBar() {
   widthValue = test;
   loadTime = widthValue.toString() + "%";
-  // console.log(loadTime);
-  bar.style("width", loadTime);
+  console.log(widthValue)
+    bar.style("width", loadTime);
 }
 
 function setup() {
   // put setup code here
+  // main.style("visibility", "hidden")
   var canvas = createCanvas(1400, 700).addClass("canvas");
   createElement("br", []);
-
   slider = createSlider(-1, 1, 0, 0.01)
-    .addClass("tempoSlider")
+    .addClass("control-slider")
     .parent(labelT);
   volumeSliderD = createSlider(0, 1, 0.8, 0.01)
-    .addClass("volumeSliderD")
+    .addClass("control-slider")
     .parent(labelVD);
   volumeSliderZ = createSlider(0, 1, 0.8, 0.01)
-    .addClass("volumeSliderZ")
+    .addClass("control-slider")
     .parent(labelVZ);
   volumeSliderD.doubleClicked(resetVolumeD);
   volumeSliderZ.doubleClicked(resetVolumeZ);
