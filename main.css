@@ -7,17 +7,18 @@ body {
   /* font-family: "Monofett", cursive; */
   /* font-family: "Space Mono", monospace; */
 
-  font-size: 1em;
+  font-size: 1.1em;
   padding: 0;
   margin: 0;
   text-align: center;
+  background: rgb(226, 255, 255);
 }
 h1 {
   font-family: "Space Mono", monospace;
   z-index: 10;
   font-family: "Rubik Mono One", sans-serif;
   font-size: 2em;
-  color: red;
+  color: rgb(226, 43, 138);
   position: fixed;
   left: 10%;
   width: 60%;
@@ -34,28 +35,32 @@ button {
   /* font-family: Arial, Helvetica, sans-serif; */
   display: inline-block;
   margin-right: 1em;
-  /* color: rgb(0, 102, 68); */
+  font-weight: bolder;
+  font-size: 1em;
+  color: rgb(0, 43, 43);
 }
 .playButton:hover {
   pointer-events: all;
-  color: rgb(138, 43, 226);
+  color: rgb(43, 138, 226);
 }
 .playButton {
   font-size: 1.2em;
   text-align: center;
+  color: rgb(0, 43, 43);
 }
 .stopButton:hover {
   pointer-events: all;
-  color: red;
+  color: rgb(226, 43, 138);
 }
 .stopButton {
   font-size: 1.2em;
   text-align: center;
+  color: rgb(0, 43, 43);
 }
 
 .nameZ {
   /* font-family: Arial, Helvetica, sans-serif; */
-  color: red;
+  color: rgb(226, 43, 138);
   font-size: 1.4em;
   display: inline-block;
 }
@@ -125,7 +130,7 @@ br::selection {
   z-index: 10;
   border-style: solid;
   border-color: rgb(138, 43, 226);
-  border-width: 2px;
+  border-width: 10px;
   width: 22%;
   height: 50%;
   position: fixed;
@@ -134,11 +139,7 @@ br::selection {
   padding-bottom: 1rem;
   top: 20%;
   white-space: nowrap;
-  background: rgba(238, 236, 252, 0.678);
-  -moz-box-shadow: inset 0 0 2px rgb(138, 43, 226);
-  -webkit-box-shadow: inset 0 0 2px rgb(138, 43, 226);
-  box-shadow: inset 0 0 2px rgb(138, 43, 226);
-  /* transform: translate(200%); */
+  background: rgb(255, 255, 226, 0.8);
 }
 
 .sliderDiv i {
@@ -174,16 +175,13 @@ br::selection {
   width: 50%;
 }
 
-.playPanel .zozo-code {
+.playPanelZ {
   animation-name: zozo-fade;
-  /* animation-duration: 2s; */
   animation-iteration-count: infinite;
   animation-direction: alternate;
 }
-.playPanel .dave-code {
+.playPanelD {
   animation-name: dave-fade;
-  /* animation-duration: 2s; */
-  /* animation-delay: 10ms; */
   animation-iteration-count: infinite;
   animation-direction: alternate;
 }
@@ -193,7 +191,7 @@ br::selection {
     color: rgb(250, 242, 242);
   }
   100% {
-    color: red;
+    color: rgb(226, 43, 138);
   }
 }
 @keyframes dave-fade {
@@ -206,20 +204,20 @@ br::selection {
 }
 .zozo-code::-moz-selection {
   /* Code for Firefox */
-  background: yellow;
+  background: rgb(226, 226, 138) !important;
 }
 
 .zozo-code::selection {
-  background: yellow;
+  background: rgb(226, 226, 138) !important;
 }
 
 .dave-code::-moz-selection {
   /* Code for Firefox */
-  background: greenyellow;
+  background: rgb(226, 226, 138) !important;
 }
 
 .dave-code::selection {
-  background: greenyellow;
+  background: rgb(226, 226, 138) !important;
 }
 
 .nameZ::selection {
@@ -251,7 +249,7 @@ h1::selection {
   margin-top: 40vh;
 }
 #loading-bar {
-  background-color: red;
+  background-color: rgb(226, 43, 138);
   width: 0.5%;
   margin-left: auto;
   margin-right: auto;
@@ -285,11 +283,102 @@ h1::selection {
   z-index: 9;
   padding-top: 5em;
   position: fixed;
-  background: rgba(255, 255, 255, 0.938);
+  background: rgba(226, 255, 226, 0.95);
   width: 100%;
+  opacity: 0;
   /* padding-bottom: 10px; */
 }
 
 #pageTitle {
   opacity: 0;
+}
+
+#phone {
+  height: 0;
+}
+
+@media only screen and (max-device-width: 840px) {
+  h1 {
+    position: fixed;
+    left: 0;
+    width: 100%;
+    font-size: 10em;
+    margin-top: 0;
+    padding-bottom: 2em;
+  }
+  .sliderDiv {
+    display: none;
+  }
+  .nameD {
+    display: block;
+    font-size: 3em;
+  }
+  .nameZ {
+    display: block;
+    font-size: 3em;
+  }
+  .dayPanel {
+    width: 100%;
+    margin: 0;
+  }
+  .dave-code {
+    padding: 0;
+    width: 100%;
+    font-size: 2.5em;
+    margin-left: 0.5em;
+    margin-right: 0.5em;
+  }
+  .zozo-code {
+    padding: 0;
+    width: 100%;
+    font-size: 2.5em;
+    margin-left: 0.5em;
+    margin-right: 0.5em;
+  }
+  .day {
+    font-size: 5em;
+  }
+  .dayPanel i {
+    font-size: 5em;
+  }
+  #titleBackground {
+    height: 10.5em;
+    padding: 0em;
+    top: 0;
+  }
+  #phone {
+    height: 7em;
+  }
+  .canvas {
+    margin-top: 5em;
+  }
+}
+
+/* code highlighting classes */
+.default {
+  color: rgb(226, 138, 43);
+  font-weight: normal;
+}
+.operators {
+  color: rgb(138, 43, 226);
+  font-weight: bolder;
+}
+.play-sign {
+  color: blue;
+}
+.math-dx {
+  color: rgb(43, 138, 226);
+  font-weight: bolder;
+}
+.brackets {
+  color: rgb(226, 43, 138);
+  font-weight: bold;
+}
+.numbers {
+  color: rgb(43, 226, 43);
+  font-weight: normal;
+}
+.oscs {
+  color: rgb(43, 226, 138);
+  font-weight: bold;
 }

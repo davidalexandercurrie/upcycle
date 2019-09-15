@@ -32,7 +32,7 @@ var playSelected = false;
 var time = new Date();
 var myClock = time.getTime().toString();
 var myDay = Math.floor(myClock / 86400000);
-var daysFromStart = myDay - 18123;
+var daysFromStart = myDay - 18129;
 var test = 0;
 var fullLoad = daysFromStart * 2;
 var loadAmount = 100 / fullLoad;
@@ -87,10 +87,11 @@ function preload() {
   labelVD = createElement("div", '<i class="fas fa-volume-up"></i>');
   labelT = createElement("div", '<i class="fas fa-tachometer-alt"></i>');
   labelVZ.parent(slidersDiv);
-  labelVZ.style("color", "red");
+  labelVZ.style("color", "rgb(226, 43, 138)");
   labelVD.parent(slidersDiv);
   labelVD.style("color", "rgb(138, 43, 226)");
   labelT.parent(slidersDiv);
+  labelT.style("color", "rgb(43, 138, 226)");
 }
 
 function success() {
@@ -152,11 +153,19 @@ function setup() {
     nameZ[i] = createP("zozo")
       .parent(div[i])
       .addClass("nameZ");
+    if (
+      codeSnippets.zozo[i] != undefined &&
+      codeSnippets.dave[i] != undefined
+    ) {
+      codeSnippets.zozo[i] = highlightText(codeSnippets.zozo[i]);
+      codeSnippets.dave[i] = highlightText(codeSnippets.dave[i]);
+    }
 
     codePZ[i] = createP(codeSnippets.zozo[i])
       .parent(div[i])
       .addClass("code")
-      .addClass("zozo-code");
+      .addClass("zozo-code")
+      .addClass("default");
     createP(" ").parent(div[i]);
     nameD[i] = createP("dave")
       .parent(div[i])
@@ -165,13 +174,16 @@ function setup() {
     codePD[i] = createP(codeSnippets.dave[i])
       .parent(div[i])
       .addClass("code")
-      .addClass("dave-code");
+      .addClass("dave-code")
+      .addClass("default");
     createP(" ")
       .parent(div[i])
       .addClass("break-m");
     if (
       codeSnippets.zozo[i] === undefined ||
-      codeSnippets.dave[i] === undefined
+      codeSnippets.dave[i] === undefined ||
+      zozosounds[i] === undefined ||
+      davesounds[i] === undefined
     ) {
       // codeSnippets.zozo[daysFromStart] = "Coming Soon!";
       // div[daysFromStart].html("Coming Soon!");
@@ -192,7 +204,7 @@ function setup() {
   spectrumDave = new p5.FFT(0.9, 256);
   ampZozo = new p5.Amplitude(0.5);
   ampDave = new p5.Amplitude(0.5);
-  // slidersDiv.style("visibility", "visible");
+  console.log(codeSnippets.zozo[0]);
 }
 
 function draw() {
@@ -209,8 +221,8 @@ function draw() {
   var aniSpeed = 2 / pow(2, slider.value());
   var aniSpeedString = aniSpeed.toString() + "s";
   for (var i = 0; i < daysFromStart + 1; i++) {
-    codePD[i].style("animation-duration", aniSpeedString);
-    codePZ[i].style("animation-duration", aniSpeedString);
+    nameD[i].style("animation-duration", aniSpeedString);
+    nameZ[i].style("animation-duration", aniSpeedString);
   }
 }
 
@@ -248,10 +260,12 @@ function controlPanelSlideIn() {
     slideAmount += 0.01;
     var slidePC = slideAmount.toString();
     var titleOpacity = 1 - (1 - slideAmount) ** 2;
+    var titleBackground = document.getElementById("titleBackground");
     var titleOpacityString = titleOpacity.toString();
     if (slideAmount < 0.3) slidersDiv.style("opacity", slidePC);
     var h1 = document.getElementById("pageTitle");
     h1.style.opacity = titleOpacityString;
+    titleBackground.style.opacity = titleOpacityString;
     if (slideAmount > 1) {
       slideAmount = 0.2;
       firstTime = false;
@@ -303,8 +317,8 @@ function visualisation() {
     var XZ;
     var YZ;
     for (var i = 4; i < zozoFFT.length - 1; i++) {
-      fill(255, 0, 0, transp);
-      stroke(255, 0, 0, transp);
+      fill(226, 43, 138, transp);
+      stroke(226, 43, 138, transp);
       strokeWeight(1);
       XZ = (width / 251) * (i - 4);
       YZ = map(zozoFFT[i], 0, 255, 0, 1) * ampMult - 1 * volumeSliderZ.value();
@@ -342,26 +356,19 @@ function createButtonFunctions(days) {
         if (!playSelected) {
           playSelected = true;
         }
-        // checking if file exists + stop duplicate playback
         loadAudio(playingDiv);
-        // var xml = loadXML(
-        //   "/Audio/z" + (buttonID + 1).toString() + ".m4a",
-        //   loadedZ,
-        //   errloading
-        // );
         startVisual = true;
-        // slidersDiv.style("visibility", "visible");
         slideIn = true;
       } else {
         button[previousPlayingDiv].removeClass("fas fa-stop");
         button[previousPlayingDiv].removeClass("stopButton");
         button[previousPlayingDiv].addClass("fas fa-play");
         button[previousPlayingDiv].addClass("playButton");
-        div[playingDiv].removeClass("playPanel");
+        nameD[previousPlayingDiv].removeClass("playPanelD");
+        nameZ[previousPlayingDiv].removeClass("playPanelZ");
         queuedTrackDave.stop();
         queuedTrackZozo.stop();
         scrollTop();
-        // slidersDiv.style("visibility", "hidden");
         playSelected = false;
         timer = 0;
         startVisual = false;
@@ -394,11 +401,13 @@ function loadAudio(day) {
   // zozosounds[day] = loadSound("/Audio/z" + (day + 1).toString() + ".m4a");
   // davesounds[day] = loadSound("/Audio/d" + (day + 1).toString() + ".m4a");
   playAudio(zozosounds[day], davesounds[day]);
-  div[day].addClass("playPanel");
+  nameD[playingDiv].addClass("playPanelD");
+  nameZ[playingDiv].addClass("playPanelZ");
   button[day].removeClass("fas fa-play playButton");
   button[day].addClass("fas fa-stop stopButton");
   if (previousPlayingDiv != undefined && playingDiv != previousPlayingDiv) {
-    div[previousPlayingDiv].removeClass("playPanel");
+    nameD[previousPlayingDiv].removeClass("playPanelD");
+    nameZ[previousPlayingDiv].removeClass("playPanelZ");
     button[previousPlayingDiv].removeClass("fas fa-stop stopButton");
     button[previousPlayingDiv].addClass("fas fa-play playButton");
     playSelected = true;
