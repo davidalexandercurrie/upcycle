@@ -352,26 +352,19 @@ function createButtonFunctions(days) {
         if (!playSelected) {
           playSelected = true;
         }
-        // checking if file exists + stop duplicate playback
         loadAudio(playingDiv);
-        // var xml = loadXML(
-        //   "/Audio/z" + (buttonID + 1).toString() + ".m4a",
-        //   loadedZ,
-        //   errloading
-        // );
         startVisual = true;
-        // slidersDiv.style("visibility", "visible");
         slideIn = true;
       } else {
         button[previousPlayingDiv].removeClass("fas fa-stop");
         button[previousPlayingDiv].removeClass("stopButton");
         button[previousPlayingDiv].addClass("fas fa-play");
         button[previousPlayingDiv].addClass("playButton");
-        div[playingDiv].removeClass("playPanel");
+        nameD[previousPlayingDiv].removeClass("playPanelD");
+        nameZ[previousPlayingDiv].removeClass("playPanelZ");
         queuedTrackDave.stop();
         queuedTrackZozo.stop();
         scrollTop();
-        // slidersDiv.style("visibility", "hidden");
         playSelected = false;
         timer = 0;
         startVisual = false;
@@ -409,7 +402,8 @@ function loadAudio(day) {
   button[day].removeClass("fas fa-play playButton");
   button[day].addClass("fas fa-stop stopButton");
   if (previousPlayingDiv != undefined && playingDiv != previousPlayingDiv) {
-    div[previousPlayingDiv].removeClass("playPanel");
+    nameD[previousPlayingDiv].removeClass("playPanelD");
+    nameZ[previousPlayingDiv].removeClass("playPanelZ");
     button[previousPlayingDiv].removeClass("fas fa-stop stopButton");
     button[previousPlayingDiv].addClass("fas fa-play playButton");
     playSelected = true;
