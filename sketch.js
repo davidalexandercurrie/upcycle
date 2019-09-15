@@ -91,7 +91,8 @@ function preload() {
   labelVD.parent(slidersDiv);
   labelVD.style("color", "rgb(138, 43, 226)");
   labelT.parent(slidersDiv);
-  labelT.style("color", "rgb(43, 138, 226)");
+  // labelT.style("color", "rgb(43, 138, 226)");
+  labelT.style("color", "rgb(226, 138, 43)");
 }
 
 function success() {
@@ -119,13 +120,13 @@ function setup() {
   var canvas = createCanvas(1400, 700).addClass("canvas");
   createElement("br", []);
   slider = createSlider(-1, 1, 0, 0.01)
-    .addClass("tempoSlider")
+    .addClass("control-slider")
     .parent(labelT);
   volumeSliderD = createSlider(0, 1, 0.8, 0.01)
-    .addClass("volumeSliderD")
+    .addClass("control-slider")
     .parent(labelVD);
   volumeSliderZ = createSlider(0, 1, 0.8, 0.01)
-    .addClass("volumeSliderZ")
+    .addClass("control-slider")
     .parent(labelVZ);
   volumeSliderD.doubleClicked(resetVolumeD);
   volumeSliderZ.doubleClicked(resetVolumeZ);

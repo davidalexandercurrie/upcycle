@@ -11,7 +11,7 @@ body {
   padding: 0;
   margin: 0;
   text-align: center;
-  background: rgb(226, 255, 255);
+  /* background: rgb(226, 255, 255); */
 }
 h1 {
   font-family: "Space Mono", monospace;
@@ -116,30 +116,68 @@ br::selection {
   background: transparent;
 }
 
-.volumeSliderZ {
+.control-slider {
+  -webkit-appearance: none;
   width: 60%;
+  background: transparent;
 }
-.volumeSliderD {
+.control-slider:focus {
+outline: none;
+}
+
+.control-slider::-webkit-slider-runnable-track {
   width: 60%;
+  height: 13px;
+  cursor: pointer; 
+  background:rgb(0, 43, 43);
+  border-radius: 3px;
+  opacity: 0.9;
 }
-.tempoSlider {
+
+.control-slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  border: 1px solid rgb(0, 43, 43);
+  height: 20px;
+  width: 16px;
+  border-radius: 3px;
+  background: #ffffff;
+  cursor: pointer;
+  margin-top: -4px; 
+  box-shadow: 1px 1px 1px rgb(0, 43, 43), 0px 0px 1px rgb(0, 43, 43); 
+}
+
+.control-slider::-ms-track {
   width: 60%;
+  cursor: pointer;  
+  background: transparent; 
+  border-color: transparent;
+  color: transparent;
 }
+
+/* .control-slider::-moz-range-thumb {
+  -webkit-appearance: none;
+  width: 40%;
+  height: 50%;
+  border-radius: 60%;
+  color: red;
+  cursor: pointer;
+} */
 
 .sliderDiv {
   z-index: 10;
-  border-style: solid;
-  border-color: rgb(138, 43, 226);
-  border-width: 10px;
+  /* border-style: solid; */
+  /* border-color: rgb(138, 43, 226); */
+  /* border-width: 10px; */
   width: 22%;
-  height: 50%;
+  height: 20%;
   position: fixed;
   left: 74%;
   /* margin-left: -5%; */
   padding-bottom: 1rem;
   top: 20%;
   white-space: nowrap;
-  background: rgb(255, 255, 226, 0.8);
+  /* background: rgb(255, 255, 226, 0.8); */
+  background: none;
 }
 
 .sliderDiv i {
@@ -256,36 +294,13 @@ h1::selection {
   padding: 10px;
 }
 
-/* @keyframes highlight {
-  0% { 
-    background-color: lightcyan;
-  }
-  50% {
-    /* background-color: lightgreen; */
-  }
-  100% { 
-    background-color: lightcyan;
-  }
-} */
-/* 
-#typing {
-  display:inline-block;  
-  overflow:hidden;
-  font-weight: lighter;
-  font-size: 30px;
-  white-space: nowrap;
-  box-sizing: border-box;
-  margin-left: auto;
-  margin-right: auto;
-} */
-
 #titleBackground {
   z-index: 9;
   padding-top: 5em;
   position: fixed;
-  background: rgba(226, 255, 226, 0.95);
+  background:white;
+  /* background: rgba(226, 255, 226, 0.95); */
   width: 100%;
-  opacity: 0;
   /* padding-bottom: 10px; */
 }
 
@@ -298,6 +313,9 @@ h1::selection {
 }
 
 @media only screen and (max-device-width: 840px) {
+  body {
+    font-size: 1em;
+  }
   h1 {
     position: fixed;
     left: 0;
