@@ -1,7 +1,10 @@
 {
   "basicEffects": {
+    "effects": {},
     "parameter": {
-      "delay": {},
+      "delay": {
+        "description": "Values from 0 to 1"
+      },
       "delaytime": {},
       "delayfeedback": {},
       "leslie": {
