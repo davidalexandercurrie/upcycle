@@ -472,8 +472,8 @@ function resetVolumeZ() {
 }
 function tidalDocsSearch(string) {
   return tidalDocs.basicEffects.parameter[string]
-    ? tidalDocs.basicEffects.parameter[string]
+    ? tidalDocs.basicEffects.parameter[string].description
     : tidalDocs.basicEffects.parameter[tidalDocs.basicEffects.alias[string]]
-    ? tidalDocs.basicEffects.parameter[tidalDocs.basicEffects.alias[string]]
+    ? tidalDocs.basicEffects.parameter[tidalDocs.basicEffects.alias[string]].description
     : console.log("Error Param Name Does Not Exist");
 }
