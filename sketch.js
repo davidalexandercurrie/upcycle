@@ -4,6 +4,7 @@ var nameD = [];
 var nameZ = [];
 var button = [];
 var codeSnippets;
+var tidalDocs;
 var clickFunctions = [];
 var zozosounds = [];
 var davesounds = [];
@@ -52,6 +53,7 @@ var main = document.getElementById("main-id");
 
 function preload() {
   codeSnippets = loadJSON("codeSnippets.json");
+  tidalDocs = loadJSON("tidalDocs.json");
   // console.log(codeSnippets['zozo'])
   bar = createElement("div", []);
   bar.id("loading-bar");
@@ -115,6 +117,7 @@ function loadBar() {
 }
 
 function setup() {
+  console.log(tidalDocsSearch("delayt"));
   // put setup code here
   // main.style("visibility", "hidden")
   var canvas = createCanvas(1400, 700).addClass("canvas");
@@ -466,4 +469,11 @@ function resetVolumeD() {
 }
 function resetVolumeZ() {
   volumeSliderZ.value(0.8);
+}
+function tidalDocsSearch(string) {
+  return tidalDocs.basicEffects.parameter[string]
+    ? tidalDocs.basicEffects.parameter[string]
+    : tidalDocs.basicEffects.parameter[tidalDocs.basicEffects.alias[string]]
+    ? tidalDocs.basicEffects.parameter[tidalDocs.basicEffects.alias[string]]
+    : console.log("Error Param Name Does Not Exist");
 }

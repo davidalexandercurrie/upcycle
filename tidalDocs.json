@@ -1,0 +1,35 @@
+{
+  "basicEffects": {
+    "effects": {},
+    "parameter": {
+      "delay": {
+        "description": "Values from 0 to 1"
+      },
+      "delaytime": {},
+      "delayfeedback": {},
+      "leslie": {
+        "description": "\"Leslie\" controls dry/wet. \"lrate\" is the modulation rate (typical vintage rates would be 6.7 for \"fast\", 0.7 for \"slow\"). \"lsize\" is the physical size of the cabinet in meters, this mostly affects the Doppler amount (pitch warble)"
+      },
+      "lrate": {},
+      "lsize": {},
+      "room": {},
+      "size": {},
+      "dry": {},
+      "crush": {},
+      "legato": {},
+      "tremolodepth": {},
+      "tremolorate": {},
+      "shape": {},
+      "coarse": {},
+      "phaserrate": {},
+      "phaserdepth": {}
+    },
+    "alias": {
+      "delayt": "delaytime",
+      "delayfb": "delayfeedback",
+      "tremdp": "tremolodepth",
+      "tremr": "tremolorate",
+      "phasr": "phaserrate"
+    }
+  }
+}

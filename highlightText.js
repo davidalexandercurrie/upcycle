@@ -66,9 +66,22 @@ function highlightText(textToHighlight) {
     .replace(
       /(\bsine\b|\bcosine\b|\bsquare\b|\btri\b|\bsaw\b|\bisaw\b|\brand\b|\birand\b)/g,
       m => {
-        return '<span class="oscs" onmouseover="showDescription(this)">' + m + "</span>";
+        return (
+          '<span class="oscs" onmouseover="showDescription(this)">' +
+          m +
+          "</span>"
+        );
       }
-    )
+    );
 }
 
+//search for a word
+//assign it a '<span onHover= {() => getDescription(e)}>' + sine + '</span>'
+// getDescription(e) {
+//e.innerHTML
+//filter thru json looking for description matching sine
+//return description
+//}
 
+//search word
+//
