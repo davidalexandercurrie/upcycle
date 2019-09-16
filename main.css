@@ -116,6 +116,13 @@ br::selection {
   background: transparent;
 }
 
+#descriptionBox {
+  position: fixed;
+  padding-top: 100px;
+  background: black;
+  width:20%
+}
+
 .control-slider {
   -webkit-appearance: none;
   width: 60%;
