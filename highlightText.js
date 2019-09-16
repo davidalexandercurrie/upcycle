@@ -70,3 +70,14 @@ function highlightText(textToHighlight) {
       }
     );
 }
+
+//search for a word
+//assign it a '<span onHover= {() => getDescription(e)}>' + sine + '</span>'
+// getDescription(e) {
+//e.innerHTML
+//filter thru json looking for description matching sine
+//return description
+//}
+
+//search word
+//
