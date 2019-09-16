@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html onmousemove="mouse_position(event)">
   <head>
     <meta charset="utf-8" />
     <meta
@@ -34,10 +34,11 @@
       src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.7.2/addons/p5.dom.min.js"></script>
     <script
       src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.7.2/addons/p5.sound.min.js"></script>
-    <script src="highlightText.js"></script>
+      <script src="hoverDescription.js"></script>
+      <script src="highlightText.js"></script>
     <script src="sketch.js"></script>
   </head>
-  <body>
+  <body onscroll="hideDescription()">
     <h1 id="pageTitle">UPCYCLE</h1>
     <div id="titleBackground"></div>
     <div id="phone"></div>

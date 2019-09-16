@@ -66,7 +66,9 @@ function highlightText(textToHighlight) {
     .replace(
       /(\bsine\b|\bcosine\b|\bsquare\b|\btri\b|\bsaw\b|\bisaw\b|\brand\b|\birand\b)/g,
       m => {
-        return '<span class="oscs">' + m + "</span>";
+        return '<span class="oscs" onmouseover="showDescription(this)">' + m + "</span>";
       }
-    );
+    )
 }
+
+

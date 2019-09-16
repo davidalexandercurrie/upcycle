@@ -118,6 +118,10 @@ function setup() {
   // put setup code here
   // main.style("visibility", "hidden")
   var canvas = createCanvas(1400, 700).addClass("canvas");
+  //div for description
+descriptionBox = createDiv("",[])
+    .id("descriptionBox")
+    .style("visibility", "hidden")
   createElement("br", []);
   slider = createSlider(-1, 1, 0, 0.01)
     .addClass("control-slider")
