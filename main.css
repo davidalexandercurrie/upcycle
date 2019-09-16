@@ -118,9 +118,12 @@ br::selection {
 
 #descriptionBox {
   position: fixed;
-  padding-top: 100px;
-  background: black;
-  width:20%
+  z-index: 11;
+  background: rgb(0, 43, 43);
+  width:10%
+}
+#descriptionTitle {
+  color: white;
 }
 
 .control-slider {
