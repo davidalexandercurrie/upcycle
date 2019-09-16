@@ -4,7 +4,7 @@
     "d1 $ every 2 (|- crush \"1\") $ every 2 (rev) (s \"bd*2 ~ z-sn:3 z-sn:3\") |> crush \"3\" <br>d2 $ n \"[-2 .. -3]\" |> s \"rave2\"",
     "d1 $ every 4 (const $ n \"3 1*8 4 2\" |> sound \"bend\" |> crush \"10\") $ n \"1 1*10 1 1\" |> sound \"bend\" |> crush \"5\"",
     "d1 $ whenmod 4 2 (rev) $ s \"bend*2 east:2 east*4 east:2*2\" |> pan sine |> sustain tri",
-    "d1 $ stack [<br>n \"9 4 9 ~ 3 6\" |> sustain 1 |> sound \"supermandolin\" |> cutoff (range 300 520 $ slow 4 $ sine) |> crush \"3.5\" |> gain 1.4, <br>n \"-6\" |> sound \"superchip\" |> cutoff (range 300 800 $ slow 4 $tri) |> crush \"2\" |> gain 0.8, <br>n \"1 3 6~ 8 3\" |>sustain 0.3 |> sound \"superpiano\" |> crush \"5\" |> gain 0.6<br>]",
+    "d1 $ stack [<br>n \"9 4 9 ~ 3 6\" |> sustain 1 |> sound \"supermandolin\" |> cutoff (range 300 520 $ slow 4 $ sine) |> crush \"3.5\" |> gain 1.4, <br>n \"-6\" |> sound \"superchip\" |> cutoff (range 300 800 $ slow 4 $tri) |> crush \"2\" |> gain 0.8, <br>n \"1 3 6 ~ 8 3\" |>sustain 0.3 |> sound \"superpiano\" |> crush \"5\" |> gain 0.6<br>]",
     "d1 $ every 2 (|- crush 2) $ n (irand 10) |> s \"super808\" |> crush 5 |> sustain \"1 0.3\" |> pan \"-0.8 -0.4 0.2 0.4 -0.2 0.8\"",
     "d1 $ stack [every 2 (stut 2 0.7 0.5) $ stut 4 0.3 0.2 $ n \"1 2 4 6*2\" |> sound \"h\", sound \"bd [~bd] bd*2 bd\"]",
     "d1 $ rot \"<0 1 0 4>\" $ sew \"t t f t\" (n \"1 8 1*4 1\" |> s \"techno\") (n \"0 .. 15\" |> s \"808\")",

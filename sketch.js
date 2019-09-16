@@ -52,7 +52,7 @@ var main = document.getElementById("main-id");
 
 function preload() {
   codeSnippets = loadJSON("codeSnippets.json");
-  console.log(codeSnippets['zozo'])
+  // console.log(codeSnippets['zozo'])
   bar = createElement("div", []);
   bar.id("loading-bar");
   bar.parent(document.getElementById("p5_loading"));
@@ -96,7 +96,7 @@ function preload() {
 }
 
 function success() {
-  console.log("loaded Audio");
+  // console.log("loaded Audio");
   test += loadAmount;
   loadBar();
 }
@@ -110,8 +110,8 @@ function fail() {
 function loadBar() {
   widthValue = test;
   loadTime = widthValue.toString() + "%";
-  console.log(widthValue)
-    bar.style("width", loadTime);
+  // console.log(widthValue)
+  bar.style("width", loadTime);
 }
 
 function setup() {
