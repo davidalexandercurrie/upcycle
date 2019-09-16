@@ -11,7 +11,7 @@ body {
   padding: 0;
   margin: 0;
   text-align: center;
-  /* background: rgb(226, 255, 255); */
+  background: rgb(255, 255, 226);
 }
 h1 {
   font-family: "Space Mono", monospace;

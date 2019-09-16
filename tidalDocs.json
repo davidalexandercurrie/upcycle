@@ -1,9 +1,14 @@
 {
   "basicEffects": {
-    "effects": {},
+    "effects": {
+      "delay": {
+        "description": "Values from 0 to 1",
+        "link": "https://tidalcycles.org/index.php/All_effects_and_synths"
+      }
+    },
     "parameter": {
       "delay": {
-        "description": "Values from 0 to 1"
+        "effectName": "delay"
       },
       "delaytime": {},
       "delayfeedback": {},
