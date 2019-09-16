@@ -15,9 +15,9 @@
     "d1 $ every 2 (rev) $ stack [n \"1 2 ~ 6*2 8 9\" |> s \"print\" |> sustain rand, n \"4 2*3\" |> s \"print\" |> speed rand]",
     "let pats = [(\"a\", stack [n \"c3 ~ g4*4 f4 f5\" |> s \"superpiano\" |> crush 3 |> sustain rand, n \"3 4 4 2\" |> s \"circus\"]), (\"b\",  stack [ n \"c4 ~ g4 f4*2 f3\" |> s \"superpiano\" |> crush 4 |> sustain rand])] <br>d1 $ ur 4 \"a b\" pats[]",
     "d1 $ linger \"<0.5 1 1 0.25>\" $ chop 8 $ stut 4 0.3 0.25 $ sound \"breaks125\"",
-    "let sounds = [(\"beat\", s \"rave:2*4\")]<br>fx = [(\"rand-speed\", (|> speed (range 0.25 1.25 $ rand)))]<br>d1 $ stack[ur 8 \"beat:rand-speed\" sounds fx |> pan rand, s \"z-kik:2 z-kik*2\", every 3 (const $ s \"z-hh:3*4\" |> pan rand) $ s \"z-hh*4\"]",
+    "let sounds = [(\"beat\", s \"rave:2*4\")]<br>fx = [(\"rndspeed\", (|> speed (range 0.25 1.25 $ rand)))]<br>d1 $ stack[ur 8 \"beat:rndspeed\" sounds fx |> pan rand, s \"z-kik:2 z-kik*2\", every 3 (const $ s \"z-hh:3*4\" |> pan rand) $ s \"z-hh*4\"]",
     "d1 $ every 2 (|>n \"-10*4 -2 -7 8\") $ every 3(|> speed (range 0 1.5 $ rand)) $ n \"-10*3 -6 8*2 -9 -8\" |> sound \"super808\" |> pan rand |> speed 1",
-    "d1 $ every 4 (|> speed \"4 3 0.25 0.1 4\") $ every 2 (rev) $ chop \"<16 32 8 64>\" $ s (fit 3 [\"rave:4\", \"z-hh:5\", \"rave:8\"] \"0 0*2 1 2\") |> speed \"1.25 1 0.25 1 1\"",
+    "d1  $ every 4 (|> speed \"3 4 0.2 0.75\") $ chop \"<16 32 4>\" $ s \"z-kik z-sn z-hh:3*2 z-kik:3\" # speed \"3 2 0.5 0.25 1\"",
     "d1 $ stack[brak $ sound \"[glitch:5*4]\" |> lfo 2 |> crush 5 |> pan \"1 0.8 0.6 0 0.4\", brak $ s \"glitch:3*2\", brak $ stut 2 0.7 0.25 $ s \"hand:3*4\" |> crush 4 |> hpf 1200 |> pan rand |> gain \"0.8\"]",
     "d1 $ every 4 (|> speed \"4 3 0.25 0.1 4\") $ every 2 (rev) $ chop \"<16 32 8 64>\" $ s (fit 3 [\"rave:4\", \"z-hh:5\", \"rave:8\"] \"0 0*2 1 2\") |> speed \"1.25 1 0.25 1 1\"",
     "d1 $ every 2 (|+ n (12)) $ chunk 8 (|> crush 4) $ rot \"<0 1 2 0 4 1>\" $ n (run 8) |> s \"psr\" |> sustain \"1 0.75 0.5 0.2 2 1\" |> pan rand",
@@ -25,7 +25,8 @@
     "d1 $ interlace (sometimes (|> crush 7) $ chop \"<32 16 8 64>\" $ n \"3*2 4*32 5*16 6*32 7*8\" |> s \"rave2 rave:6 glasstap\" |> pan rand) (smash 3 [2,3,4] $ n \"10 12*4 18 24*20\" |> sound \"superpiano\" |> crush 4)",
     "d1 $ every 4 (spread ($) [slow 6, fast 4, (|> crush 4)]) $ spread ($) [slow 2, fast 4, rev,  chop \"<68>\"] $ s \"uxay:4*4 uxay:8*4\" |> pan rand",
     "d1 $ interlace (slow 2 $ stut 4 0.3 0.25 $ chop \"<2 1>\" $ n \"5*3 3\" |> s \"armora\" |> sustain \"<0.2 0.2 0.2 0.4>\")(s \"sn\" |> crush \"<5 3 8>\" |> pan rand)",
-    "d1 $ slow 2 $ stack [spread ($) [rev, fast 2, slow 2] $ stut 2 0.3 0.35 $ n \"1 1*4 4 ~ 8 5\" |- n (range 3 6 $ rand) |> s \"superstatic\" |> sustain \"<0.5 0.15 0.3 0.3 0.4>\" |> lpf (range 400 1500 $ tri) |> resonance 1 |> gain 0.6, every 4 (|+ n \"1\") $ n \"[10 9 14]*16\" |> s \"superfork\" |> sustain \"0.2 0.1 0.1 0.3\" |> pan rand]"
+    "d1 $ slow 2 $ stack [spread ($) [rev, fast 2, slow 2] $ stut 2 0.3 0.35 $ n \"1 1*4 4 ~ 8 5\" |- n (range 3 6 $ rand) |> s \"superstatic\" |> sustain \"<0.5 0.15 0.3 0.3 0.4>\" |> lpf (range 400 1500 $ tri) |> resonance 1 |> gain 0.6, every 4 (|+ n \"1\") $ n \"[10 9 14]*16\" |> s \"superfork\" |> sustain \"0.2 0.1 0.1 0.3\" |> pan rand]",
+    "d1 $ fast 2 $ chop \"<32 16>\" $ every 4 (stut 4 0.5 0.15) $ s \"speech*2\" |> n (wchoose [(1, 0.25),(2, 0.5),(3, 0.4),(5, 0.3),(6, 0.65),(8, 0.45)]) |> sustain rand |> crush \"<4 6 9>\""
   ],
   "dave": [
     "d1 $ every 4 (fast 0.75) $ note \"[-12 ~ 12 7]*4\" |> n \"0 1 2 3\" |> sound \"clubkick\" <br>d2 $ every 4 (fast 2) $ note \"[-24 ~ 12 7]*4\" |> n \"0 1 2 3\" |> sound \"industrial\"",
