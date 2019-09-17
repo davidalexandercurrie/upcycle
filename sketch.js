@@ -117,12 +117,12 @@ function loadBar() {
 }
 
 function setup() {
-  console.log(tidalDocsSearch("delayt"));
+  console.log(tidalDocsSearch("delay"));
   // put setup code here
   // main.style("visibility", "hidden")
   var canvas = createCanvas(1400, 700).addClass("canvas");
   //div for description
-descriptionBox = createDiv("",[])
+  descriptionBox = createDiv("", [])
     .id("descriptionBox")
     .style("visibility", "hidden")
 title = createP("")
@@ -472,8 +472,12 @@ function resetVolumeZ() {
 }
 function tidalDocsSearch(string) {
   return tidalDocs.basicEffects.parameter[string]
-    ? tidalDocs.basicEffects.parameter[string].description
+    ? tidalDocs.basicEffects.effects[
+        tidalDocs.basicEffects.parameter[string].effectName
+      ]
     : tidalDocs.basicEffects.parameter[tidalDocs.basicEffects.alias[string]]
-    ? tidalDocs.basicEffects.parameter[tidalDocs.basicEffects.alias[string]].description
+    ? tidalDocs.basicEffects.effects[
+        tidalDocs.basicEffects.parameter[tidalDocs.basicEffects.alias[string]]
+      ]
     : console.log("Error Param Name Does Not Exist");
 }
