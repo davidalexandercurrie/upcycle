@@ -1,6 +1,7 @@
 {
   "basicEffects": {
-    "effects": {},
+    "effects": {
+    },
     "parameter": {
       "delay": {
         "description": "Values from 0 to 1"

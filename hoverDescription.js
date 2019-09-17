@@ -21,8 +21,8 @@ if (selectedWord) {
 
 function showDescription(e) {
     descriptionTitle = document.getElementById('descriptionTitle')
-    descriptionTitle.innerHTML = tidalDocsSearch('delay')
-    console.log(tidalDocsSearch('delay'))
+    descriptionTitle.innerHTML = tidalDocsSearch(e.innerHTML)
+    console.log(e.innerHTML)
     selectedWord = e.getBoundingClientRect();
     descriptionDiv.style.visibility = 'visible';
     descriptionDiv.style.top = selectedWord.bottom.toString() + "px"
