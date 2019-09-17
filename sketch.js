@@ -380,7 +380,6 @@ function createButtonFunctions(days) {
         nameZ[previousPlayingDiv].removeClass("playPanelZ");
         queuedTrackDave.stop();
         queuedTrackZozo.stop();
-        scrollTop();
         playSelected = false;
         timer = 0;
         startVisual = false;
@@ -389,25 +388,6 @@ function createButtonFunctions(days) {
     };
   }
 }
-
-function scrollTop() {
-  // document.body.scrollTop = 0; // For Safari
-  // document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
-}
-
-// function errloading() {
-//   // TODO trigger css for play not successful from here
-// }
-// function loadedZ() {
-//   var xml = loadXML(
-//     "/Audio/d" + (playingDiv + 1).toString() + ".m4a",
-//     loadedD,
-//     errloading
-//   );
-// }
-// function loadedD() {
-//   loadAudio(playingDiv);
-// }
 
 function loadAudio(day) {
   // zozosounds[day] = loadSound("/Audio/z" + (day + 1).toString() + ".m4a");
