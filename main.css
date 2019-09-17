@@ -412,3 +412,22 @@ h1::selection {
   color: rgb(43, 226, 138);
   font-weight: bold;
 }
+/* dev classes */
+.dev-top {
+  position: fixed;
+  top: 0;
+  left: 0px;
+  font-size: 40.4px;
+  white-space: nowrap;
+  z-index: 10;
+  color: rgb(226, 0, 0);
+}
+.dev-bottom {
+  position: fixed;
+  bottom: 0;
+  left: 0px;
+  font-size: 40.4px;
+  white-space: nowrap;
+  z-index: 10;
+  color: rgb(226, 0, 0);
+}
