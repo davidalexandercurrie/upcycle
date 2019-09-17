@@ -29,6 +29,7 @@ if (selectedWord) {
 }
 
 function showDescription(e, category) {
+    console.log(e)
     if (selectedWord) previousWord = selectedWord;
     selectedWord = e
     descriptionTitle = document.getElementById('descriptionTitle')
