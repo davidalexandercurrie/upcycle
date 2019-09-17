@@ -36,17 +36,17 @@ if (selectedWord) {
 
 function showDescription(e, category) {
     if (selectedWord) previousWord = selectedWord;
-    selectedWord = e
+    selectedWord = e;
     //getting description <p> element
-    description = document.getElementById('description')
+    descriptionTag = document.getElementById('descriptionTag')
 
     //calling dave's function to get description from json and put it in description <p> element
     if (tidalDocsSearch(e.innerHTML, category).description) {
-        description.innerHTML = tidalDocsSearch(selectedWord.innerHTML, category).description
+        descriptionTag.innerHTML = tidalDocsSearch(e.innerHTML, category).description
     }
     else {
       //put error message here?
-      description.innerHTML = selectedWord.innerHTML
+      descriptionTag.innerHTML = e.innerHTML
     }
 
     //get dimensions of selected word span 
