@@ -54,7 +54,6 @@ var main = document.getElementById("main-id");
 function preload() {
   codeSnippets = loadJSON("codeSnippets.json");
   tidalDocs = loadJSON("tidalDocs.json");
-  // console.log(codeSnippets['zozo'])
   bar = createElement("div", []);
   bar.id("loading-bar");
   bar.parent(document.getElementById("p5_loading"));
@@ -101,7 +100,6 @@ function preload() {
 }
 
 function success() {
-  // console.log("loaded Audio");
   test += loadAmount;
   loadBar();
 }
@@ -109,13 +107,11 @@ function fail() {
   this._decrementPreload();
   test += loadAmount;
   loadBar();
-  console.log("fail");
 }
 
 function loadBar() {
   widthValue = test;
   loadTime = widthValue.toString() + "%";
-  // console.log(widthValue)
   bar.style("width", loadTime);
 }
 
@@ -453,7 +449,7 @@ function resetVolumeZ() {
   volumeSliderZ.value(0.8);
 }
 function tidalDocsSearch(string, category) {
-  return !tidalDocs.category
+  return !tidalDocs[category]
     ? tidalDocs.errorCategory
     : tidalDocs[category].parameter[string]
     ? tidalDocs[category].effects[
