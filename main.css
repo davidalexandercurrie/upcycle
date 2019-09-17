@@ -11,7 +11,7 @@ body {
   padding: 0;
   margin: 0;
   text-align: center;
-  background: rgb(255, 255, 226);
+  background: rgb(255, 255, 255);
 }
 h1 {
   font-family: "Space Mono", monospace;
@@ -75,7 +75,7 @@ button {
   display: inline-block;
   padding: 1em 0em 1em 1em;
   white-space: normal;
-  line-height:1.8em;
+  line-height: 1.8em;
 }
 
 .zozo-code:hover {
@@ -121,7 +121,7 @@ br::selection {
   position: fixed;
   z-index: 11;
   background: rgb(0, 43, 43);
-  width:10%
+  width: 10%;
 }
 #descriptionTag {
   color: white;
@@ -421,6 +421,7 @@ h1::selection {
   white-space: nowrap;
   z-index: 10;
   color: rgb(226, 0, 0);
+  opacity: 0.1;
 }
 .dev-bottom {
   position: fixed;
@@ -429,5 +430,6 @@ h1::selection {
   font-size: 40.4px;
   white-space: nowrap;
   z-index: 10;
-  color: rgb(226, 0, 0);
+  color: rgba(226, 0, 0);
+  opacity: 0.1;
 }

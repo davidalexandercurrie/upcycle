@@ -2,7 +2,9 @@
   "basicEffects": {
     "effects": {
       "delay": {
+        "title": "Delay",
         "description": "Values from 0 to 1",
+        "params": "(parameters: #delay, #delaytime/#delayt, #delayfeedback/#delayfb)",
         "link": "https://tidalcycles.org/index.php/All_effects_and_synths"
       }
     },
