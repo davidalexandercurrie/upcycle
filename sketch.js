@@ -473,8 +473,8 @@ function resetVolumeZ() {
   volumeSliderZ.value(0.8);
 }
 function tidalDocsSearch(string, category) {
-  return !category
-    ? tidalDocs.error - category
+  return !tidalDocs.category
+    ? tidalDocs.errorCategory
     : tidalDocs[category].parameter[string]
     ? tidalDocs[category].effects[
         tidalDocs[category].parameter[string].effectName
@@ -483,5 +483,5 @@ function tidalDocsSearch(string, category) {
     ? tidalDocs[category].effects[
         tidalDocs[category].parameter[tidalDocs[category].alias[string]]
       ]
-    : tidalDocs.error;
+    : tidalDocs.errorDescription;
 }
