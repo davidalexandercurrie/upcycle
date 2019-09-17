@@ -128,7 +128,7 @@ function setup() {
     .id("descriptionBox")
     .style("visibility", "hidden");
   title = createP("")
-    .id("descriptionTitle")
+    .id("descriptionTag")
     .parent(descriptionBox);
   createElement("br", []);
   slider = createSlider(-1, 1, 0, 0.01)
