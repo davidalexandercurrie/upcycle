@@ -35,8 +35,10 @@
       "phasr": "phaserrate"
     }
   },
-  "error": {
+  "error-description": {
     "description": "info not available yet :(",
     "link": "https://www.youtube.com/watch?v=wyYxfySMD_g"
-  }
+  },
+  "error-category": "info not available yet :(",
+  "link": "https://www.youtube.com/watch?v=wyYxfySMD_g"
 }
