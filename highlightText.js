@@ -66,8 +66,9 @@ function highlightText(textToHighlight) {
     .replace(
       /(\bsine\b|\bcosine\b|\bsquare\b|\btri\b|\bsaw\b|\bisaw\b|\brand\b|\birand\b)/g,
       m => {
+        var osc = 'oscillators'
         return (
-          '<span class="oscs" onmouseover="showDescription(this)">' +
+          '<span class="oscs">' +
           m +
           "</span>"
         );
@@ -75,8 +76,9 @@ function highlightText(textToHighlight) {
   .replace(
     /\bdelay\b|\bdelaytime\b|\bleslie\b|\blrate\b|\blsize\b|\broom\b|\bsize\b|\bdry\b|\bcrush\b|\blegato\b|\btremolodepth\b|\btremolorate\b|\bshape\b|\bcoarse\b|\bphaserrate\b|\bphaserdepth\b|\bdelayt\b|\bdelayfb\b|\btremdp\b|\btremr\b|\bphasr\b/g, 
     m => {
+      var basicEffects = 'basicEffects'
       return (
-        '<span onmouseover="showDescription(this)">' + m + '</span>'
+        '<span onmouseover="showDescription(this, \'basicEffects\')">' + m + '</span>'
       )
     }
   )

@@ -75,15 +75,16 @@ button {
   display: inline-block;
   padding: 1em 0em 1em 1em;
   white-space: normal;
+  line-height:1.8em;
 }
 
 .zozo-code:hover {
-  background: rgba(255, 196, 196, 0.192);
+  background: rgba(226, 43, 138, 0.01);
   /* opacity: 20%; */
 }
 
 .dave-code:hover {
-  background: rgba(255, 186, 255, 0.288);
+  background: rgba(138, 43, 226, 0.01);
 }
 
 p {

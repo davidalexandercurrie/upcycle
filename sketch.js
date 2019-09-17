@@ -120,7 +120,6 @@ function loadBar() {
 }
 
 function setup() {
-  console.log(tidalDocsSearch("delay"));
   // put setup code here
   // main.style("visibility", "hidden")
   var canvas = createCanvas(1400, 700).addClass("canvas");
@@ -473,14 +472,16 @@ function resetVolumeD() {
 function resetVolumeZ() {
   volumeSliderZ.value(0.8);
 }
-function tidalDocsSearch(string) {
-  return tidalDocs.basicEffects.parameter[string]
-    ? tidalDocs.basicEffects.effects[
-        tidalDocs.basicEffects.parameter[string].effectName
+function tidalDocsSearch(string, category) {
+  console.log(category)
+  console.log(tidalDocs[category])
+  return tidalDocs[category].parameter[string]
+    ? tidalDocs[category].effects[
+        tidalDocs[category].parameter[string].effectName
       ]
-    : tidalDocs.basicEffects.parameter[tidalDocs.basicEffects.alias[string]]
-    ? tidalDocs.basicEffects.effects[
-        tidalDocs.basicEffects.parameter[tidalDocs.basicEffects.alias[string]]
+    : tidalDocs[category].parameter[tidalDocs[category].alias[string]]
+    ? tidalDocs[category].effects[
+        tidalDocs[category].parameter[tidalDocs[category].alias[string]]
       ]
     : tidalDocs.error;
 }
