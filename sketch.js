@@ -95,6 +95,9 @@ function preload() {
   labelT.parent(slidersDiv);
   // labelT.style("color", "rgb(43, 138, 226)");
   labelT.style("color", "rgb(226, 138, 43)");
+  if (devContent()) {
+    return devContent();
+  }
 }
 
 function success() {
@@ -479,5 +482,5 @@ function tidalDocsSearch(string) {
     ? tidalDocs.basicEffects.effects[
         tidalDocs.basicEffects.parameter[tidalDocs.basicEffects.alias[string]]
       ]
-    : console.log("Error Param Name Does Not Exist");
+    : tidalDocs.error;
 }
