@@ -126,10 +126,10 @@ function setup() {
   //div for description
   descriptionBox = createDiv("", [])
     .id("descriptionBox")
-    .style("visibility", "hidden")
-title = createP("")
-.id("descriptionTitle")
-.parent(descriptionBox)
+    .style("visibility", "hidden");
+  title = createP("")
+    .id("descriptionTitle")
+    .parent(descriptionBox);
   createElement("br", []);
   slider = createSlider(-1, 1, 0, 0.01)
     .addClass("control-slider")
@@ -473,9 +473,9 @@ function resetVolumeZ() {
   volumeSliderZ.value(0.8);
 }
 function tidalDocsSearch(string, category) {
-  console.log(category)
-  console.log(tidalDocs[category])
-  return tidalDocs[category].parameter[string]
+  return !category
+    ? tidalDocs.error - category
+    : tidalDocs[category].parameter[string]
     ? tidalDocs[category].effects[
         tidalDocs[category].parameter[string].effectName
       ]
