@@ -66,22 +66,20 @@ function highlightText(textToHighlight) {
     .replace(
       /(\bsine\b|\bcosine\b|\bsquare\b|\btri\b|\bsaw\b|\bisaw\b|\brand\b|\birand\b)/g,
       m => {
+        var osc = 'oscillators'
         return (
-          '<span class="oscs" onmouseover="showDescription(this)">' +
+          '<span class="oscs">' +
           m +
           "</span>"
         );
-      }
-    );
+      })
+  .replace(
+    /\bdelay\b|\bdelaytime\b|\bleslie\b|\blrate\b|\blsize\b|\broom\b|\bsize\b|\bdry\b|\bcrush\b|\blegato\b|\btremolodepth\b|\btremolorate\b|\bshape\b|\bcoarse\b|\bphaserrate\b|\bphaserdepth\b|\bdelayt\b|\bdelayfb\b|\btremdp\b|\btremr\b|\bphasr\b/g, 
+    m => {
+      var basicEffects = 'basicEffects'
+      return (
+        '<span onmouseover="showDescription(this, \'basicEffects\')">' + m + '</span>'
+      )
+    }
+  )
 }
-
-//search for a word
-//assign it a '<span onHover= {() => getDescription(e)}>' + sine + '</span>'
-// getDescription(e) {
-//e.innerHTML
-//filter thru json looking for description matching sine
-//return description
-//}
-
-//search word
-//
