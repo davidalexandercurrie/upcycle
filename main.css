@@ -79,12 +79,12 @@ button {
 }
 
 .zozo-code:hover {
-  background: rgba(226, 43, 138, 0.01);
+  background: rgba(226, 43, 138, 0.05);
   /* opacity: 20%; */
 }
 
 .dave-code:hover {
-  background: rgba(138, 43, 226, 0.01);
+  background: rgba(138, 43, 226, 0.05);
 }
 
 p {
