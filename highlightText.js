@@ -52,6 +52,9 @@ function highlightText(textToHighlight) {
           : m;
       }
     )
+    .replace(/\s\=\s/g, m => {
+      return '<span class="math-ops">' + m + "</span>";
+    })
     .replace(/([\$\?])/g, m => {
       return '<span class="operators">' + m + "</span>";
     })
@@ -60,7 +63,7 @@ function highlightText(textToHighlight) {
         ? p1 + '<span class="operators">' + p2 + "</span>"
         : '<span class="operators">' + p2 + "</span>";
     })
-    .replace(/d\d/, m => {
+    .replace(/d\d/g, m => {
       return '<span class="math-dx">' + m + "</span>";
     })
     .replace(
@@ -71,13 +74,16 @@ function highlightText(textToHighlight) {
           m +
           "</span>"
         );
-      })
-  .replace(
-    /\bdelay\b|\bdelaytime\b|\bleslie\b|\blrate\b|\blsize\b|\broom\b|\bsize\b|\bdry\b|\bcrush\b|\blegato\b|\btremolodepth\b|\btremolorate\b|\bshape\b|\bcoarse\b|\bphaserrate\b|\bphaserdepth\b|\bdelayt\b|\bdelayfb\b|\btremdp\b|\btremr\b|\bphasr\b/g, 
-    m => {
-      return (
-        '<span onmouseover="showDescription(this, \'basicEffects\')">' + m + '</span>'
-      )
-    }
-  )
+      }
+    )
+    .replace(
+      /\bdelay\b|\bdelaytime\b|\bleslie\b|\blrate\b|\blsize\b|\broom\b|\bsize\b|\bdry\b|\bcrush\b|\blegato\b|\btremolodepth\b|\btremolorate\b|\bshape\b|\bcoarse\b|\bphaserrate\b|\bphaserdepth\b|\bdelayt\b|\bdelayfb\b|\btremdp\b|\btremr\b|\bphasr\b/g,
+      m => {
+        return (
+          "<span onmouseover=\"showDescription(this, 'basicEffects')\">" +
+          m +
+          "</span>"
+        );
+      }
+    );
 }

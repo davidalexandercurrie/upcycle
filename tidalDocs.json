@@ -5,22 +5,58 @@
         "title": "Delay",
         "description": "Values from 0 to 1",
         "params": "(parameters: #delay, #delaytime/#delayt, #delayfeedback/#delayfb)",
-        "link": "https://tidalcycles.org/index.php/All_effects_and_synths"
+        "link": "https://tidalcycles.org/index.php/All_effects_and_synths#Basic_effects"
+      },
+      "leslie": {
+        "title": "Leslie",
+        "description": "\"Leslie\" controls dry/wet. \"lrate\" is the modulation rate (typical vintage rates would be 6.7 for \"fast\", 0.7 for \"slow\"). \"lsize\" is the physical size of the cabinet in meters, this mostly affects the Doppler amount (pitch warble)",
+        "params": "(parameters: #leslie, #lrate, #lsize)",
+        "link": "https://tidalcycles.org/index.php/All_effects_and_synths#Basic_effects"
+      },
+      "reverb": {
+        "title": "Reverb",
+        "description": "Thanks to Jost Muxfeld and James McCartney. Note that \"size\" is not room size, just a depth metaphor. Values from 0 to 1",
+        "params": "(parameters: #room, #size, #dry)",
+        "link": "https://tidalcycles.org/index.php/All_effects_and_synths#Basic_effects"
+      },
+      "crush": {
+        "title": "Crush",
+        "description": "Bit crushing, a pattern of numbers from 1 (for drastic reduction in bit-depth) to 16 (for barely no reduction).",
+        "params": "(parameters: #crush)",
+        "link": "https://tidalcycles.org/index.php/All_effects_and_synths#Basic_effects"
       }
     },
     "parameter": {
       "delay": {
         "effectName": "delay"
       },
-      "delaytime": {},
-      "delayfeedback": {},
-      "leslie": {},
-      "lrate": {},
-      "lsize": {},
-      "room": {},
-      "size": {},
-      "dry": {},
-      "crush": {},
+      "delaytime": {
+        "effectName": "delay"
+      },
+      "delayfeedback": {
+        "effectName": "delay"
+      },
+      "leslie": {
+        "effectName": "leslie"
+      },
+      "lrate": {
+        "effectName": "leslie"
+      },
+      "lsize": {
+        "effectName": "leslie"
+      },
+      "room": {
+        "effectName": "reverb"
+      },
+      "size": {
+        "effectName": "reverb"
+      },
+      "dry": {
+        "effectName": "reverb"
+      },
+      "crush": {
+        "effectName": "crush"
+      },
       "legato": {},
       "tremolodepth": {},
       "tremolorate": {},
@@ -36,6 +72,9 @@
       "tremr": "tremolorate",
       "phasr": "phaserrate"
     }
+  },
+  "oscillators": {
+    "effects": {}
   },
   "errorDescription": {
     "description": "info not available yet :(",

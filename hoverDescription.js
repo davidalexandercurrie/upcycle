@@ -40,11 +40,12 @@ function showDescription(e, category) {
   descriptionTag = document.getElementById("descriptionTag");
 
   //calling dave's function to get description from json and put it in description <p> element
-  if (tidalDocsSearch(e.innerHTML, category).description) {
-    descriptionTag.innerHTML = tidalDocsSearch(
-      e.innerHTML,
-      category
-    ).description;
+  if (tidalDocsSearch(e.innerHTML, category, "description")) {
+    descriptionTag.innerHTML =
+      '<h3 style="margin: 0.5em; text-align: center;">' +
+      tidalDocsSearch(e.innerHTML, category, "title") +
+      "</h3>" +
+      tidalDocsSearch(e.innerHTML, category, "description");
   } else {
     //put error message here?
     descriptionTag.innerHTML = e.innerHTML;

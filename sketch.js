@@ -33,7 +33,7 @@ var playSelected = false;
 var time = new Date();
 var myClock = time.getTime().toString();
 var myDay = Math.floor(myClock / 86400000);
-var daysFromStart = myDay - 18143;
+var daysFromStart = myDay - 18170;
 var test = 0;
 var fullLoad = daysFromStart * 2;
 var loadAmount = 100 / fullLoad;
@@ -116,6 +116,7 @@ function loadBar() {
 }
 
 function setup() {
+  console.log(tidalDocsSearch("rand", "Oscillators"));
   // put setup code here
   // main.style("visibility", "hidden")
   var canvas = createCanvas(1400, 700).addClass("canvas");
@@ -448,16 +449,18 @@ function resetVolumeD() {
 function resetVolumeZ() {
   volumeSliderZ.value(0.8);
 }
-function tidalDocsSearch(string, category) {
+function tidalDocsSearch(string, category, prop) {
   return !tidalDocs[category]
-    ? tidalDocs.errorCategory
+    ? category + " not added"
+    : !tidalDocs[category].parameter
+    ? prop + " not added"
     : tidalDocs[category].parameter[string]
     ? tidalDocs[category].effects[
         tidalDocs[category].parameter[string].effectName
-      ]
+      ][prop]
     : tidalDocs[category].parameter[tidalDocs[category].alias[string]]
     ? tidalDocs[category].effects[
         tidalDocs[category].parameter[tidalDocs[category].alias[string]]
-      ]
-    : tidalDocs.errorDescription;
+      ][prop]
+    : prop + " not added";
 }

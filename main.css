@@ -121,10 +121,12 @@ br::selection {
   position: fixed;
   z-index: 11;
   background: rgb(0, 43, 43);
-  width: 10%;
+  width: 15%;
+  pointer-events: none;
 }
 #descriptionTag {
   color: white;
+  text-align: left;
 }
 
 .control-slider {
@@ -199,7 +201,6 @@ br::selection {
 .codePanel {
   padding-top: 1em;
   margin-left: 15%;
-  width: 50%;
   padding-top: 1em;
   white-space: nowrap;
 }
