@@ -34,6 +34,7 @@ var time = new Date();
 var myClock = time.getTime().toString();
 var myDay = Math.floor(myClock / 86400000);
 var daysFromStart = myDay - 18185;
+daysFromStart = 26;
 var test = 0;
 var fullLoad = daysFromStart * 2;
 var loadAmount = 100 / fullLoad;
