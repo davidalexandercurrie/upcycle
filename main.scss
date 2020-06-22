@@ -1,0 +1,436 @@
+body {
+  /* font-family: Helvetica, sans-serif; */
+  /* font-family: monospace; */
+  /* font-family: "Fira Mono", monospace; */
+  font-family: "Fira Code", monospace;
+  /* font-family: "Major Mono Display", monospace; */
+  /* font-family: "Monofett", cursive; */
+  /* font-family: "Space Mono", monospace; */
+
+  font-size: 1.1em;
+  padding: 0;
+  margin: 0;
+  text-align: center;
+  background: rgb(255, 255, 255);
+}
+h1 {
+  font-family: "Space Mono", monospace;
+  z-index: 10;
+  font-family: "Rubik Mono One", sans-serif;
+  font-size: 2em;
+  color: rgb(226, 43, 138);
+  position: fixed;
+  left: 10%;
+  width: 60%;
+  /* padding-bottom: 7px; */
+}
+
+button {
+  display: inline-block;
+  font-size: 2em;
+  background: none;
+  /* padding: 0.25em; */
+}
+.day {
+  /* font-family: Arial, Helvetica, sans-serif; */
+  display: inline-block;
+  margin-right: 1em;
+  font-weight: bolder;
+  font-size: 1em;
+  color: rgb(0, 43, 43);
+}
+.playButton:hover {
+  pointer-events: all;
+  color: rgb(43, 138, 226);
+}
+.playButton {
+  font-size: 1.2em;
+  text-align: center;
+  color: rgb(0, 43, 43);
+}
+.stopButton:hover {
+  pointer-events: all;
+  color: rgb(226, 43, 138);
+}
+.stopButton {
+  font-size: 1.2em;
+  text-align: center;
+  color: rgb(0, 43, 43);
+}
+
+.nameZ {
+  /* font-family: Arial, Helvetica, sans-serif; */
+  color: rgb(226, 43, 138);
+  font-size: 1.4em;
+  display: inline-block;
+}
+.nameD {
+  /* font-family: Arial, Helvetica, sans-serif; */
+  color: rgb(138, 43, 226);
+  font-size: 1.4em;
+  display: inline-block;
+}
+
+.code {
+  display: inline-block;
+  padding: 1em 0em 1em 1em;
+  white-space: normal;
+  line-height: 1.8em;
+}
+
+.zozo-code:hover {
+  background: rgba(226, 43, 138, 0.05);
+  /* opacity: 20%; */
+}
+
+.dave-code:hover {
+  background: rgba(138, 43, 226, 0.05);
+}
+
+p {
+  margin: 0;
+  font-size: 0.8em;
+  font-variant-ligatures: normal;
+}
+
+br::selection {
+  background: transparent;
+}
+
+.break-s {
+  margin: 1em;
+}
+
+.break-m {
+  margin: 3em;
+}
+
+.canvas {
+  z-index: 9;
+  top: 5em;
+  margin-left: -700px;
+  position: fixed;
+  pointer-events: none;
+}
+
+.canvas::selection {
+  background: transparent;
+}
+
+#descriptionBox {
+  position: fixed;
+  z-index: 11;
+  background: rgb(0, 43, 43);
+  width: 15%;
+  pointer-events: none;
+}
+#descriptionTag {
+  color: white;
+  text-align: left;
+}
+
+.control-slider {
+  -webkit-appearance: none;
+  width: 60%;
+  background: transparent;
+}
+.control-slider:focus {
+  outline: none;
+}
+
+.control-slider::-webkit-slider-runnable-track {
+  width: 60%;
+  height: 13px;
+  cursor: pointer;
+  background: rgb(0, 43, 43);
+  border-radius: 3px;
+  opacity: 0.9;
+}
+
+.control-slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  border: 1px solid rgb(0, 43, 43);
+  height: 20px;
+  width: 16px;
+  border-radius: 3px;
+  background: #ffffff;
+  cursor: pointer;
+  margin-top: -4px;
+  box-shadow: 1px 1px 1px rgb(0, 43, 43), 0px 0px 1px rgb(0, 43, 43);
+}
+
+.control-slider::-ms-track {
+  width: 60%;
+  cursor: pointer;
+  background: transparent;
+  border-color: transparent;
+  color: transparent;
+}
+
+/* .control-slider::-moz-range-thumb {
+  -webkit-appearance: none;
+  width: 40%;
+  height: 50%;
+  border-radius: 60%;
+  color: red;
+  cursor: pointer;
+} */
+
+.sliderDiv {
+  z-index: 10;
+  /* border-style: solid; */
+  /* border-color: rgb(138, 43, 226); */
+  /* border-width: 10px; */
+  width: 22%;
+  height: 20%;
+  position: fixed;
+  left: 74%;
+  /* margin-left: -5%; */
+  padding-bottom: 1rem;
+  top: 20%;
+  white-space: nowrap;
+  /* background: rgb(255, 255, 226, 0.8); */
+  background: none;
+}
+
+.sliderDiv i {
+  padding-top: 1.6rem;
+  padding-right: 0.8rem;
+}
+
+.codePanel {
+  padding-top: 1em;
+  margin-left: 15%;
+  padding-top: 1em;
+  white-space: nowrap;
+}
+.codePanel .zozo-code {
+  text-align: left;
+  width: 100%;
+}
+
+.noHover {
+  pointer-events: none;
+}
+
+.codePanel .dave-code {
+  /* font-family: monospace;
+  font-size:1.1em; */
+  text-align: left;
+  width: 100%;
+}
+
+.dayPanel {
+  background-color: transparent;
+  width: 50%;
+}
+
+.playPanelZ {
+  animation-name: zozo-fade;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+}
+.playPanelD {
+  animation-name: dave-fade;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+}
+
+@keyframes zozo-fade {
+  0% {
+    color: rgb(250, 242, 242);
+  }
+  100% {
+    color: rgb(226, 43, 138);
+  }
+}
+@keyframes dave-fade {
+  0% {
+    color: rgb(250, 242, 242);
+  }
+  100% {
+    color: rgb(138, 43, 226);
+  }
+}
+.zozo-code::-moz-selection {
+  /* Code for Firefox */
+  background: rgb(226, 226, 138) !important;
+}
+
+.zozo-code::selection {
+  background: rgb(226, 226, 138) !important;
+}
+
+.dave-code::-moz-selection {
+  /* Code for Firefox */
+  background: rgb(226, 226, 138) !important;
+}
+
+.dave-code::selection {
+  background: rgb(226, 226, 138) !important;
+}
+
+.nameZ::selection {
+  background: transparent;
+}
+.nameZ::-moz-selection {
+  background: transparent;
+}
+.nameD::selection {
+  background: transparent;
+}
+.nameD::-moz-selection {
+  background: transparent;
+}
+
+.day::selection {
+  background: transparent;
+}
+
+.tempoSlider::selection {
+  background: transparent;
+}
+
+h1::selection {
+  background: transparent;
+}
+
+#p5_loading {
+  margin-top: 40vh;
+}
+#loading-bar {
+  background-color: rgb(226, 43, 138);
+  width: 0.5%;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 10px;
+}
+
+#titleBackground {
+  z-index: 9;
+  padding-top: 5em;
+  position: fixed;
+  background: white;
+  /* background: rgba(226, 255, 226, 0.95); */
+  width: 100%;
+  /* padding-bottom: 10px; */
+}
+
+#pageTitle {
+  opacity: 0;
+}
+
+#phone {
+  height: 0;
+}
+
+@media only screen and (max-device-width: 840px) {
+  body {
+    font-size: 1em;
+  }
+  h1 {
+    position: fixed;
+    left: 0;
+    width: 100%;
+    font-size: 10em;
+    margin-top: 0;
+    padding-bottom: 2em;
+  }
+  .sliderDiv {
+    display: none;
+  }
+  .nameD {
+    display: block;
+    font-size: 3em;
+  }
+  .nameZ {
+    display: block;
+    font-size: 3em;
+  }
+  .dayPanel {
+    width: 100%;
+    margin: 0;
+  }
+  .dave-code {
+    padding: 0;
+    width: 100%;
+    font-size: 2.5em;
+    margin-left: 0.5em;
+    margin-right: 0.5em;
+  }
+  .zozo-code {
+    padding: 0;
+    width: 100%;
+    font-size: 2.5em;
+    margin-left: 0.5em;
+    margin-right: 0.5em;
+  }
+  .day {
+    font-size: 5em;
+  }
+  .dayPanel i {
+    font-size: 5em;
+  }
+  #titleBackground {
+    height: 10.5em;
+    padding: 0em;
+    top: 0;
+  }
+  #phone {
+    height: 7em;
+  }
+  .canvas {
+    margin-top: 5em;
+  }
+}
+
+/* code highlighting classes */
+.default {
+  color: rgb(226, 138, 43);
+  font-weight: normal;
+}
+.operators {
+  color: rgb(138, 43, 226);
+  font-weight: bolder;
+}
+.math-ops {
+  color: rgb(43, 43, 226);
+  font-weight: bolder;
+}
+.math-dx {
+  color: rgb(43, 138, 226);
+  font-weight: bolder;
+}
+.brackets {
+  color: rgb(226, 43, 138);
+  font-weight: bold;
+}
+.numbers {
+  color: rgb(43, 226, 43);
+  font-weight: normal;
+}
+.oscs {
+  color: rgb(43, 226, 138);
+  font-weight: bold;
+}
+/* dev classes */
+.dev-top {
+  position: fixed;
+  top: 0;
+  left: 0px;
+  font-size: 40.4px;
+  white-space: nowrap;
+  z-index: 10;
+  color: rgb(226, 0, 0);
+  opacity: 0.1;
+}
+.dev-bottom {
+  position: fixed;
+  bottom: 0;
+  left: 0px;
+  font-size: 40.4px;
+  white-space: nowrap;
+  z-index: 10;
+  color: rgba(226, 0, 0);
+  opacity: 0.1;
+}
